@@ -33,9 +33,9 @@
         <h2>Datos personales</h2>
         <p>Sergio Murillo Álvarez - 22 años - UO277178 - sermual@gmail.com</p>
         <picture>
-            <source srcset="multimedia/cara-mobile.jpg" media="(max-width: 465px)" />
-            <source srcset="multimedia/cara-tablet.jpg" media="(max-width: 799px)" />
-            <img src="multimedia/cara.jpg" alt="Mi cara en formato DNI" />
+            <source srcset="multimedia/imagenes/cara-mobile.jpg" media="(max-width: 465px)" />
+            <source srcset="multimedia/imagenes/cara-tablet.jpg" media="(max-width: 799px)" />
+            <img src="multimedia/imagenes/cara.jpg" alt="Mi cara en formato DNI" />
         </picture>
     </section>
 
@@ -60,10 +60,10 @@
             <li>Fútbol </li>
             <li>Viajar </li>
         </ul>
-        <p>Mis coches favoritos actualmente son los siguientes</p>
-        <video src="multimedia/porche_992_GT3RS.mp4" controls preload="auto"></video>
+        <p>Mi coche favorito actualmente es el siguiente</p>
         <video controls preload="auto">
-            <source src="multimedia/mercedes_amg_gt.webm" type="video/webm">
+            <source src="multimedia/videos/mercedes_amg_gt.mp4" type="video/mp4" />
+            <source src="multimedia/videos/mercedes_amg_gt.webm" type="video/webm" />
         </video>
     </section>
 
@@ -82,10 +82,10 @@
             <li>Makar </li>
             <li>Solomun </li>
         </ol>
-        <p>Mis canciones favoritas son las siguientes</p>
-        <audio src="multimedia/nightcrawler.mp3" controls></audio>
+        <p>Mis canción favorita es la siguiente</p>
         <audio controls>
-            <source src="multimedia/skeletons.wav" type="audio/wav">
+            <source src="multimedia/audios/skeletons.mp3" type="audio/mp3" />
+            <source src="multimedia/audios/skeletons.wav" type="audio/wav" />
         </audio>
     </section>
 
@@ -113,50 +113,50 @@
             <caption>Temperatura media en Oviedo desde 2013 a 2023</caption>
             <thead>
                 <tr>
-                    <th>Año</th>
-                    <th>Temperatura media</th>
+                    <th scope="col" id="año">Año</th>
+                    <th scope="col" id="temp">Temperatura media</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>2013</td>
-                    <td>12.3</td>
+                    <th scope="row" id="a13">2013</th>
+                    <td headers="temp a13">12.3</td>
                 </tr>
                 <tr>
-                    <td>2014</td>
-                    <td>13.5</td>
+                    <th scope="row" id="a14">2014</th>
+                    <td headers="temp a14">13.5</td>
                 </tr>
                 <tr>
-                    <td>2015</td>
-                    <td>13.4</td>
+                    <th scope="row" id="a15">2015</th>
+                    <td headers="temp a15">13.4</td>
                 </tr>
                 <tr>
-                    <td>2016</td>
-                    <td>13.2</td>
+                    <th scope="row" id="a16">2016</th>
+                    <td headers="temp a16">13.2</td>
                 </tr>
                 <tr>
-                    <td>2017</td>
-                    <td>13.3</td>
+                    <th scope="row" id="a17">2017</th>
+                    <td headers="temp a17">13.3</td>
                 </tr>
                 <tr>
-                    <td>2018</td>
-                    <td>13.1</td>
+                    <th scope="row" id="a18">2018</th>
+                    <td headers="temp a18">13.1</td>
                 </tr>
                 <tr>
-                    <td>2019</td>
-                    <td>13.2</td>
+                    <th scope="row" id="a19">2019</th>
+                    <td headers="temp a19">13.2</td>
                 </tr>
                 <tr>
-                    <td>2020</td>
-                    <td>13.8</td>
+                    <th scope="row" id="a20">2020</th>
+                    <td headers="temp a20">13.8</td>
                 </tr>
                 <tr>
-                    <td>2021</td>
-                    <td>13.0</td>
+                    <th scope="row" id="a21">2021</th>
+                    <td headers="temp a21">13.0</td>
                 </tr>
                 <tr>
-                    <td>2022</td>
-                    <td>14.0</td>
+                    <th scope="row" id="a22">2022</th>
+                    <td headers="temp a22">14.0</td>
                 </tr>
             </tbody>
         </table>
