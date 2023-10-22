@@ -7,14 +7,14 @@ body {
 
 /* Especificidad: 001 */
 header {
-    color: #0A0A00;
-    background-color: #FFFFFF;
+    color: #F0EDE0;
+    background-color: #433F30;
 }
 
 nav {
     padding: 2vh;
-    color: #fff;
-    background-color: #A70C0C;
+    color: #F0EDE0;
+    background-color: #970C10;
 }
 
 /*Especificidad 002*/
@@ -22,10 +22,9 @@ nav a{
     padding: 0.5em;
     text-decoration-line: none;
     color:  #FFFFFF;
-    /*Background color se hereda de nav*/
   }
 
 /* Especificidad: 001 */
 h1 {
-    text-transform: uppercase;
+    padding: 2em; 
 }
