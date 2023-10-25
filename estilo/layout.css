@@ -1,0 +1,20 @@
+/*Especificidad: 001*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/*Especificidad: 001*/
+@media only screen and (max-device-width: 480px) {
+    header {
+        font-size: smaller;
+    }
+}
+
+/*Especificidad: 001*/
+@media only screen and (max-device-width: 799px) {
+    header {
+        font-size: small;
+    }
+}

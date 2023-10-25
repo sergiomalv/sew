@@ -1,8 +1,9 @@
 /* Sergio Murillo Álvarez UO277178 */
+/* Colores utilizados: #970C10 Rojo, #F0EDE0 Blanco, #433F30 Gris */
 
 /* Especificidad: 001 */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, "Lucia Grande", sans-serif;
 }
 
 /* Especificidad: 001 */
@@ -14,17 +15,82 @@ header {
 nav {
     padding: 2vh;
     color: #F0EDE0;
+}
+
+/* Especificidad: 001 */
+a {
+    color: #970C10;
+    text-decoration-line: none;
+}
+
+/* Especificidad: 011 */
+a:hover {
+    border-bottom: 0.5em;
+    color: #F0EDE0;
     background-color: #970C10;
 }
 
 /*Especificidad 002*/
-nav a{
+nav a {
     padding: 0.5em;
-    text-decoration-line: none;
-    color:  #FFFFFF;
-  }
+    color: #FFFFFF;
+}
 
 /* Especificidad: 001 */
 h1 {
-    padding: 2em; 
+    padding: 0.1em;
+    
+}
+
+/* Especificidad: 001 */
+h2 {
+    color: #F0EDE0;
+    background-color: #970C10;
+}
+
+/* Especificidad: 001 */
+ol {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+/* Especificidad: 001 */
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+/* Especificidad: 012 */
+ul li:nth-child(3) {
+    color: #970C10;
+    /* Puedes cambiar el color a tu preferencia */
+}
+
+/* Especificidad: 001 */
+dt {
+    font-weight: bold;
+    color: #970C10;
+}
+
+/* Especificidad: 001 */
+dd {
+    margin-left: 0em;
+}
+
+/* Especificidad: 001 */
+table {
+    border-collapse: collapse;
+}
+
+/* Especificidad: 001 */
+th,
+td {
+    padding: 0.5em;
+    text-align: center;
+    border-bottom: 0.1em solid #970C10;
+}
+
+/* Especificidad: 013 */
+tbody tr:nth-child(odd) {
+    background-color: #F0EDE0;
 }
