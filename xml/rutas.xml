@@ -2,27 +2,28 @@
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas>
 
-<ruta nombre="Morskie Oko - Montes Tatra" tipo="Arquitectura y monumentos">
+<ruta nombre="Štrbské pleso - Popradské pleso" tipo="Naturaleza">
     <medio-transporte>A pie</medio-transporte>
     <fecha-inicio>12-12-2023</fecha-inicio>
-    <hora-inicio>12-12-2023</hora-inicio>
-    <duracion unidades="semanas">3 semanas</duracion>
-    <agencia>Sin agencia</agencia>
-    <descripcion>----</descripcion>
-    <personas-adecuadas>Todos los públicos</personas-adecuadas>
-    <lugar-inicio>Ciudad</lugar-inicio>
-    <direccion-inicio>calle Principal</direccion-inicio>
+    <hora-inicio>10:00 A.M.</hora-inicio>
+    <duracion unidades="horas">5</duracion>
+    <agencia>All Trails</agencia>
+    <descripcion>Ve a la aventura en esta ruta de ida y vuelta de 7,7-km cerca de Štrba, Prešovský kraj. Por lo general, se considera una ruta difícil. 
+        Es una región muy popular para el senderismo y correr, por lo que es probable encontrarse con otras personas mientras se está por la zona.</descripcion>
+    <personas-adecuadas>Personas experimentadas</personas-adecuadas>
+    <lugar-inicio>Vysoké Tatry</lugar-inicio>
+    <direccion-inicio></direccion-inicio>
     <coordenadas>
-        <longitud>1</longitud>
-        <latitud>1</latitud>
-        <altitud>1</altitud>
+        <longitud>49</longitud>
+        <latitud>20</latitud>
+        <altitud>887</altitud>
     </coordenadas>
     <referencias-bibliografia>
-        <referencia-bibliografia>A</referencia-bibliografia>
-        <referencia-bibliografia>B</referencia-bibliografia>
-        <referencia-bibliografia>C</referencia-bibliografia>
+        <referencia-bibliografia>https://www.alltrails.com/es/ruta/slovakia/presovsky-kraj/strbske-pleso-popradske-pleso</referencia-bibliografia>
+        <referencia-bibliografia>https://es.wikipedia.org/wiki/Vysok%C3%A9_Tatry</referencia-bibliografia>
+        <referencia-bibliografia>https://www.tripadvisor.es/Tourism-g285716-Vysoke_Tatry_Presov_Region-Vacations.html</referencia-bibliografia>
     </referencias-bibliografia>
-    <recomendacion>5</recomendacion>
+    <recomendacion>4,6</recomendacion>
     <hitos>
         <hito>
             <nombre-hito>Hito 1</nombre-hito>
