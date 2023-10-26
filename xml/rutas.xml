@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+
+<ruta nombre="Morskie Oko - Montes Tatra" tipo="Arquitectura y monumentos">
+    <medio-transporte>A pie</medio-transporte>
+    <fecha-inicio>12-12-2023</fecha-inicio>
+    <hora-inicio>12-12-2023</hora-inicio>
+    <duracion unidades="semanas">3 semanas</duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>----</descripcion>
+    <personas-adecuadas>Todos los públicos</personas-adecuadas>
+    <lugar-inicio>Ciudad</lugar-inicio>
+    <direccion-inicio>calle Principal</direccion-inicio>
+    <coordenadas>
+        <longitud>1</longitud>
+        <latitud>1</latitud>
+        <altitud>1</altitud>
+    </coordenadas>
+    <referencias-bibliografia>
+        <referencia-bibliografia>A</referencia-bibliografia>
+        <referencia-bibliografia>B</referencia-bibliografia>
+        <referencia-bibliografia>C</referencia-bibliografia>
+    </referencias-bibliografia>
+    <recomendacion>5</recomendacion>
+    <hitos>
+        <hito>
+            <nombre-hito>Hito 1</nombre-hito>
+            <descripcion-hito>Descripción del hito 1</descripcion-hito>
+            <coordenadas>
+                <longitud>1</longitud>
+                <latitud>1</latitud>
+                <altitud>1</altitud>
+            </coordenadas>
+            <distancia unidades="km">3</distancia>
+            <galeria-fotografia>
+                <fotografia>Fotografía 1</fotografia>
+            </galeria-fotografia>
+        </hito>
+        <hito>
+            <nombre-hito>Hito 2</nombre-hito>
+            <descripcion-hito>Descripción del hito 2</descripcion-hito>
+            <coordenadas>
+                <longitud>1</longitud>
+                <latitud>1</latitud>
+                <altitud>1</altitud>
+            </coordenadas>
+            <distancia unidades="km">3</distancia>
+            <galeria-fotografia>
+                <fotografia>Fotografía 1</fotografia>
+            </galeria-fotografia>
+        </hito>
+        <hito>
+            <nombre-hito>Hito 3</nombre-hito>
+            <descripcion-hito>Descripción del hito 3</descripcion-hito>
+            <coordenadas>
+                <longitud>1</longitud>
+                <latitud>1</latitud>
+                <altitud>1</altitud>
+            </coordenadas>
+            <distancia unidades="km">3</distancia>
+            <galeria-fotografia>
+                <fotografia>Fotografía 1</fotografia>
+            </galeria-fotografia>
+        </hito>
+    </hitos>
+</ruta>
+
+</rutas>
