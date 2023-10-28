@@ -94,3 +94,9 @@ td {
 tbody tr:nth-child(odd) {
     background-color: #F0EDE0;
 }
+
+/* Especificidad: 001 */
+video,audio {
+    max-width: 100%;
+    height: auto;
+}
