@@ -35,17 +35,17 @@
                 </galeria-fotografia>
             </hito>
             <hito>
-                <nombre-hito>Iglesia de San Jacobo</nombre-hito>
+                <nombre-hito>Basílica de Santiago</nombre-hito>
                 <descripcion-hito>Una iglesia gótica notable en Levoca con un impresionante retablo de madera tallada.</descripcion-hito>
                 <coordenadas longitud="20.5831°E" latitud="49.0294°N" altitud="230"></coordenadas>
                 <distancia unidades="km">130</distancia>
                 <galeria-fotografia>
-                    <fotografia>iglesia-san-jacobo-1.jpg</fotografia>
-                    <fotografia>iglesia-san-jacobo-2.jpg</fotografia>
-                    <fotografia>iglesia-san-jacobo-3.jpg</fotografia>
+                    <fotografia>basilica-santiago-1.jpg</fotografia>
+                    <fotografia>basilica-santiago-2.jpg</fotografia>
+                    <fotografia>basilica-santiago-3.jpg</fotografia>
                 </galeria-fotografia>
                 <galeria-video>
-                    <video>iglesia-san-jacobo-1.mp4</video>
+                    <video>basilica-santiago-1.mp4</video>
                 </galeria-video>
             </hito>
             <hito>
@@ -157,9 +157,6 @@
                     <fotografia>iglesia-madera-hervartov-2.jpg</fotografia>
                     <fotografia>iglesia-madera-hervartov-3.jpg</fotografia>
                 </galeria-fotografia>
-                <galeria-video>
-                    <video>iglesia-madera-hervartov-1.jpg</video>
-                </galeria-video>
             </hito>
             <hito>
                 <nombre-hito>Museo de la Cultura Liptov</nombre-hito>
