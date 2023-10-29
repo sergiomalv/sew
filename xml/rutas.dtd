@@ -12,7 +12,7 @@ direccion-inicio, coordenadas, referencias-bibliografia, recomendacion, hitos)>
 <!ELEMENT personas-adecuadas (#PCDATA)>
 <!ELEMENT lugar-inicio (#PCDATA)>
 <!ELEMENT direccion-inicio (#PCDATA)>
-<!ELEMENT coordenadas (longitud, latitud, altitud)>
+<!ELEMENT coordenadas (#PCDATA)>
 <!ELEMENT longitud (#PCDATA)>
 <!ELEMENT latitud (#PCDATA)>
 <!ELEMENT altitud (#PCDATA)>
@@ -32,3 +32,6 @@ direccion-inicio, coordenadas, referencias-bibliografia, recomendacion, hitos)>
 <!ATTLIST ruta tipo CDATA #REQUIRED>
 <!ATTLIST duracion unidades CDATA #REQUIRED>
 <!ATTLIST distancia unidades CDATA #REQUIRED>
+<!ATTLIST coordenadas longitud CDATA #REQUIRED>
+<!ATTLIST coordenadas latitud CDATA #REQUIRED>
+<!ATTLIST coordenadas altitud CDATA #REQUIRED>

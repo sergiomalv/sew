@@ -2,69 +2,186 @@
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas>
 
-<ruta nombre="Štrbské pleso - Popradské pleso" tipo="Naturaleza">
-    <medio-transporte>A pie</medio-transporte>
-    <fecha-inicio>12-12-2023</fecha-inicio>
-    <hora-inicio>10:00 A.M.</hora-inicio>
-    <duracion unidades="horas">5</duracion>
-    <agencia>All Trails</agencia>
-    <descripcion>Ve a la aventura en esta ruta de ida y vuelta de 7,7-km cerca de Štrba, Prešovský kraj. Por lo general, se considera una ruta difícil. 
-        Es una región muy popular para el senderismo y correr, por lo que es probable encontrarse con otras personas mientras se está por la zona.</descripcion>
-    <personas-adecuadas>Personas experimentadas</personas-adecuadas>
-    <lugar-inicio>Vysoké Tatry</lugar-inicio>
-    <direccion-inicio></direccion-inicio>
-    <coordenadas>
-        <longitud>49</longitud>
-        <latitud>20</latitud>
-        <altitud>887</altitud>
-    </coordenadas>
-    <referencias-bibliografia>
-        <referencia-bibliografia>https://www.alltrails.com/es/ruta/slovakia/presovsky-kraj/strbske-pleso-popradske-pleso</referencia-bibliografia>
-        <referencia-bibliografia>https://es.wikipedia.org/wiki/Vysok%C3%A9_Tatry</referencia-bibliografia>
-        <referencia-bibliografia>https://www.tripadvisor.es/Tourism-g285716-Vysoke_Tatry_Presov_Region-Vacations.html</referencia-bibliografia>
-    </referencias-bibliografia>
-    <recomendacion>4,6</recomendacion>
-    <hitos>
-        <hito>
-            <nombre-hito>Hito 1</nombre-hito>
-            <descripcion-hito>Descripción del hito 1</descripcion-hito>
-            <coordenadas>
-                <longitud>1</longitud>
-                <latitud>1</latitud>
-                <altitud>1</altitud>
-            </coordenadas>
-            <distancia unidades="km">3</distancia>
-            <galeria-fotografia>
-                <fotografia>Fotografía 1</fotografia>
-            </galeria-fotografia>
-        </hito>
-        <hito>
-            <nombre-hito>Hito 2</nombre-hito>
-            <descripcion-hito>Descripción del hito 2</descripcion-hito>
-            <coordenadas>
-                <longitud>1</longitud>
-                <latitud>1</latitud>
-                <altitud>1</altitud>
-            </coordenadas>
-            <distancia unidades="km">3</distancia>
-            <galeria-fotografia>
-                <fotografia>Fotografía 1</fotografia>
-            </galeria-fotografia>
-        </hito>
-        <hito>
-            <nombre-hito>Hito 3</nombre-hito>
-            <descripcion-hito>Descripción del hito 3</descripcion-hito>
-            <coordenadas>
-                <longitud>1</longitud>
-                <latitud>1</latitud>
-                <altitud>1</altitud>
-            </coordenadas>
-            <distancia unidades="km">3</distancia>
-            <galeria-fotografia>
-                <fotografia>Fotografía 1</fotografia>
-            </galeria-fotografia>
-        </hito>
-    </hitos>
-</ruta>
+    <ruta nombre="Ruta del Patrimonio Cultural Eslovaco" tipo="Cultura e historia">
+        <medio-transporte>A pie y autobus</medio-transporte>
+        <fecha-inicio>2023-11-10</fecha-inicio>
+        <hora-inicio>09:00</hora-inicio>
+        <duracion unidades="días">4</duracion>
+        <agencia>Dorado Tours</agencia>
+        <descripcion>Visita los lugares más emblemáticos de Eslovaquia,
+            desde los majestuosos castillos y antiguas fortalezas hasta las pintorescas ciudades y
+            pueblos con encanto.</descripcion>
+        <personas-adecuadas>Se puede ir con niños</personas-adecuadas>
+        <lugar-inicio>Bratislava</lugar-inicio>
+        <direccion-inicio>Hodžovo námestie 3</direccion-inicio>
+        <coordenadas longitud="17.1067°E" latitud="48.1486°N" altitud="134"></coordenadas>
+        <referencias-bibliografia>
+            <referencia-bibliografia>
+                http://personatravel.com/index.php/pt/grupos/67-tour-de-eslovaquia-patrimonio-unesco</referencia-bibliografia>
+            <referencia-bibliografia> https://es.wikipedia.org/wiki/Bratislava </referencia-bibliografia>
+            <referencia-bibliografia>
+                https://www.traveler.es/articulos/48-horas-en-bratislava-que-ver</referencia-bibliografia>
+        </referencias-bibliografia>
+        <recomendacion>9</recomendacion>
+        <hitos>
+            <hito>
+                <nombre-hito>Castillo de Bratislava</nombre-hito>
+                <descripcion-hito>Un castillo histórico situado en la colina del mismo nombre, que ofrece vistas panorámicas de la ciudad y el río Danubio.</descripcion-hito>
+                <coordenadas longitud="17.0974°E" latitud="48.1412°N" altitud="150"></coordenadas>
+                <distancia unidades="km">2</distancia>
+                <galeria-fotografia>
+                    <fotografia>castillo-bratislava-1.jpg</fotografia>
+                    <fotografia>castillo-bratislava-2.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+            <hito>
+                <nombre-hito>Iglesia de San Jacobo</nombre-hito>
+                <descripcion-hito>Una iglesia gótica notable en Levoca con un impresionante retablo de madera tallada.</descripcion-hito>
+                <coordenadas longitud="20.5831°E" latitud="49.0294°N" altitud="230"></coordenadas>
+                <distancia unidades="km">130</distancia>
+                <galeria-fotografia>
+                    <fotografia>iglesia-san-jacobo-1.jpg</fotografia>
+                    <fotografia>iglesia-san-jacobo-2.jpg</fotografia>
+                    <fotografia>iglesia-san-jacobo-3.jpg</fotografia>
+                </galeria-fotografia>
+                <galeria-video>
+                    <video>iglesia-san-jacobo-1.mp4</video>
+                </galeria-video>
+            </hito>
+            <hito>
+                <nombre-hito>Spis Castle</nombre-hito>
+                <descripcion-hito>Un imponente castillo declarado Patrimonio de la Humanidad por la UNESCO, situado en la región de Spis.</descripcion-hito>
+                <coordenadas longitud="20.7500°E" latitud="48.9975°N" altitud="634"></coordenadas>
+                <distancia unidades="km">25</distancia>
+                <galeria-fotografia>
+                    <fotografia>spis-castle-1.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+        </hitos>
+    </ruta>
+
+    <ruta nombre="Ruta de los Parques Nacionales Eslovacos" tipo="Naturaleza y aventura">
+        <medio-transporte>Senderismo y autobus</medio-transporte>
+        <fecha-inicio>2023-11-20</fecha-inicio>
+        <hora-inicio>08:00</hora-inicio>
+        <duracion unidades="días">5</duracion>
+        <agencia>All Trails</agencia>
+        <descripcion>Sumérgete en la exhuberante belleza de los parques nacionales eslovecos. Desde imponentes paisajes montañosos hasta cautivadoras reservas junto a su vida silvestre.</descripcion>
+        <personas-adecuadas>Personas en buena forma física</personas-adecuadas>
+        <lugar-inicio>Poprad</lugar-inicio>
+        <direccion-inicio>Námestie sv. Egídia 341/43</direccion-inicio>
+        <coordenadas longitud="20.3042°E" latitud="49.0550°N" altitud="672"></coordenadas>
+        <referencias-bibliografia>
+            <referencia-bibliografia>
+                https://www.alltrails.com/es/slovakia/parques-nacionales</referencia-bibliografia>
+            <referencia-bibliografia> https://es.wikiloc.com/rutas/senderismo/eslovaquia-republica-eslovaca </referencia-bibliografia>
+            <referencia-bibliografia>
+                https://www.getyourguide.es/zakopane-l1554/rutas-por-los-altos-tatras-t62154/</referencia-bibliografia>
+        </referencias-bibliografia>
+        <recomendacion>7</recomendacion>
+        <hitos>
+            <hito>
+                <nombre-hito>Parque Nacional del Paraíso Eslovaco</nombre-hito>
+                <descripcion-hito>Un impresionante parque conocido por sus formaciones rocosas únicas y espectaculares cañones.</descripcion-hito>
+                <coordenadas longitud="20.3860°E" latitud="49.2127°N" altitud="760"></coordenadas>
+                <distancia unidades="km">12</distancia>
+                <galeria-fotografia>
+                    <fotografia>parque-nacional-paraiso-eslovaco-1.jpg</fotografia>
+                    <fotografia>parque-nacional-paraiso-eslovaco-2.jpg</fotografia>
+                    <fotografia>parque-nacional-paraiso-eslovaco-3.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+            <hito>
+                <nombre-hito>Parque Nacional de los Altos Tatras</nombre-hito>
+                <descripcion-hito>La región montañosa más alta de Eslovaquia con una biodiversidad impresionante y rutas de senderismo desafiantes.</descripcion-hito>
+                <coordenadas longitud="20.1301°E" latitud="49.1673°N" altitud="1900"></coordenadas>
+                <distancia unidades="km">45</distancia>
+                <galeria-fotografia>
+                    <fotografia>parque-nacional-altos-tatras-1.jpg</fotografia>
+                    <fotografia>parque-nacional-altos-tatras-2.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+            <hito>
+                <nombre-hito>Parque Nacional del Bajo Tatras</nombre-hito>
+                <descripcion-hito>Un paraíso natural que alberga bosques extensos, prados alpinos y numerosas especies de animales salvajes.</descripcion-hito>
+                <coordenadas longitud="19.6534°E" latitud="48.8534°N" altitud="1250"></coordenadas>
+                <distancia unidades="km">55</distancia>
+                <galeria-fotografia>
+                    <fotografia>parque-nacional-bajo-tatras-1.jpg</fotografia>
+                </galeria-fotografia>
+                <galeria-video>
+                    <video>parque-nacional-bajo-tatras-1.mp4</video>
+                </galeria-video>
+            </hito>
+        </hitos>
+    </ruta>
+
+    <ruta nombre="Ruta de los Tesoros Ocultos de Eslovaquia" tipo="Cultura y arqueología">
+        <medio-transporte>Coche de alquiler y a pie</medio-transporte>
+        <fecha-inicio>2024-02-02</fecha-inicio>
+        <hora-inicio>09:30</hora-inicio>
+        <duracion unidades="días">6</duracion>
+        <agencia>Get your guide</agencia>
+        <descripcion>Descubre los secretos ocultos de Eslovaquia a través de esta ruta única que te lleva a antiguas ruinas, pintorescos pueblos y fascinantes museos.</descripcion>
+        <personas-adecuadas>Todos los públicos</personas-adecuadas>
+        <lugar-inicio>Košice</lugar-inicio>
+        <direccion-inicio>Hlavná 80</direccion-inicio>
+        <coordenadas longitud="21.2560°E" latitud="48.7216°N" altitud="203"></coordenadas>
+        <referencias-bibliografia>
+            <referencia-bibliografia>
+                https://www.getyourguide.es/bratislava-l765/tesoros-ocultos-tc268/</referencia-bibliografia>
+            <referencia-bibliografia> https://es.wikipedia.org/wiki/Ko%C5%A1ice </referencia-bibliografia>
+            <referencia-bibliografia>
+                https://www.republica.com/dondeviajar/tesoros-ocultos-de-eslovaquia-20120321-100056912/</referencia-bibliografia>
+        </referencias-bibliografia>
+        <recomendacion>10</recomendacion>
+        <hitos>
+            <hito>
+                <nombre-hito>Ruinas de Devín</nombre-hito>
+                <descripcion-hito>Antiguas ruinas de un castillo en la confluencia de los ríos Danubio y Morava, que datan del siglo IX.</descripcion-hito>
+                <coordenadas longitud="16.9843°E" latitud="48.1756°N" altitud="190"></coordenadas>
+                <distancia unidades="km">15</distancia>
+                <galeria-fotografia>
+                    <fotografia>ruinas-devin-1.jpg</fotografia>
+                    <fotografia>ruinas-devin-2.jpg</fotografia>
+                    <fotografia>ruinas-devin-3.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+            <hito>
+                <nombre-hito>Iglesia de madera de Hervartov</nombre-hito>
+                <descripcion-hito>Una iglesia de madera gótica bien conservada y protegida por la UNESCO, que data del siglo XV.</descripcion-hito>
+                <coordenadas longitud="21.9223°E" latitud="48.7765°N" altitud="330"></coordenadas>
+                <distancia unidades="km">110</distancia>
+                <galeria-fotografia>
+                    <fotografia>iglesia-madera-hervartov-1.jpg</fotografia>
+                    <fotografia>iglesia-madera-hervartov-2.jpg</fotografia>
+                    <fotografia>iglesia-madera-hervartov-3.jpg</fotografia>
+                </galeria-fotografia>
+                <galeria-video>
+                    <video>iglesia-madera-hervartov-1.jpg</video>
+                </galeria-video>
+            </hito>
+            <hito>
+                <nombre-hito>Museo de la Cultura Liptov</nombre-hito>
+                <descripcion-hito>Un museo fascinante que exhibe la historia y la cultura de la región de Liptov, desde la época medieval hasta la actualidad.</descripcion-hito>
+                <coordenadas longitud="19.6082°E" latitud="49.0846°N" altitud="580"></coordenadas>
+                <distancia unidades="km">80</distancia>
+                <galeria-fotografia>
+                    <fotografia>museo-cultura-liptov-1.jpg</fotografia>
+                    <fotografia>museo-cultura-liptov-2.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+            <hito>
+                <nombre-hito>Cueva de Domica</nombre-hito>
+                <descripcion-hito>Una impresionante cueva de estalactitas y estalagmitas ubicada en el parque nacional de Slovenský kras, conocida por su belleza natural y sus formaciones geológicas únicas.</descripcion-hito>
+                <coordenadas longitud="20.2697°E" latitud="48.5936°N" altitud="300"></coordenadas>
+                <distancia unidades="km">90</distancia>
+                <galeria-fotografia>
+                    <fotografia>cueva-domica-1.jpg</fotografia>
+                    <fotografia>cueva-domica-2.jpg</fotografia>
+                </galeria-fotografia>
+            </hito>
+        </hitos>
+    </ruta>
 
 </rutas>
