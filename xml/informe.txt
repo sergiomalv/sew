@@ -1,0 +1,179 @@
+Informe XML -> Schema
+Se modifica <xs:schema xmlns="http://tempuri.org/rutas" elementFormDefault="qualified" targetNamespace="http://tempuri.org/rutas" xmlns:xs="http://www.w3.org/2001/XMLSchema"> ->
+
+Se modifica <?xml version="1.0" encoding="Windows-1252"?> -> <?xml version="1.0" encoding="UTF-8"?>
+Se modifica <xs:element ref="referencias-bibliografia" /> -> <xs:element minOccurs="3" maxOccurs="unbounded" ref="referencias-bibliografia" />
+Se modifica <xs:element name="recomendacion" type="xs:string" /> ->
+<xs:element name="recomendacion">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"></xs:minInclusive>
+				<xs:maxInclusive value="10"></xs:maxInclusive>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+Se modifica <xs:element name="fecha-inicio" type="xs:string" /> -> <xs:element name="fecha-inicio" type="xs:date" />
+Se modifica <xs:element name="hora-inicio" type="xs:string" /> -> <xs:element name="hora-inicio" type="xs:time" />
+Se modifica:
+<xs:element name="duracion">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>																	->
+Se modifica:
+<xs:element name="coordenadas">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="longitud" type="xs:string" use="required" />
+					<xs:attribute name="latitud" type="xs:string" use="required" />
+					<xs:attribute name="altitud" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="coordenadas">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="longitud" type="xs:float" use="required" />
+					<xs:attribute name="latitud" type="xs:float" use="required" />
+					<xs:attribute name="altitud" type="xs:integer" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+Se modifica:
+<xs:element name="longitud" type="xs:string" />
+<xs:element name="latitud" type="xs:string" />
+<xs:element name="altitud" type="xs:sring" />
+->
+<xs:element name="longitud" type="xs:float" />
+<xs:element name="latitud" type="xs:float" />
+<xs:element name="altitud" type="xs:integer" />
+Se modifica:
+<xs:element name="referencias-bibliografia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="referencia-bibliografia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="referencias-bibliografia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="3" maxOccurs="unbounded" ref="referencia-bibliografia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+Se modifica en hito:
+<xs:element name="distancia">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="distancia">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:integer">
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+Se modifica en hitos:
+<xs:element name="galeria-fotografia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="fotografia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="galeria-fotografia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="5" ref="fotografia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+Se modifica en hitos:
+<xs:element name="galeria-video">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="video" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="galeria-video">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="3" ref="video" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+Se modifica:
+	<xs:element name="fecha-inicio" type="xs:date" />
+	<xs:element name="hora-inicio" type="xs:time" />
+y la declaración
+	<xs:element minOccurs="0" maxOccurs="1" ref="fecha-inicio" />
+	<xs:element minOccurs="0" maxOccurs="1" ref="hora-inicio" />
+->
+	<xs:element name="inicio-ruta" type="xs:dateTime" />
+y la declaración
+	<xs:element minOccurs="0" maxOccurs="1" ref="inicio-ruta" />
+	
+Se modifica:
+<xs:element name="hitos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="hito" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="hitos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="3" maxOccurs="unbounded" ref="hito" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+Hay que modifica el archivo rutasEsquema.xlm
+Se cambian todas las coordenadas para que
+<coordenadas longitud="20.2697°E" latitud="48.5936°N" altitud="300"></coordenadas> ->
+
+
+________________________________
+Ejercicio 1.3
+Crear un enlace para nuevo XML, hay que meter rutas en la raíz del árbol, mirar el de recetas
+
+________________________________
+Ejercicio 2
+Sacar coordenadas de nuestra ruta
+Para comprobar el KML, lo importamos en Google Earth. Para generar el .kml mirar las transparencias del tema 4 que nos
+sirve de esqueleto. Sacar las coordenadas usando expresiones de Xpath .//{http://uniovi.es}coordenadas
+Ejercicio 2
+Bajar la carpeta 6_Ejercicios
+La ruta pintada y debajo el mapa
+Se puede hacer con el patrón visitor pero es opcional 
+________________________________
+
+Ejercicio 3
+Lo mismo que el ejercicio anterior
