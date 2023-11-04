@@ -16,7 +16,7 @@ xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
         <lugar-inicio>Bratislava</lugar-inicio>
         <direccion-inicio>Hodžovo námestie 3</direccion-inicio>
         <coordenadas longitud="17.1067" latitud="48.1486" altitud="134"></coordenadas>
-        <referencias-bibliografia>
+        <referencias-bibliografia> 
             <referencia-bibliografia>
                 http://personatravel.com/index.php/pt/grupos/67-tour-de-eslovaquia-patrimonio-unesco</referencia-bibliografia>
             <referencia-bibliografia> https://es.wikipedia.org/wiki/Bratislava </referencia-bibliografia>

@@ -2,6 +2,22 @@ Informe XML -> Schema
 Se modifica <xs:schema xmlns="http://tempuri.org/rutas" elementFormDefault="qualified" targetNamespace="http://tempuri.org/rutas" xmlns:xs="http://www.w3.org/2001/XMLSchema"> ->
 
 Se modifica <?xml version="1.0" encoding="Windows-1252"?> -> <?xml version="1.0" encoding="UTF-8"?>
+Se modifica 
+<xs:element name="rutas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="ruta" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+->
+<xs:element name="rutas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="3" maxOccurs="unbounded" ref="ruta" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 Se modifica <xs:element ref="referencias-bibliografia" /> -> <xs:element minOccurs="3" maxOccurs="unbounded" ref="referencias-bibliografia" />
 Se modifica <xs:element name="recomendacion" type="xs:string" /> ->
 <xs:element name="recomendacion">
