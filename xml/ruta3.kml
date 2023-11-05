@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>ruta3.kml</name>
+<LineString>
+<extrude>1</extrude>
+<tessellate>1</tessellate>
+<coordinates>
+21.2560,48.7216,203
+16.9843,48.1756,190
+21.9223,48.7765,330
+19.6082,49.0846,580
+20.2697,48.5936,300
+</coordinates>
+<altitudeMode>relativeToGround</altitudeMode></LineString>
+<Style> id='lineaRoja'<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
+</Document>
+</kml>

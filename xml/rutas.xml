@@ -27,7 +27,7 @@
             <hito>
                 <nombre-hito>Castillo de Bratislava</nombre-hito>
                 <descripcion-hito>Un castillo histórico situado en la colina del mismo nombre, que ofrece vistas panorámicas de la ciudad y el río Danubio.</descripcion-hito>
-                <coordenadas longitud="17.0974°E" latitud="48.1412°N" altitud="150"></coordenadas>
+                <coordenadas longitud="17.0974°E" latitud="48.1412°N" altitud="212"></coordenadas>
                 <distancia unidades="km">2</distancia>
                 <galeria-fotografia>
                     <fotografia>castillo-bratislava-1.jpg</fotografia>
@@ -83,7 +83,7 @@
             <hito>
                 <nombre-hito>Parque Nacional del Paraíso Eslovaco</nombre-hito>
                 <descripcion-hito>Un impresionante parque conocido por sus formaciones rocosas únicas y espectaculares cañones.</descripcion-hito>
-                <coordenadas longitud="20.3860°E" latitud="49.2127°N" altitud="760"></coordenadas>
+                <coordenadas longitud="20.3860°E" latitud="49.2127°N" altitud="470"></coordenadas>
                 <distancia unidades="km">12</distancia>
                 <galeria-fotografia>
                     <fotografia>parque-nacional-paraiso-eslovaco-1.jpg</fotografia>
