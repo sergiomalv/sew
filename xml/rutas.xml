@@ -6,7 +6,7 @@
         <medio-transporte>A pie y autobus</medio-transporte>
         <fecha-inicio>2023-11-10</fecha-inicio>
         <hora-inicio>09:00</hora-inicio>
-        <duracion unidades="días">4</duracion>
+        <duracion unidades="días">10</duracion>
         <agencia>Dorado Tours</agencia>
         <descripcion>Visita los lugares más emblemáticos de Eslovaquia,
             desde los majestuosos castillos y antiguas fortalezas hasta las pintorescas ciudades y
@@ -14,7 +14,7 @@
         <personas-adecuadas>Se puede ir con niños</personas-adecuadas>
         <lugar-inicio>Bratislava</lugar-inicio>
         <direccion-inicio>Hodžovo námestie 3</direccion-inicio>
-        <coordenadas longitud="17.1067°E" latitud="48.1486°N" altitud="134"></coordenadas>
+        <coordenadas longitud="17.1067" latitud="48.1486" altitud="163"></coordenadas>
         <referencias-bibliografia>
             <referencia-bibliografia>
                 http://personatravel.com/index.php/pt/grupos/67-tour-de-eslovaquia-patrimonio-unesco</referencia-bibliografia>
@@ -27,8 +27,8 @@
             <hito>
                 <nombre-hito>Castillo de Bratislava</nombre-hito>
                 <descripcion-hito>Un castillo histórico situado en la colina del mismo nombre, que ofrece vistas panorámicas de la ciudad y el río Danubio.</descripcion-hito>
-                <coordenadas longitud="17.0974°E" latitud="48.1412°N" altitud="212"></coordenadas>
-                <distancia unidades="km">2</distancia>
+                <coordenadas longitud="17.1006" latitud="48.14" altitud="238"></coordenadas>
+                <distancia unidades="km">1</distancia>
                 <galeria-fotografia>
                     <fotografia>castillo-bratislava-1.jpg</fotografia>
                     <fotografia>castillo-bratislava-2.jpg</fotografia>
@@ -37,8 +37,8 @@
             <hito>
                 <nombre-hito>Basílica de Santiago</nombre-hito>
                 <descripcion-hito>Una iglesia gótica notable en Levoca con un impresionante retablo de madera tallada.</descripcion-hito>
-                <coordenadas longitud="20.5831°E" latitud="49.0294°N" altitud="230"></coordenadas>
-                <distancia unidades="km">130</distancia>
+                <coordenadas longitud="20.5903" latitud="49.0256" altitud="578"></coordenadas>
+                <distancia unidades="km">275</distancia>
                 <galeria-fotografia>
                     <fotografia>basilica-santiago-1.jpg</fotografia>
                     <fotografia>basilica-santiago-2.jpg</fotografia>
@@ -49,10 +49,10 @@
                 </galeria-video>
             </hito>
             <hito>
-                <nombre-hito>Spis Castle</nombre-hito>
+                <nombre-hito>Castillo de Spis</nombre-hito>
                 <descripcion-hito>Un imponente castillo declarado Patrimonio de la Humanidad por la UNESCO, situado en la región de Spis.</descripcion-hito>
-                <coordenadas longitud="20.7500°E" latitud="48.9975°N" altitud="634"></coordenadas>
-                <distancia unidades="km">25</distancia>
+                <coordenadas longitud="20.7661" latitud="48.9989" altitud="555"></coordenadas>
+                <distancia unidades="km">14</distancia>
                 <galeria-fotografia>
                     <fotografia>spis-castle-1.jpg</fotografia>
                 </galeria-fotografia>
@@ -70,7 +70,7 @@
         <personas-adecuadas>Personas en buena forma física</personas-adecuadas>
         <lugar-inicio>Poprad</lugar-inicio>
         <direccion-inicio>Námestie sv. Egídia 341/43</direccion-inicio>
-        <coordenadas longitud="20.3042°E" latitud="49.0550°N" altitud="672"></coordenadas>
+        <coordenadas longitud="20.3042" latitud="49.0550" altitud="675"></coordenadas>
         <referencias-bibliografia>
             <referencia-bibliografia>
                 https://www.alltrails.com/es/slovakia/parques-nacionales</referencia-bibliografia>
@@ -81,10 +81,10 @@
         <recomendacion>7</recomendacion>
         <hitos>
             <hito>
-                <nombre-hito>Parque Nacional del Paraíso Eslovaco</nombre-hito>
-                <descripcion-hito>Un impresionante parque conocido por sus formaciones rocosas únicas y espectaculares cañones.</descripcion-hito>
-                <coordenadas longitud="20.3860°E" latitud="49.2127°N" altitud="470"></coordenadas>
-                <distancia unidades="km">12</distancia>
+                <nombre-hito>Belianske lúky</nombre-hito>
+                <descripcion-hito>Un impresionante parque conocido por sus espectaculares prados.</descripcion-hito>
+                <coordenadas longitud="20.3860" latitud="49.2127" altitud="681"></coordenadas>
+                <distancia unidades="km">18</distancia>
                 <galeria-fotografia>
                     <fotografia>parque-nacional-paraiso-eslovaco-1.jpg</fotografia>
                     <fotografia>parque-nacional-paraiso-eslovaco-2.jpg</fotografia>
@@ -94,8 +94,8 @@
             <hito>
                 <nombre-hito>Parque Nacional de los Altos Tatras</nombre-hito>
                 <descripcion-hito>La región montañosa más alta de Eslovaquia con una biodiversidad impresionante y rutas de senderismo desafiantes.</descripcion-hito>
-                <coordenadas longitud="20.1301°E" latitud="49.1673°N" altitud="1900"></coordenadas>
-                <distancia unidades="km">45</distancia>
+                <coordenadas longitud="20.1301" latitud="49.1673" altitud="2050"></coordenadas>
+                <distancia unidades="km">20</distancia>
                 <galeria-fotografia>
                     <fotografia>parque-nacional-altos-tatras-1.jpg</fotografia>
                     <fotografia>parque-nacional-altos-tatras-2.jpg</fotografia>
@@ -104,8 +104,8 @@
             <hito>
                 <nombre-hito>Parque Nacional del Bajo Tatras</nombre-hito>
                 <descripcion-hito>Un paraíso natural que alberga bosques extensos, prados alpinos y numerosas especies de animales salvajes.</descripcion-hito>
-                <coordenadas longitud="19.6534°E" latitud="48.8534°N" altitud="1250"></coordenadas>
-                <distancia unidades="km">55</distancia>
+                <coordenadas longitud="19.6534" latitud="48.8534" altitud="744"></coordenadas>
+                <distancia unidades="km">49</distancia>
                 <galeria-fotografia>
                     <fotografia>parque-nacional-bajo-tatras-1.jpg</fotografia>
                 </galeria-fotografia>
@@ -126,7 +126,7 @@
         <personas-adecuadas>Todos los públicos</personas-adecuadas>
         <lugar-inicio>Košice</lugar-inicio>
         <direccion-inicio>Hlavná 80</direccion-inicio>
-        <coordenadas longitud="21.2560°E" latitud="48.7216°N" altitud="203"></coordenadas>
+        <coordenadas longitud="21.2560" latitud="48.7216" altitud="214"></coordenadas>
         <referencias-bibliografia>
             <referencia-bibliografia>
                 https://www.getyourguide.es/bratislava-l765/tesoros-ocultos-tc268/</referencia-bibliografia>
@@ -139,8 +139,8 @@
             <hito>
                 <nombre-hito>Ruinas de Devín</nombre-hito>
                 <descripcion-hito>Antiguas ruinas de un castillo en la confluencia de los ríos Danubio y Morava, que datan del siglo IX.</descripcion-hito>
-                <coordenadas longitud="16.9843°E" latitud="48.1756°N" altitud="190"></coordenadas>
-                <distancia unidades="km">15</distancia>
+                <coordenadas longitud="16.9843" latitud="48.1756" altitud="151"></coordenadas>
+                <distancia unidades="km">321</distancia>
                 <galeria-fotografia>
                     <fotografia>ruinas-devin-1.jpg</fotografia>
                     <fotografia>ruinas-devin-2.jpg</fotografia>
@@ -150,8 +150,8 @@
             <hito>
                 <nombre-hito>Iglesia de madera de Hervartov</nombre-hito>
                 <descripcion-hito>Una iglesia de madera gótica bien conservada y protegida por la UNESCO, que data del siglo XV.</descripcion-hito>
-                <coordenadas longitud="21.9223°E" latitud="48.7765°N" altitud="330"></coordenadas>
-                <distancia unidades="km">110</distancia>
+                <coordenadas longitud="21.2036" latitud="49.2467" altitud="462"></coordenadas>
+                <distancia unidades="km">331</distancia>
                 <galeria-fotografia>
                     <fotografia>iglesia-madera-hervartov-1.jpg</fotografia>
                     <fotografia>iglesia-madera-hervartov-2.jpg</fotografia>
@@ -161,8 +161,8 @@
             <hito>
                 <nombre-hito>Museo de la Cultura Liptov</nombre-hito>
                 <descripcion-hito>Un museo fascinante que exhibe la historia y la cultura de la región de Liptov, desde la época medieval hasta la actualidad.</descripcion-hito>
-                <coordenadas longitud="19.6082°E" latitud="49.0846°N" altitud="580"></coordenadas>
-                <distancia unidades="km">80</distancia>
+                <coordenadas longitud="19.6082" latitud="49.0846" altitud="572"></coordenadas>
+                <distancia unidades="km">118</distancia>
                 <galeria-fotografia>
                     <fotografia>museo-cultura-liptov-1.jpg</fotografia>
                     <fotografia>museo-cultura-liptov-2.jpg</fotografia>
@@ -171,8 +171,8 @@
             <hito>
                 <nombre-hito>Cueva de Domica</nombre-hito>
                 <descripcion-hito>Una impresionante cueva de estalactitas y estalagmitas ubicada en el parque nacional de Slovenský kras, conocida por su belleza natural y sus formaciones geológicas únicas.</descripcion-hito>
-                <coordenadas longitud="20.2697°E" latitud="48.5936°N" altitud="300"></coordenadas>
-                <distancia unidades="km">90</distancia>
+                <coordenadas longitud="20.4689" latitud="48.4753" altitud="350"></coordenadas>
+                <distancia unidades="km">93</distancia>
                 <galeria-fotografia>
                     <fotografia>cueva-domica-1.jpg</fotografia>
                     <fotografia>cueva-domica-2.jpg</fotografia>

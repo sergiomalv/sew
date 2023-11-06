@@ -7,12 +7,12 @@
 <extrude>1</extrude>
 <tessellate>1</tessellate>
 <coordinates>
-20.3042,49.0550,672
-20.3860,49.2127,470
-20.1301,49.1673,1900
-19.6534,48.8534,1250
+20.3042,49.0550,675
+20.3860,49.2127,681
+20.1301,49.1673,2050
+19.6534,48.8534,744
 </coordinates>
-<altitudeMode>relativeToGround</altitudeMode></LineString>
+<altitudeMode>relativeToSea</altitudeMode></LineString>
 <Style> id='lineaRoja'<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
 </Document>
 </kml>
