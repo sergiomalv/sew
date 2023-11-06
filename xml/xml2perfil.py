@@ -30,29 +30,34 @@ def process_xml(tree: et.ElementTree) -> None:
     root = tree.getroot()
 
     counter = 1
-    # Access to the routes, get the altitudes and save them
+    # Access to the routes, get the altitudes and distances and save them
     for child in root.findall(f'{SCHEMA_URL}*'):
-        altitudes = get_altitudes(child)
-        save_to_svg(f'perfil{counter}.svg', altitudes)
+        altitudes, distances = get_data(child)
+        save_to_svg(f'perfil{counter}.svg', altitudes, distances)
         counter += 1
 
 
-def get_altitudes(tree: et.Element) -> list[int]:
+def get_data(tree: et.Element) -> tuple[list[int], list[int]]:
     """
-    Given an element tree, saves the altitudes of the milestones in a list
+    Given an element tree, saves the altitudes and distances of the milestones in a list
     :param tree: The element tree
     :return: The list with the coordinates
     """
     altitudes = []
+    distances = []
 
     # Save the altitudes of each milestone
     for coordinate in tree.findall(f'.//{SCHEMA_URL}coordenadas'):
         altitudes.append(int(coordinate.get('altitud')))
 
-    return altitudes
+    # Save the distances of each milestone
+    for distance in tree.findall(f'.//{SCHEMA_URL}distancia'):
+        distances.append(int(distance.text))
+
+    return altitudes, distances
 
 
-def save_to_svg(file_name: str, altitudes: list[int]) -> None:
+def save_to_svg(file_name: str, altitudes: list[int], distances: list[int]) -> None:
     """
     Given a list of altitudes, save them in a .svg file
     :param file_name: Name of the final file
@@ -63,17 +68,21 @@ def save_to_svg(file_name: str, altitudes: list[int]) -> None:
 
     with open(file_name, "w") as file:
         file.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
-        file.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0">')
+        file.write(f'<svg width="auto" height="{max_altitude + 30}" xmlns="http://www.w3.org/2000/svg" version="2.0">')
         file.write('<polyline points="\n')
 
+        # Initial point
         x = 10
         file.write(f"10, {max_altitude}\n")
-
+        counter = 0
         for altitude in altitudes:
-            x += 40
-            file.write(f"{x}, {max_altitude - altitude}\n")
+            if counter != 0:
+                x += distances[counter -1]
+                file.write(f"{x}, {max_altitude - altitude}\n")
+            else:
+                file.write(f"{x}, {max_altitude - altitude}\n")
+            counter += 1
 
-        x += 40
         file.write(f"{x}, {max_altitude}\n")
         file.write(f"10, {max_altitude}")
 

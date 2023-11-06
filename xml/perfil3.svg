@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
-10, 600
-50, 397
-90, 410
-130, 270
-170, 20
-210, 300
-250, 600
-10, 600" style="fill:white;stroke:red;stroke-width:4" />
+<svg width="auto" height="622" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+10, 592
+10, 378
+331, 441
+662, 130
+780, 20
+873, 242
+873, 592
+10, 592" style="fill:white;stroke:red;stroke-width:4" />
 </svg>

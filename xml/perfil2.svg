@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
-10, 1920
-50, 1248
-90, 1450
-130, 20
-170, 670
-210, 1920
-10, 1920" style="fill:white;stroke:red;stroke-width:4" />
+<svg width="auto" height="2100" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+10, 2070
+10, 1395
+28, 1389
+48, 20
+97, 1326
+97, 2070
+10, 2070" style="fill:white;stroke:red;stroke-width:4" />
 </svg>
