@@ -12,13 +12,16 @@ header {
     background-color: #433F30;
 }
 
+/* Especificidad: 001 */
 nav {
+    /* Hereda color de fondo de su padre */
     padding: 2vh;
     color: #F0EDE0;
 }
 
 /* Especificidad: 001 */
 a {
+    /* Hereda color de fondo de su padre */
     color: #970C10;
     text-decoration-line: none;
 }
@@ -32,6 +35,7 @@ a:hover {
 
 /*Especificidad 002*/
 nav a {
+    /* Hereda color de fondo de su padre */
     padding: 0.5em;
     color: #FFFFFF;
 }
@@ -60,14 +64,15 @@ ul {
     list-style-position: inside;
 }
 
-/* Especificidad: 012 */
-ul li:nth-child(3) {
+/* Especificidad: 013 */
+section > ul > li:nth-child(3) {
+    /* Hereda color de fondo de su padre */
     color: #970C10;
-    /* Puedes cambiar el color a tu preferencia */
 }
 
 /* Especificidad: 001 */
 dt {
+    /* Hereda color de fondo de su padre */
     font-weight: bold;
     color: #970C10;
 }
@@ -92,11 +97,12 @@ td {
 
 /* Especificidad: 013 */
 tbody tr:nth-child(odd) {
+    /* Hereda color de fuente de su padre */
     background-color: #F0EDE0;
 }
 
 /* Especificidad: 001 */
-video,audio {
+video {
     max-width: 100%;
     height: auto;
 }
