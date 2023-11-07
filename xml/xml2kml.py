@@ -73,7 +73,7 @@ def save_to_kml(file_name: str, coordinates: list[str]) -> None:
         f.write('</coordinates>\n')
         f.write('<altitudeMode>relativeToSea</altitudeMode>')
         f.write('</LineString>\n')
-        f.write("<Style> id='lineaRoja'")
+        f.write("<Style> id='lineaRoja'>\n")
         f.write('<LineStyle>')
         f.write('<color>#ff0000ff</color>')
         f.write('<width>5</width>')

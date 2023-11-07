@@ -6,15 +6,16 @@ header {
 }
 
 /*Especificidad: 001*/
-@media screen and (max-device-width: 480px) {
+@media screen and (max-width: 480px) {
     header {
         font-size: smaller;
     }
 }
 
 /*Especificidad: 001*/
-@media screen and (max-device-width: 799px) {
+@media screen and (max-width: 799px) {
     header {
-        font-size: small;
+        /* Se está redefiniendo font-size para dispositivos "tablet" */
+        font-size: small;  
     }
 }

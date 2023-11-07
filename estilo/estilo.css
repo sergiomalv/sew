@@ -4,6 +4,8 @@
 /* Especificidad: 001 */
 body {
     font-family: Arial, "Lucia Grande", sans-serif;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 
 /* Especificidad: 001 */
@@ -14,7 +16,7 @@ header {
 
 /* Especificidad: 001 */
 nav {
-    /* Hereda color de fondo de su padre */
+    /* Hereda color de fondo #433F30 de header */
     padding: 2vh;
     color: #F0EDE0;
 }
@@ -35,7 +37,7 @@ a:hover {
 
 /*Especificidad 002*/
 nav a {
-    /* Hereda color de fondo de su padre */
+    /* Hereda color de fondo #433F30 de header */
     padding: 0.5em;
     color: #FFFFFF;
 }
@@ -66,13 +68,13 @@ ul {
 
 /* Especificidad: 013 */
 section > ul > li:nth-child(3) {
-    /* Hereda color de fondo de su padre */
+    /* Hereda color de fondo FFFFFF de body */
     color: #970C10;
 }
 
 /* Especificidad: 001 */
 dt {
-    /* Hereda color de fondo de su padre */
+    /* Hereda color de fondo FFFFFF de body */
     font-weight: bold;
     color: #970C10;
 }
@@ -97,7 +99,7 @@ td {
 
 /* Especificidad: 013 */
 tbody tr:nth-child(odd) {
-    /* Hereda color de fuente de su padre */
+    /* Hereda color de fuente #000000 de body*/
     background-color: #F0EDE0;
 }
 

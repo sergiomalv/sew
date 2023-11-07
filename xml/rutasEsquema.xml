@@ -26,20 +26,20 @@ xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
         <recomendacion>9</recomendacion>
         <hitos>
             <hito>
-                <nombre-hito>Castillo de Bratislava</nombre-hito>
-                <descripcion-hito>Un castillo histórico situado en la colina del mismo nombre, que ofrece vistas panorámicas de la ciudad y el río Danubio.</descripcion-hito>
-                <coordenadas longitud="17.1006" latitud="48.14" altitud="238"></coordenadas>
-                <distancia unidades="km">1</distancia>
+                <nombre-hito>Iglesia del Arcángel Miguel</nombre-hito>
+                <descripcion-hito>Una iglesia histórica situado en la colina del mismo nombre, que ofrece vistas panorámicas.</descripcion-hito>
+                <coordenadas longitud="18.1058" latitud="48.3194" altitud="238"></coordenadas>
+                <distancia unidades="km">76</distancia>
                 <galeria-fotografia>
-                    <fotografia>castillo-bratislava-1.jpg</fotografia>
-                    <fotografia>castillo-bratislava-2.jpg</fotografia>
+                    <fotografia>iglesia-miguel-1.jpg</fotografia>
+                    <fotografia>iglesia-miguel-2.jpg</fotografia>
                 </galeria-fotografia>
             </hito>
             <hito>
                 <nombre-hito>Basílica de Santiago</nombre-hito>
                 <descripcion-hito>Una iglesia gótica notable en Levoca con un impresionante retablo de madera tallada.</descripcion-hito>
                 <coordenadas longitud="20.5903" latitud="49.0256" altitud="578"></coordenadas>
-                <distancia unidades="km">275</distancia>
+                <distancia unidades="km">198</distancia>
                 <galeria-fotografia>
                     <fotografia>basilica-santiago-1.jpg</fotografia>
                     <fotografia>basilica-santiago-2.jpg</fotografia>

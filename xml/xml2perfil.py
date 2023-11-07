@@ -32,19 +32,20 @@ def process_xml(tree: et.ElementTree) -> None:
     counter = 1
     # Access to the routes, get the altitudes and distances and save them
     for child in root.findall(f'{SCHEMA_URL}*'):
-        altitudes, distances = get_data(child)
-        save_to_svg(f'perfil{counter}.svg', altitudes, distances)
+        altitudes, distances, names = get_data(child)
+        save_to_svg(f'perfil{counter}.svg', altitudes, distances, names)
         counter += 1
 
 
-def get_data(tree: et.Element) -> tuple[list[int], list[int]]:
+def get_data(tree: et.Element) -> tuple[list[int], list[int], list[str]]:
     """
-    Given an element tree, saves the altitudes and distances of the milestones in a list
+    Given an element tree, saves the altitudes, distances and names of the milestones in a list
     :param tree: The element tree
     :return: The list with the coordinates
     """
     altitudes = []
     distances = []
+    names = []
 
     # Save the altitudes of each milestone
     for coordinate in tree.findall(f'.//{SCHEMA_URL}coordenadas'):
@@ -53,28 +54,39 @@ def get_data(tree: et.Element) -> tuple[list[int], list[int]]:
     # Save the distances of each milestone
     for distance in tree.findall(f'.//{SCHEMA_URL}distancia'):
         distances.append(int(distance.text))
+    
+    # Save the name of the initial point
+    for name in tree.findall(f'.//{SCHEMA_URL}lugar-inicio'):
+        names.append(name.text)
 
-    return altitudes, distances
+    # Save the names of each milestone
+    for name in tree.findall(f'.//{SCHEMA_URL}nombre-hito'):
+        names.append(name.text)
+
+    return altitudes, distances, names
 
 
-def save_to_svg(file_name: str, altitudes: list[int], distances: list[int]) -> None:
+def save_to_svg(file_name: str, altitudes: list[int], distances: list[int], names:list[str]) -> None:
     """
     Given a list of altitudes, save them in a .svg file
     :param file_name: Name of the final file
     :param altitudes: List of coordinates
+    :param names: Name of the points
     """
     # Get the highest altitude
     max_altitude = max(altitudes) + 20
 
-    with open(file_name, "w") as file:
+    with open(file_name, "w", encoding="UTF-8") as file:
         file.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
-        file.write(f'<svg width="auto" height="{max_altitude + 30}" xmlns="http://www.w3.org/2000/svg" version="2.0">')
+        file.write(f'<svg width="auto" height="{max_altitude + 300}" xmlns="http://www.w3.org/2000/svg" version="2.0">')
         file.write('<polyline points="\n')
 
         # Initial point
         x = 10
         file.write(f"10, {max_altitude}\n")
         counter = 0
+
+        # Drawn all the points of altitudes
         for altitude in altitudes:
             if counter != 0:
                 x += distances[counter -1]
@@ -87,7 +99,32 @@ def save_to_svg(file_name: str, altitudes: list[int], distances: list[int]) -> N
         file.write(f"10, {max_altitude}")
 
         file.write('" style="fill:white;stroke:red;stroke-width:4" />\n')
+
+        # Initial point 
+        x = 10
+        counter = 0
+
+        # Write the name of the routes
+        for name in names:
+            if counter != 0:
+                x += distances[counter -1]
+                file.write(f'<text x="{x}" y="{max_altitude + 20}" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n{name}\n</text>\n')
+            else:
+                file.write(f'<text x="{x}" y="{max_altitude + 20}" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n{name}\n</text>\n')
+            counter += 1
+        
         file.write('</svg>\n')
+
+def get_scale(altitudes: list[int], distances: list[int]) -> tuple[int, int]:
+    """
+    Given a list of coordinates and altitudes, calculate a scale for them
+    :param altitudes: Altitudes of the route
+    :param distances: Distances of the route
+    :return: A tuple with the two scales
+    """
+    #TODO
+    print('foo')
+
 
 
 def main():

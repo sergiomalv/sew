@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width="auto" height="628" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+<svg width="auto" height="898" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
 10, 598
 10, 435
-11, 360
-286, 20
-300, 43
-300, 598
+86, 360
+284, 20
+298, 43
+298, 598
 10, 598" style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="618" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Bratislava
+</text>
+<text x="86" y="618" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Iglesia del Arcángel Miguel
+</text>
+<text x="284" y="618" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Basílica de Santiago
+</text>
+<text x="298" y="618" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Castillo de Spis
+</text>
 </svg>

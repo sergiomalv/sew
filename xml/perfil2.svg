@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width="auto" height="2100" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+<svg width="auto" height="2370" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
 10, 2070
 10, 1395
 28, 1389
@@ -7,4 +7,16 @@
 97, 1326
 97, 2070
 10, 2070" style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="2090" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Poprad
+</text>
+<text x="28" y="2090" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Belianske lúky
+</text>
+<text x="48" y="2090" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Parque Nacional de los Altos Tatras
+</text>
+<text x="97" y="2090" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Parque Nacional del Bajo Tatras
+</text>
 </svg>
