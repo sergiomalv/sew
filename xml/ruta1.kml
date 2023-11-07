@@ -8,11 +8,12 @@
 <tessellate>1</tessellate>
 <coordinates>
 17.1067,48.1486,163
-17.1006,48.14,238
+18.1058,48.3194,238
 20.5903,49.0256,578
 20.7661,48.9989,555
 </coordinates>
 <altitudeMode>relativeToSea</altitudeMode></LineString>
-<Style> id='lineaRoja'<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
+<Style> id='lineaRoja'>
+<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
 </Document>
 </kml>

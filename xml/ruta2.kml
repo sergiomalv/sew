@@ -13,6 +13,7 @@
 19.6534,48.8534,744
 </coordinates>
 <altitudeMode>relativeToSea</altitudeMode></LineString>
-<Style> id='lineaRoja'<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
+<Style> id='lineaRoja'>
+<LineStyle><color>#ff0000ff</color><width>5</width></LineStyle></Style></Placemark>
 </Document>
 </kml>
