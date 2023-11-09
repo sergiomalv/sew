@@ -1,4 +1,6 @@
+"use strict";
 class Pais {
+
     constructor (pais, capital, poblacion){
         this.pais = pais;
         this.capital = capital;
@@ -37,16 +39,18 @@ class Pais {
     }
 
     get_info_list(){
-        result = "<ul>";
+        var result = "";
+
+        result += "<ul>";
         result += "<li> Población: " + this.get_poblacion() + "</li>";
         result += "<li> Forma de gobierno: " + this.get_forma_gobierno() + "</li>";
-        result += "<li> Religión mayoritaria: " + this.religion_mayoritaria() + "</li>";
+        result += "<li> Religión mayoritaria: " + this.get_religion_mayoritaria() + "</li>";
         result += "</ul>";
 
         return result
     }
 
     write_coordinates(){
-        document.write(this.coordenadas_capital);
+        document.write("<p>" + this.coordenadas_capital + "</p>");
     }
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
+    <script src="js/pais.js"></script>
 </head>
 
 <body>
@@ -32,11 +33,11 @@
     <script>
         var pais = new Pais("Eslovaquia", "Bratislava", 5428792);
         pais.fill_data("República parlamentaria", "17.1067400, 48.1481600", "Cristianismo");
-    </script>
-    <script>
-        <h1>document.write(pais.get_pais())</h1>
+    
+        document.write("<h2>" + pais.get_pais() + "</h2>");
+        document.write(pais.get_info_list());
+        pais.write_coordinates();
     </script>
 </body>
-<script src="/js/pais.js"></script>
 
 </html>
