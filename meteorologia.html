@@ -28,7 +28,15 @@
             <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <p>En desarrollo</p>
+
+    <script>
+        var pais = new Pais("Eslovaquia", "Bratislava", 5428792);
+        pais.fill_data("República parlamentaria", "17.1067400, 48.1481600", "Cristianismo");
+    </script>
+    <script>
+        <h1>document.write(pais.get_pais())</h1>
+    </script>
 </body>
+<script src="/js/pais.js"></script>
 
 </html>
