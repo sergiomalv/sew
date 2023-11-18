@@ -73,7 +73,7 @@ class Memoria {
         this.firstCard = null;
         this.secondCard = null;
 
-        // memoria.shuffleElements();
+        this.shuffleElements();
         this.createElements();
         this.addEventListeners();
     }
