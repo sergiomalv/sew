@@ -1,0 +1,17 @@
+body {
+    width: 500px;
+    height: 500px;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    border: 2px solid black;
+  }
+  
+  p {
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    border: 1px solid gray;
+  }
