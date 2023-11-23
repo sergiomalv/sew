@@ -14,6 +14,7 @@ class Sudoku {
     }
 
     start(gameString) {
+        /* Fill the cells with the data of gameString */
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 if (gameString[i * this.columns + j] == '.') {
@@ -103,10 +104,11 @@ class Sudoku {
     }
 
     checkSudoku() {
+
         let correct = true;
         let p = document.querySelectorAll('p');
         for (let i = 0; i < p.length; i++) {
-            if (p[i].getAttribute("data-state") != "correct") {
+            if (p[i].getAttribute("data-state") == "init") {
                 correct = false;
             }
         }

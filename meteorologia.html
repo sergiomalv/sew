@@ -5,8 +5,8 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" /> 
     <meta name="author" content="Sergio Murillo Álvarez" />
-    <meta name="description" content="Documento para utilizar en otros módulos de la asignatura" />
-    <meta name="keywords" content="meteorologia, tiempo" />
+    <meta name="description" content="Información relativa a la meteorología de Eslovaquia" />
+    <meta name="keywords" content="meteorologia, tiempo, mapa, capital, Eslovaquia" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Escritorio Virtual</title>
@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/pais.js"></script>
 </head>
 
 <body>
@@ -31,14 +30,8 @@
         </nav>
     </header>
 
-    <script>
-        var pais = new Pais("Eslovaquia", "Bratislava", 5428792);
-        pais.fill_data("República parlamentaria", "17.1067400, 48.1481600", "Cristianismo");
-    
-        document.write("<h2>" + pais.get_pais() + "</h2>");
-        document.write(pais.get_info_list());
-        pais.write_coordinates();
-    </script>
 </body>
+
+<script src="js/pais.js"></script>
 
 </html>
