@@ -53,4 +53,21 @@ class Pais {
     write_coordinates(){
         document.write("<p>" + this.coordenadas_capital + "</p>");
     }
+
+    getWeather() {
+        API_KEY = "36c03ab57467d8c7424b4a7948d090e4";
+
+        const url = "https://api.openweathermap.org/data/2.5/weather?q=" + 
+            this.capital + ",SVK&units=metric&lang=es&APPID=" + API_KEY;
+
+        $.ajax({
+            dataType: "json",
+            url: this.url,
+            method: 'GET',
+            success: function(datos){
+                    $("pre").text(JSON.stringify(datos, null, 2));
+            }
+        });
+
+    }
 }
