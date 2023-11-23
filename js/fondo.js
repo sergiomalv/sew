@@ -11,14 +11,15 @@ class Fondo {
         
         $.getJSON(flickrAPI, 
                 {
-                    tags: this.name + "," + this.capital + "," + this.coordinates,
+                    tags: this.name + "," + this.capital,
                     tagmode: "any",
                     format: "json"
                 })
             .done(function(data) {
                 $.each(data.items, function(i, item) {
-                    if (i === 0) {
-                        $('body').css('background-image', 'url(' + item.media.m + ')');
+                    if (i === 6) {
+                        $('body').css('background-image', 'url(' + item.media.m + ')')
+                        .css('background-size', 'cover');
                     }
                 });
             });
