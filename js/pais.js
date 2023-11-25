@@ -59,7 +59,7 @@ class Pais {
 
         var data = this.coordenadas_capital.split(",");
 
-        const url = "http://api.openweathermap.org/data/2.5/forecast?" +
+        const url = "https://api.openweathermap.org/data/2.5/forecast?" +
             "lat=" + data[1] + "&lon=" + data[0] + "&units=metric&appid=" + API_KEY;
 
 
@@ -79,7 +79,9 @@ class Pais {
 
                 result += "</ul>";
                 
-                $("p").html(result);
+                const weather = $("<section></section>").attr("data-type", "weather");
+                
+                weather.append(result).appendTo("body");
             },
             error:function(){
                 $("p").html("Algo ha ido mal!");

@@ -1,21 +1,18 @@
+/* Sergio Murillo Álvarez UO277178 */
+
 /*Especificidad: 001*/
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
 }
 
 /*Especificidad: 001*/
-@media screen and (max-width: 480px) {
-    header {
-        font-size: smaller;
-    }
-}
-
-/*Especificidad: 001*/
 @media screen and (max-width: 799px) {
-    header {
-        /* Se está redefiniendo font-size para dispositivos "tablet" */
-        font-size: small;  
+    nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -128,7 +128,7 @@ class Memoria {
     }
 
     createElements() {
-        const section = document.querySelector('section');
+        const section = document.querySelector('section:nth-of-type(2)');
 
         // Recorremos todos los elementos del JSON
         this.elements.elements.forEach(element => {
@@ -182,7 +182,6 @@ class Memoria {
         // Comprobamos si hay match
         game.checkForMatch();
     }
-
 }
 
 var memoria = new Memoria();

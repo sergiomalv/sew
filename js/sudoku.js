@@ -55,52 +55,50 @@ class Sudoku {
     }
 
     introduceNumber(number) {
-        if (number >= 1 && number <= 9) {
-            if (document.querySelector('[data-state="clicked"]') == null) {
-                alert("Selecciona una casilla");
+        if (document.querySelector('[data-state="clicked"]') == null) {
+            alert("Selecciona una casilla");
+            return;
+        }
+
+        /* Get the row and column of the selected cell */
+        let row = document.querySelector('[data-state="clicked"]').getAttribute("data-row");
+        let column = document.querySelector('[data-state="clicked"]').getAttribute("data-column");
+
+        /* Check if the number is correct */
+        /* Check if the number is in the row */
+        for (let i = 0; i < this.rows; i++) {
+            if (this.cells[row][i] == number) {
+                alert("Número incorrecto");
                 return;
             }
-
-            /* Get the row and column of the selected cell */
-            let row = document.querySelector('[data-state="clicked"]').getAttribute("data-row");
-            let column = document.querySelector('[data-state="clicked"]').getAttribute("data-column");
-
-            /* Check if the number is correct */
-            /* Check if the number is in the row */
-            for (let i = 0; i < this.rows; i++) {
-                if (this.cells[row][i] == number) {
-                    alert("Número incorrecto");
-                    return;
-                }
-            }
-            
-            /* Check if the number is in the column */
-            for (let i = 0; i < this.columns; i++) {
-                if (this.cells[i][column] == number) {
-                    alert("Número incorrecto");
-                    return;
-                }
-            }
-
-            /* Check if the number is in the square */	
-            let squareRow = Math.floor(row / 3) * 3;
-            let squareColumn = Math.floor(column / 3) * 3;
-            for (let i = squareRow; i < squareRow + 3; i++) {
-                for (let j = squareColumn; j < squareColumn + 3; j++) {
-                    if (this.cells[i][j] == number) {
-                        alert("Número incorrecto");
-                        return;
-                    }
-                }
-            }
-
-
-            let p = document.querySelector('[data-state="clicked"]');
-            p.textContent = number
-            p.setAttribute("data-state", "correct");
-
-            checkSudoku();
         }
+
+        /* Check if the number is in the column */
+        for (let i = 0; i < this.columns; i++) {
+            if (this.cells[i][column] == number) {
+                alert("Número incorrecto");
+                return;
+            }
+        }
+
+        /* Check if the number is in the square */
+        let squareRow = Math.floor(row / 3) * 3;
+        let squareColumn = Math.floor(column / 3) * 3;
+        for (let i = squareRow; i < squareRow + 3; i++) {
+            for (let j = squareColumn; j < squareColumn + 3; j++) {
+                if (this.cells[i][j] == number) {
+                    alert("Número incorrecto");
+                    return;
+                }
+            }
+        }
+
+
+        let p = document.querySelector('[data-state="clicked"]');
+        p.textContent = number
+        p.setAttribute("data-state", "correct");
+
+        checkSudoku();
     }
 
     checkSudoku() {
@@ -125,5 +123,6 @@ var sudoku = new Sudoku(9, 9,
 sudoku.paintSudoku();
 
 addEventListener("keydown", (event) => {
-    sudoku.introduceNumber(event.key);
+    if (event.key >= 1 && event.key <= 9)
+        sudoku.introduceNumber(event.key);
 });
