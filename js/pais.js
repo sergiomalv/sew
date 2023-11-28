@@ -68,32 +68,29 @@ class Pais {
             url: url,
             method: 'GET',
             success: function (datos) {
-                let title = "<h3> Meteorología para los próximos 5 días </h3>";
+                const title = $("<h3>Meteorología para los próximos 5 días</h3>");
                 
                 const weather = $("<section></section>").attr("data-type", "weather");
-                weather.append(title);
+                title.appendTo("body");
 
                 for(let i = 0; i < datos.list.length; i++){
                     if (datos.list[i].dt_txt.includes("15:00:00")) {
                         let result = "<ul>";
                         const dayWeather = $("<article></article>").attr("data-type", "weather-day");
-                        let list_temp = "<ul data-type = 'weather-fields'>"
 
                         let icon = datos.list[i].weather[0].icon;
-                        // result += '<img src="multimedia/imagenes/cara-tablet.jpg" alt="Mi cara en formato DNI" />';
                         result += " <img src='https://openweathermap.org/img/w/" + icon + ".png' />";
                         result += "<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>";
-                        list_temp += "<li>Temperatura máxima: " + datos.list[i].main.temp_max + "ºC </li>";
-                        list_temp += "<li>Humedad: " + datos.list[i].main.humidity + "% </li>";
-                        list_temp += "<li>Temperatura mínima: " + datos.list[i].main.temp_min + "ºC </li>";
+                        result += "<li>T. máxima: " + datos.list[i].main.temp_max + "ºC </li>";
+                        result += "<li>T. mínima: " + datos.list[i].main.temp_min + "ºC </li>";
+                        result += "<li>Humedad: " + datos.list[i].main.humidity + "% </li>";
                         
 
                         if (datos.list[i].weather.hasOwnProperty("rain"))
-                            list_temp += "<li>LLuvia: " + datos.list[i].weather.rain["3h"] + " mm </li>";
+                            result += "<li>LLuvia: " + datos.list[i].weather.rain["3h"] + " mm </li>";
                         else
-                            list_temp += "<li>Lluvia: 0 mm</li>";
+                            result += "<li>Lluvia: 0 mm</li>";
                         
-                        result += "<li>" + list_temp + "</li>";
                         result += "</ul>";
                         
                         dayWeather.append(result);

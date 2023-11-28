@@ -110,28 +110,27 @@ video {
 }
 
 /* Especificidad: 011 */
-ul[data-type="weather-fields"] {
+section[data-type="weather"] {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 3em;
 }
-
-/* Especificidad: 012 */
-ul[data-type="weather-fields"] li{
-    flex: 1 1 50%;
-}
-
 
 /* Especificidad: 011 */
 article[data-type="weather-day"] {
     display: flex;
-    
+    width: 11em;
+    margin: 0.20em;
 }
 
 /* Especificidad: 012 */
 article[data-type="weather-day"] ul {
     list-style: none;
-    padding: 0.1em;
+    padding: 0.5em;
     text-align: center;
-    border:0.1em solid #970C10;
+    border:0.1em solid #000000;
+    border-radius: 0.5em;
+    background-color: #A2D7F1; 
 }
