@@ -42,7 +42,7 @@ class Pais {
         var result = "";
 
         result += "<ul>";
-        result += "<li> Población: " + this.get_poblacion() + "</li>";
+        result += "<li> Población: " + this.get_poblacion() + " habitantes</li>";
         result += "<li> Forma de gobierno: " + this.get_forma_gobierno() + "</li>";
         result += "<li> Religión mayoritaria: " + this.get_religion_mayoritaria() + "</li>";
         result += "</ul>";
@@ -51,7 +51,7 @@ class Pais {
     }
 
     write_coordinates() {
-        document.write("<p>" + this.coordenadas_capital + "</p>");
+        document.write("<p> Coordenadas del país: " + this.coordenadas_capital + "</p>");
     }
 
     getWeather() {
@@ -68,23 +68,43 @@ class Pais {
             url: url,
             method: 'GET',
             success: function (datos) {
-                var result = "<h3> Meteorología para los próximos 5 días </h3>";
-                result += "<ul>";
-                
-                let counter = 1;
-                for(let i = 0; i < datos.list.length; i+=8){
-                    result += "<li> Previsión para dentro de " + counter + (counter == 1 ? " día": " días") + ": " + datos.list[i].main.temp + "ºC </li>";
-                    counter++;
-                }
-
-                result += "</ul>";
+                let title = "<h3> Meteorología para los próximos 5 días </h3>";
                 
                 const weather = $("<section></section>").attr("data-type", "weather");
-                
-                weather.append(result).appendTo("body");
+                weather.append(title);
+
+                for(let i = 0; i < datos.list.length; i++){
+                    if (datos.list[i].dt_txt.includes("15:00:00")) {
+                        let result = "<ul>";
+                        const dayWeather = $("<article></article>").attr("data-type", "weather-day");
+                        let list_temp = "<ul data-type = 'weather-fields'>"
+
+                        let icon = datos.list[i].weather[0].icon;
+                        // result += '<img src="multimedia/imagenes/cara-tablet.jpg" alt="Mi cara en formato DNI" />';
+                        result += " <img src='https://openweathermap.org/img/w/" + icon + ".png' />";
+                        result += "<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>";
+                        list_temp += "<li>Temperatura máxima: " + datos.list[i].main.temp_max + "ºC </li>";
+                        list_temp += "<li>Humedad: " + datos.list[i].main.humidity + "% </li>";
+                        list_temp += "<li>Temperatura mínima: " + datos.list[i].main.temp_min + "ºC </li>";
+                        
+
+                        if (datos.list[i].weather.hasOwnProperty("rain"))
+                            list_temp += "<li>LLuvia: " + datos.list[i].weather.rain["3h"] + " mm </li>";
+                        else
+                            list_temp += "<li>Lluvia: 0 mm</li>";
+                        
+                        result += "<li>" + list_temp + "</li>";
+                        result += "</ul>";
+                        
+                        dayWeather.append(result);
+                        weather.append(dayWeather);
+                    }
+                }
+                weather.appendTo("body");
             },
             error:function(){
-                $("p").html("Algo ha ido mal!");
+                const weather = $("<section></section>").attr("data-type", "weather");
+                weather.append("Algo ha ido mal").appendTo("body");
             }
         });
     }

@@ -45,7 +45,7 @@ nav a {
 /* Especificidad: 001 */
 h1 {
     padding: 0.1em;
-    
+
 }
 
 /* Especificidad: 001 */
@@ -67,7 +67,7 @@ ul {
 }
 
 /* Especificidad: 013 */
-section > ul > li:nth-child(3) {
+section>ul>li:nth-child(3) {
     /* Hereda color de fondo FFFFFF de body */
     color: #970C10;
 }
@@ -107,4 +107,31 @@ tbody tr:nth-child(odd) {
 video {
     max-width: 100%;
     height: auto;
+}
+
+/* Especificidad: 011 */
+ul[data-type="weather-fields"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Especificidad: 012 */
+ul[data-type="weather-fields"] li{
+    flex: 1 1 50%;
+}
+
+
+/* Especificidad: 011 */
+article[data-type="weather-day"] {
+    display: flex;
+    
+}
+
+/* Especificidad: 012 */
+article[data-type="weather-day"] ul {
+    list-style: none;
+    padding: 0.1em;
+    text-align: center;
+    border:0.1em solid #970C10;
 }
