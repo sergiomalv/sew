@@ -71,15 +71,18 @@ class Pais {
                 const title = $("<h3>Meteorología para los próximos 5 días</h3>");
                 
                 const weather = $("<section></section>").attr("data-type", "weather");
-                title.appendTo("body");
+                title.appendTo(weather);
 
                 for(let i = 0; i < datos.list.length; i++){
-                    if (datos.list[i].dt_txt.includes("15:00:00")) {
-                        let result = "<ul>";
+                    if (datos.list[i].dt_txt.includes("12:00:00")) {
                         const dayWeather = $("<article></article>").attr("data-type", "weather-day");
+                        const title = $("<h4></h4>").text("Día " + (i + 1));
+                        let result = "";
 
+                        
                         let icon = datos.list[i].weather[0].icon;
-                        result += " <img src='https://openweathermap.org/img/w/" + icon + ".png' />";
+                        result += " <img src='https://openweathermap.org/img/w/" + icon + ".png' alt='Icono meteorológico' />";
+                        result += "<ul>";
                         result += "<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>";
                         result += "<li>T. máxima: " + datos.list[i].main.temp_max + "ºC </li>";
                         result += "<li>T. mínima: " + datos.list[i].main.temp_min + "ºC </li>";
@@ -93,6 +96,7 @@ class Pais {
                         
                         result += "</ul>";
                         
+                        dayWeather.append(title);
                         dayWeather.append(result);
                         weather.append(dayWeather);
                     }

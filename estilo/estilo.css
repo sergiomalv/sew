@@ -118,11 +118,22 @@ section[data-type="weather"] {
     gap: 3em;
 }
 
+/* Especificidad: 012 */
+section[data-type="weather"]>h3 {
+    /* Hereda color de fondo #970C10 de h2 */
+    width: 100%;
+}
+
 /* Especificidad: 011 */
 article[data-type="weather-day"] {
     display: flex;
     width: 11em;
-    margin: 0.20em;
+    margin: 0.2em;
+    border: 0.1em solid #000000;
+    border-radius: 0.5em;
+    background-color: #A2D7F1;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Especificidad: 012 */
@@ -130,7 +141,4 @@ article[data-type="weather-day"] ul {
     list-style: none;
     padding: 0.5em;
     text-align: center;
-    border:0.1em solid #000000;
-    border-radius: 0.5em;
-    background-color: #A2D7F1; 
 }
