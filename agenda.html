@@ -11,8 +11,10 @@
 
     <title>Escritorio Virtual</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/agenda.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -28,7 +30,10 @@
             <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <p>En desarrollo</p>
+
+    <button onclick="agenda.getData()">Obtener datos de la agenda de Fórmula 1</button>
+
+    <script src="js/agenda.js"></script>
 </body>
 
 </html>
