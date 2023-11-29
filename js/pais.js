@@ -76,7 +76,7 @@ class Pais {
                 for(let i = 0; i < datos.list.length; i++){
                     if (datos.list[i].dt_txt.includes("12:00:00")) {
                         const dayWeather = $("<article></article>").attr("data-type", "weather-day");
-                        const title = $("<h4></h4>").text("Día " + (i + 1));
+                        const title = $("<h4></h4>").text(datos.list[i].dt_txt.split(" ")[0]);
                         let result = "";
 
                         
