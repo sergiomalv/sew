@@ -16,7 +16,7 @@ class Fondo {
                 format: "json"
             })
             .done(function (data) {
-                $('body').css('background-image', 'url(' + data.items[0].media.m + ')')
+                $('body').css('background-image', 'url(' + data.items[0].media.m.replace('_m', '_b') + ')')
                     .css('background-size', 'cover');
             });
     }
