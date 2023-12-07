@@ -68,7 +68,7 @@ class Pais {
             url: url,
             method: 'GET',
             success: function (datos) {
-                const title = $("<h3>Meteorología para los próximos 5 días</h3>");
+                const title = $("<h2>Meteorología para los próximos 5 días</h2>");
                 
                 const weather = $("<section></section>").attr("data-type", "weather");
                 title.appendTo(weather);
@@ -76,28 +76,22 @@ class Pais {
                 for(let i = 0; i < datos.list.length; i++){
                     if (datos.list[i].dt_txt.includes("12:00:00")) {
                         const dayWeather = $("<article></article>").attr("data-type", "weather-day");
-                        const title = $("<h4></h4>").text(datos.list[i].dt_txt.split(" ")[0]);
-                        let result = "";
+                        const title = $("<h3></h3>").text(datos.list[i].dt_txt.split(" ")[0]);
 
-                        
-                        let icon = datos.list[i].weather[0].icon;
-                        result += " <img src='https://openweathermap.org/img/w/" + icon + ".png' alt='Icono meteorológico' />";
-                        result += "<ul>";
-                        result += "<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>";
-                        result += "<li>T. máxima: " + datos.list[i].main.temp_max + "ºC </li>";
-                        result += "<li>T. mínima: " + datos.list[i].main.temp_min + "ºC </li>";
-                        result += "<li>Humedad: " + datos.list[i].main.humidity + "% </li>";
+                        const image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + datos.list[i].weather[0].icon + ".png");
+                        const info = $("<ul></ul>");
+                        info.append("<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>")
+                            .append("<li>T. máxima: " + datos.list[i].main.temp_max + "ºC </li>")
+                            .append("<li>T. mínima: " + datos.list[i].main.temp_min + "ºC </li>")
+                            .append("<li>Humedad: " + datos.list[i].main.humidity + "% </li>");
                         
 
-                        if (datos.list[i].weather.hasOwnProperty("rain"))
-                            result += "<li>LLuvia: " + datos.list[i].weather.rain["3h"] + " mm </li>";
+                        if (datos.list[i].hasOwnProperty("rain"))
+                            info.append("<li>Lluvia: " + datos.list[i].rain["3h"] + " mm </li>");
                         else
-                            result += "<li>Lluvia: 0 mm</li>";
+                            info.append("<li>Lluvia: 0 mm </li>");
                         
-                        result += "</ul>";
-                        
-                        dayWeather.append(title);
-                        dayWeather.append(result);
+                        dayWeather.append(title).append(image).append(info);
                         weather.append(dayWeather);
                     }
                 }

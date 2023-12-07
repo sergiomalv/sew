@@ -12,13 +12,13 @@ class Agenda {
 
     getData() {
         // Comprobar que la petición ha sido realizada hace más de 10 minutos
-        if (this.last_api_call == null){
+        if (this.last_api_call === null){
             this.last_api_call = new Date().getTime();
         } else {
             let actual = new Date().getTime();
             if (actual - this.last_api_call < 600000){
                 alert("¡La petición se ha realizado hace menos de 10 minutos!");
-                return this.last_api_result;
+                return;
             } 
         }
 
@@ -62,6 +62,10 @@ class Agenda {
                 fail.append("Algo ha ido mal").appendTo("body");
             }
         });
+    }
+
+    renderResponse(data) {
+        
     }
 
 }

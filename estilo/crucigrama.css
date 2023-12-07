@@ -1,0 +1,26 @@
+/* Sergio Murillo Álvarez UO277178 */
+
+/* Especificidad: 001 */
+main {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    gap: 0;
+    border: 0.13em solid black;
+    width: 70%;
+    height: 30%;
+}
+
+/* Especificidad: 001 */
+p {
+    padding: 1em;
+    margin: 0;
+    text-align: center;
+    border: 0.05em solid black;
+}
+
+/* Especificidad: 011 */
+p[data-state="empty"] {
+    background-color: #000000;
+    color: #FFFFFF;
+}

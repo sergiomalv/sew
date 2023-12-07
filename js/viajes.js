@@ -38,9 +38,11 @@ class Viajes {
     }
 
     getMapaEstaticoGoogle() {
+        
         var apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
         var url = "https://maps.googleapis.com/maps/api/staticmap?";
         var centro = "center=" + this.getLatitud() + "," + this.getLongitud();
+        console.log(this.getLatitud(), this.getLongitud());
         var zoom = "&zoom=15";
         var tamaño = "&size=800x600";
         var marcador = "&markers=color:red%7Clabel:S%7C" + this.getLatitud() + "," + this.getLongitud();
@@ -59,4 +61,4 @@ class Viajes {
 }
 
 var viajes = new Viajes();
-viajes.getMapaEstaticoGoogle();
+setTimeout(viajes.getMapaEstaticoGoogle.bind(viajes), 5000);
