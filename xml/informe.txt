@@ -174,22 +174,3 @@ Se modifica:
 Hay que modifica el archivo rutasEsquema.xlm
 Se cambian todas las coordenadas para que
 <coordenadas longitud="20.2697°E" latitud="48.5936°N" altitud="300"></coordenadas> ->
-
-
-________________________________
-Ejercicio 1.3
-Crear un enlace para nuevo XML, hay que meter rutas en la raíz del árbol, mirar el de recetas
-
-________________________________
-Ejercicio 2
-Sacar coordenadas de nuestra ruta
-Para comprobar el KML, lo importamos en Google Earth. Para generar el .kml mirar las transparencias del tema 4 que nos
-sirve de esqueleto. Sacar las coordenadas usando expresiones de Xpath .//{http://uniovi.es}coordenadas
-Ejercicio 2
-Bajar la carpeta 6_Ejercicios
-La ruta pintada y debajo el mapa
-Se puede hacer con el patrón visitor pero es opcional 
-________________________________
-
-Ejercicio 3
-Lo mismo que el ejercicio anterior

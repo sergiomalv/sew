@@ -1,7 +1,7 @@
 /* Sergio Murillo Álvarez UO277178 */
 
-/* Especificidad: 001 */
-section {
+/* Especificidad: 011 */
+section:nth-of-type(2) {
     display: flex;
     flex-wrap: wrap;
 }
