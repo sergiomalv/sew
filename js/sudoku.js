@@ -37,6 +37,9 @@ class Sudoku {
                     p.textContent = "";
                     p.setAttribute("data-state", "init");
                     p.addEventListener("click", () => {
+                        if (document.querySelector('[data-state="clicked"]') != null) {
+                            document.querySelector('[data-state="clicked"]').setAttribute("data-state", "init");
+                        }
                         p.setAttribute("data-state", "clicked");
                     });
                 } else {
