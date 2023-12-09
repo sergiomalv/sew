@@ -7,7 +7,7 @@ button {
     font-weight: bold;
     text-align: center;
     border: 0.1em solid #970C10;
-    color: #970C10;
+    color: #970C10;         /* Usa el color de fondo de button por defecto */
     border-radius: 0.3em;
     transition: background-color 0.3s;
     margin-top: 1em;
@@ -42,7 +42,7 @@ article[data-type="race"]>h3 {
 
 /* Especificidad: 011 */
 article[data-type="race"] {
-    background: linear-gradient(#433F30, #000000);
+    background-color: #433F30;
     color: #FFFFFF;
     width: 20em;
     margin: 0.15em;

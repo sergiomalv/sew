@@ -16,14 +16,14 @@ header {
 
 /* Especificidad: 001 */
 nav {
-    /* Hereda color de fondo #433F30 de header */
     padding: 2vh;
+    /* Hereda color de fondo #433F30 de header */
     color: #F0EDE0;
 }
 
 /* Especificidad: 001 */
 a {
-    /* Hereda color de fondo de su padre */
+    /* Hereda color de fondo #FFFFFF de body */
     color: #970C10;
     text-decoration-line: none;
 }
@@ -37,8 +37,8 @@ a:hover {
 
 /*Especificidad 002*/
 nav a {
-    /* Hereda color de fondo #433F30 de header */
     padding: 0.5em;
+    /* Hereda color de fondo #433F30 de header */
     color: #FFFFFF;
 }
 
@@ -66,16 +66,16 @@ ul {
     list-style-position: inside;
 }
 
-/* Especificidad: 013 */
-section>ul>li:nth-child(3) {
+/* Especificidad: 023 */
+section:nth-of-type(3)>ul>li:nth-child(3) {
     /* Hereda color de fondo FFFFFF de body */
     color: #970C10;
 }
 
 /* Especificidad: 001 */
 dt {
-    /* Hereda color de fondo FFFFFF de body */
     font-weight: bold;
+    /* Hereda color de fondo FFFFFF de body */
     color: #970C10;
 }
 
@@ -97,7 +97,7 @@ td {
     border-bottom: 0.1em solid #970C10;
 }
 
-/* Especificidad: 013 */
+/* Especificidad: 012 */
 tbody tr:nth-child(odd) {
     /* Hereda color de fuente #000000 de body*/
     background-color: #F0EDE0;
@@ -129,7 +129,7 @@ article[data-type="weather-day"] {
     margin: 0.2em;
     border: 0.1em solid #000000;
     border-radius: 0.5em;
-    background-color: #A2D7F1;
+    background-color: #A2D7F1;      /* Hereda el color #000000 de body */
     text-align: center;
 }
 
