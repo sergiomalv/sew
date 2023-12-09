@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" /> 
+    <meta name="author" content="Sergio Murillo Álvarez" />
+    <meta name="description" content="Agenda sobre los premios de Fórmula 1 de la temporada actual" />
+    <meta name ="keywords" content ="agenda, planificación, premio, fórmula 1, carrera, automovilismo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Escritorio Virtual</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/agenda.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/imagenes/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="s" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="n" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="a" tabindex="4">Agenda</a>
+            <a href="meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
+            <a href="viajes.html" accesskey="v" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+
+    <button onclick="agenda.getData()">Obtener datos de la agenda de Fórmula 1</button>
+
+    <script src="js/agenda.js"></script>
+</body>
+
+</html>
