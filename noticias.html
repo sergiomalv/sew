@@ -38,13 +38,13 @@
     <section>
         <h2>Añade tu noticia</h2>
         <form>
-            <label>Título:</label>
-            <input type="text" name="title" placeholder="Título de la noticia" required />
-            <label>Texto:</label>
-            <input name="content" placeholder="Texto de la noticia" required />
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="title" placeholder="Título de la noticia" required />
+            <label for="content">Texto:</label>
+            <input type="text" name="content" id="content" placeholder="Texto de la noticia" required />
     
-            <label>Autor:</label>
-            <input type="text" name="author" placeholder="Autor de la noticia" required />
+            <label for="author">Autor:</label>
+            <input type="text" name="author" id="author" placeholder="Autor de la noticia" required />
     
             <button type="button" onclick="noticias.addNoticia()">Enviar</button>
         </form>
