@@ -38,7 +38,6 @@ class Viajes {
     }
 
     getMapaEstaticoGoogle() {
-        
         var apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
         var url = "https://maps.googleapis.com/maps/api/staticmap?";
         var centro = "center=" + this.getLatitud() + "," + this.getLongitud();
@@ -51,14 +50,214 @@ class Viajes {
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
         const section = $("<section></section>");
-        const title = $("<h2>Ubicación estática del usuario</h2>");
         const map = $("<img src='" + this.imagenMapa + "' alt='mapa estático google' />");
 
-        title.appendTo(section);
         map.appendTo(section);
-        section.appendTo("body");
+        section.insertAfter("section:first");
     }
+
+    getMapaDinamicoGoogle() {
+        var centro = { lat: 43.3672702, lng: -5.8502461 };
+        var mapaGeoposicionado = new google.maps.Map(document.getElementById('mapa'), {
+            zoom: 8,
+            center: centro,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infoWindow = new google.maps.InfoWindow;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Localización encontrada');
+                infoWindow.open(mapaGeoposicionado);
+                mapaGeoposicionado.setCenter(pos);
+            }, function () {
+                tratamientoErrores(true, infoWindow, mapaGeoposicionado.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            tratamientoErrores(false, infoWindow, mapaGeoposicionado.getCenter());
+        }
+    }
+
+    tratamientoErrores(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: Ha fallado la geolocalización' :
+            'Error: Su navegador no soporta geolocalización');
+        infoWindow.open(mapaGeoposicionado);
+    }
+
+    readXML(file) {
+        var archivo = file[0];
+
+        var tipoXML = /xml.*/;
+
+        if (archivo.type.match(tipoXML)) {
+            var lector = new FileReader();
+            lector.onload = function (evento) {
+                var xml = lector.result;
+                const section = $("section:first")
+
+                $(xml).find('ruta').each(function () {
+                    var rutaName = $(this).attr('nombre');
+                    var rutaType = $(this).attr('tipo');
+                    var medioTransporte = $(this).find('medio-transporte').text();
+                    var inicioRuta = $(this).find('inicio-ruta').text();
+                    var horaInicio = $(this).find('hora-inicio').text();
+                    var duracion = $(this).find('duracion').text();
+                    var agencia = $(this).find('agencia').text();
+                    var descripcion = $(this).find('descripcion').text();
+                    var personasAdecuadas = $(this).find('personas-adecuadas').text();
+                    var lugarInicio = $(this).find('lugar-inicio').text();
+                    var direccionInicio = $(this).find('direccion-inicio').text();
+                    var coordenadas = $(this).find('coordenadas');
+                    var longitud = coordenadas.attr('longitud');
+                    var latitud = coordenadas.attr('latitud');
+                    var altitud = coordenadas.attr('altitud');
+                    var recomendacion = $(this).find('recomendacion').text();
+
+                    const title = $("<h3>" + rutaName + "</h3>");
+                    const list = $("<ul></ul>");
+                    list.append("<li> Tipo: " + rutaType + "</li>");
+                    list.append("<li> Medio de transporte: " + medioTransporte + "</li>");
+                    list.append("<li> Inicio de ruta: " + inicioRuta + "</li>");
+                    list.append("<li> Hora de inicio: " + horaInicio + "</li>");
+                    list.append("<li> Duración: " + duracion + "</li>");
+                    list.append("<li> Agencia: " + agencia + "</li>");
+                    list.append("<li> Descripción: " + descripcion + "</li>");
+                    list.append("<li> Personas adecuadas: " + personasAdecuadas + "</li>");
+                    list.append("<li> Lugar de inicio: " + lugarInicio + "</li>");
+                    list.append("<li> Dirección de inicio: " + direccionInicio + "</li>");
+                    list.append("<li> Longitud: " + longitud + "</li>");
+                    list.append("<li> Latitud: " + latitud + "</li>");
+                    list.append("<li> Altitud: " + altitud + "</li>");
+                    list.append("<li> Recomendación: " + recomendacion + "</li>");
+
+                    title.appendTo(section);
+                    list.appendTo(section);
+
+                    $(this).find('referencias-bibliografia').each(function () {
+                        var referencia = $(this).find('referencia-bibliografia').text();
+                    });
+
+
+                    $(this).find('hito').each(function () {
+                        var nombreHito = $(this).find('nombre-hito').text();
+                        var descripcionHito = $(this).find('descripcion-hito').text();
+                        var coordenadas = $(this).find('coordenadas');
+                        var longitud = coordenadas.attr('longitud');
+                        var latitud = coordenadas.attr('latitud');
+                        var altitud = coordenadas.attr('altitud');
+                        var distancia = $(this).find('distancia').text();
+
+                        const title = $("<h4> Hito: " + nombreHito + "</h4>");
+                        const list = $("<ul></ul>");
+                        list.append("<li> Descripción: " + descripcionHito + "</li>");
+                        list.append("<li> Longitud: " + longitud + "</li>");
+                        list.append("<li> Latitud: " + latitud + "</li>");
+                        list.append("<li> Altitud: " + altitud + "</li>");
+                        list.append("<li> Distancia: " + distancia + "</li>");
+
+                        title.appendTo(section);
+                        list.appendTo(section);
+
+                        var existFoto = true;
+                        $(this).find('fotografia').each(function () {
+                            if (existFoto) {
+                                const title = $("<h5>Galería de imágenes</h5>");
+                                existFoto = false;
+                                title.appendTo(section);
+                            }
+                            var foto = $(this).text();
+                            var fotoContent = $("<img src='xml/multimedia/" + foto + "' alt=" + foto + "/>");
+                            fotoContent.appendTo(section);
+
+                        });
+
+                        var existVideo = true;
+                        $(this).find('video').each(function () {
+                            if (existVideo) {
+                                const title = $("<h5>Galería de vídeos</h5>");
+                                existVideo = false;
+                                title.appendTo(section);
+                            }
+                            var video = $(this).text();
+                            var videoContent = $("<video src='xml/multimedia/" + video + "' controls></video>");
+                            videoContent.appendTo(section);
+                        });
+                    });
+                });
+            }
+        }
+        lector.readAsText(archivo);
+    }
+
+    readKML(files) {
+        const nFiles = files.length;
+
+        for (let i = 0; i < nFiles; i++) {
+            let archivo = files[i];
+            let lector = new FileReader();
+
+            lector.onload = (function (fileReader) {
+                return function (evento) {
+                    var kml = fileReader.result;
+                    var coordenadas = $(kml).find('coordinates').text();
+                    console.log(coordenadas);
+
+                }.bind(this);
+            })(lector);
+
+            lector.readAsText(archivo);
+        }
+    }
+
+    /*
+    pintarMapa(coordenadas) {
+        new google.maps.Marker({
+            position: coordenadas,
+            map: new google.maps.Map(document.getElementById('mapa'), {
+                zoom: 8,
+                center: centro,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            })
+        });
+    }
+    */
+
+    readSVG(files) {
+        const nFiles = files.length;
+
+        for (let i = 0; i < nFiles; i++) {
+            let archivo = files[i];
+            let lector = new FileReader();
+
+            var tipoSVG = /svg.*/;
+
+            if (archivo.type.match(tipoSVG)) {
+                lector.onload = (function (fileReader) {
+                    return function (evento) {
+                        var svg = fileReader.result;
+                        var image = $(this).find('svg').text();
+                        console.log(image);
+
+                        const section = $("section:first")
+                        var svgContent = $("<img src='" + image + "' alt='svg' />");
+                        svgContent.appendTo(section);
+                    }.bind(this);
+                })(lector);
+
+                lector.readAsText(archivo);
+            }
+        }
+    }
+
 }
 
 var viajes = new Viajes();
-setTimeout(viajes.getMapaEstaticoGoogle.bind(viajes), 5000);

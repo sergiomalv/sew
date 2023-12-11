@@ -1,0 +1,20 @@
+/* Especificidad: 001 */
+main {
+    width: 100%;
+    height: 50vw;
+}
+
+/* Especificidad: 001 */
+input {
+    width: 100%;
+}
+
+/* Especificidad: 001 */
+label {
+    width: 100%;
+}
+
+/* Especificidad: 001 */
+button {
+    width: 100%;
+}
