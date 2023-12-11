@@ -11,6 +11,7 @@
 
     <title>Escritorio Virtual</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/noticias.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -30,9 +31,25 @@
         </nav>
     </header>
     
+    <main>
+        <h2>Tratamiento de ficheros</h2>
+    </main>
+
     <section>
-        <input type="file" onchange="readInputFile(this.files);">
+        <h2>Añade tu noticia</h2>
+        <form>
+            <label>Título:</label>
+            <input type="text" name="title" placeholder="Título de la noticia" required />
+            <label>Texto:</label>
+            <input name="content" placeholder="Texto de la noticia" required />
+    
+            <label>Autor:</label>
+            <input type="text" name="author" placeholder="Autor de la noticia" required />
+    
+            <button type="button" onclick="noticias.addNoticia()">Enviar</button>
+        </form>
     </section>
+    
 
     <script src="js/noticias.js"></script>
 </body>
