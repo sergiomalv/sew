@@ -130,15 +130,23 @@ def get_scale(altitudes: list[int], distances: list[int]) -> tuple[int, int]:
     :param distances: Distances of the route
     :return: A tuple with the two scales
     """
+
     # Get the highest altitude
     max_altitude = max(altitudes)
 
     # Get the longest distance
     max_distance = max(distances)
 
+    total_distance = sum(distances)
+
     # Calculate the scales
-    scale_x = max_distance / 200
-    scale_y = max_altitude / 200
+
+    if total_distance > 400:
+        scale_x = max_distance / 100
+    else:
+        scale_x = 1
+
+    scale_y = max_altitude / 150
 
     return scale_x, scale_y
 

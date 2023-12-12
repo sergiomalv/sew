@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width="auto" height="520.0" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
-10, 220.0
-10, 163.59861591695503
-86.76767676767678, 137.64705882352942
-286.7676767676768, 20.0
-300.90909090909093, 27.95847750865053
-300.90909090909093, 220.0
-10, 220.0" style="fill:white;stroke:red;stroke-width:4" />
-<text x="10" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<svg width="auto" height="470.0" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+10, 170.0
+10, 127.69896193771626
+86.0, 108.23529411764706
+284.0, 20.0
+298.0, 25.968858131487906
+298.0, 170.0
+10, 170.0" style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Bratislava
 </text>
-<text x="86.76767676767678" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="86.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Iglesia del Arcángel Miguel
 </text>
-<text x="286.7676767676768" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="284.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Basílica de Santiago
 </text>
-<text x="300.90909090909093" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="298.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Castillo de Spis
 </text>
 </svg>

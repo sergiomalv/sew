@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width="auto" height="520.0" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
-10, 220.0
-10, 154.14634146341461
-83.46938775510205, 153.5609756097561
-165.10204081632654, 20.0
-365.1020408163265, 147.41463414634148
-365.1020408163265, 220.0
-10, 220.0" style="fill:white;stroke:red;stroke-width:4" />
-<text x="10" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<svg width="auto" height="470.0" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+10, 170.0
+10, 120.60975609756098
+28.0, 120.17073170731707
+48.0, 20.0
+97.0, 115.5609756097561
+97.0, 170.0
+10, 170.0" style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Poprad
 </text>
-<text x="83.46938775510205" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="28.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Belianske lúky
 </text>
-<text x="165.10204081632654" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="48.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Parque Nacional de los Altos Tatras
 </text>
-<text x="365.1020408163265" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="97.0" y="190.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Parque Nacional del Bajo Tatras
 </text>
 </svg>
