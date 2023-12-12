@@ -5,15 +5,16 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="Sergio Murillo Álvarez" />
-    <meta name="description" content="Juego de sudoku" />
-    <meta name="keywords" content="juegos, entretenimiento, sudoku" />
+    <meta name="description" content="Juego de crucigrama matemático" />
+    <meta name="keywords" content="juegos, entretenimiento, matemática, suma, resta, multiplicación" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Escritorio Virtual</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/sudoku.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/crucigrama.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -39,11 +40,31 @@
         </ul>
     </section>
 
-    <h2>Sudoku</h2>
+    <h2>Crucigrama matemático</h2>
     <main>
-        
+    
     </main>
-    <script src="js/sudoku.js"></script>
+
+    <section data-type="botonera">
+        <h2>Botonera</h2>
+        <button onclick="crucigrama.introduceElement(1)">1</button>
+        <button onclick="crucigrama.introduceElement(2)">2</button>
+        <button onclick="crucigrama.introduceElement(3)">3</button>
+        <button onclick="crucigrama.introduceElement(4)">4</button>
+        <button onclick="crucigrama.introduceElement(5)">5</button>
+        <button onclick="crucigrama.introduceElement(6)">6</button>
+        <button onclick="crucigrama.introduceElement(7)">7</button>
+        <button onclick="crucigrama.introduceElement(8)">8</button>
+        <button onclick="crucigrama.introduceElement(9)">9</button>
+        <button onclick="crucigrama.introduceElement('*')">*</button>
+        <button onclick="crucigrama.introduceElement('+')">+</button>
+        <button onclick="crucigrama.introduceElement('-')">-</button>
+        <button onclick="crucigrama.introduceElement('/')">/</button>
+    </section>
+
+    <script src="js/crucigrama.js"></script>
 </body>
+
+
 
 </html>
