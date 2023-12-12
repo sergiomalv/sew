@@ -5,16 +5,15 @@ main {
 }
 
 /* Especificidad: 001 */
-input {
-    width: 100%;
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 /* Especificidad: 001 */
-label {
-    width: 100%;
-}
-
-/* Especificidad: 001 */
-button {
-    width: 100%;
+img {
+    width: 50%;
+    height: 50%;
+    margin: 0.1em;
 }

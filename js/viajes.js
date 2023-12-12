@@ -64,6 +64,8 @@ class Viajes {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+        this.mapaGeoposicionado = mapaGeoposicionado;
+
         var infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -80,7 +82,6 @@ class Viajes {
                 tratamientoErrores(true, infoWindow, mapaGeoposicionado.getCenter());
             });
         } else {
-            // Browser doesn't support Geolocation
             tratamientoErrores(false, infoWindow, mapaGeoposicionado.getCenter());
         }
     }
@@ -205,31 +206,31 @@ class Viajes {
             let archivo = files[i];
             let lector = new FileReader();
 
-            lector.onload = (function (fileReader) {
-                return function (evento) {
-                    var kml = fileReader.result;
-                    var coordenadas = $(kml).find('coordinates').text();
-                    console.log(coordenadas);
+            lector.onload = function (event) {
+                var kml = lector.result;
+                var coordenadas = $(kml).find('coordinates').text();
+                var cleanCoordenadas = coordenadas.trim().split('\n');
+                var points = [];
+                for (let j = 0; j < cleanCoordenadas.length; j++) {
+                    var coordenada = cleanCoordenadas[j].split(',');
+                    var latitud = coordenada[1];
+                    var longitud = coordenada[0];
+                    points.push({ lat: parseFloat(latitud), lng: parseFloat(longitud) });
+                }
 
-                }.bind(this);
-            })(lector);
+                var ruta = new google.maps.Polyline({
+                    path: points,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+                ruta.setMap(this.mapaGeoposicionado);
+            }.bind(this);
 
             lector.readAsText(archivo);
         }
-    }
 
-    /*
-    pintarMapa(coordenadas) {
-        new google.maps.Marker({
-            position: coordenadas,
-            map: new google.maps.Map(document.getElementById('mapa'), {
-                zoom: 8,
-                center: centro,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            })
-        });
     }
-    */
 
     readSVG(files) {
         const nFiles = files.length;
@@ -241,23 +242,36 @@ class Viajes {
             var tipoSVG = /svg.*/;
 
             if (archivo.type.match(tipoSVG)) {
-                lector.onload = (function (fileReader) {
-                    return function (evento) {
-                        var svg = fileReader.result;
-                        var image = $(this).find('svg').text();
-                        console.log(image);
+                lector.onload = function (event) {
+                    var svg = lector.result;
 
-                        const section = $("section:first")
-                        var svgContent = $("<img src='" + image + "' alt='svg' />");
-                        svgContent.appendTo(section);
-                    }.bind(this);
-                })(lector);
+                    var result = $($.parseXML(svg)).find('svg');
 
+                    /*
+                    var width = result.attr('width');
+                    var height = result.attr('height');
+
+                    var scale = 1;
+                    if (width > 800) {
+                        scale = 800 / width;
+                    }
+                    if (height > 600) {
+                        scale = 600 / height;
+                    }
+
+                    result.attr('width', width * scale);
+                    result.attr('height', height * scale);
+                    */
+
+                    result.removeAttr('xmlns').removeAttr('version');
+
+                    result.appendTo("section:first");
+                }.bind(this);
                 lector.readAsText(archivo);
             }
         }
-    }
 
+    }
 }
 
 var viajes = new Viajes();
