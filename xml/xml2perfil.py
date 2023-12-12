@@ -73,6 +73,14 @@ def save_to_svg(file_name: str, altitudes: list[int], distances: list[int], name
     :param altitudes: List of coordinates
     :param names: Name of the points
     """
+    scale_x, scale_y = get_scale(altitudes, distances)
+
+    for i in range(len(altitudes)):
+        altitudes[i] = altitudes[i] / scale_y
+    
+    for i in range(len(distances)):
+        distances[i] = distances[i] / scale_x
+
     # Get the highest altitude
     max_altitude = max(altitudes) + 20
 
@@ -122,8 +130,17 @@ def get_scale(altitudes: list[int], distances: list[int]) -> tuple[int, int]:
     :param distances: Distances of the route
     :return: A tuple with the two scales
     """
-    #TODO
-    print('foo')
+    # Get the highest altitude
+    max_altitude = max(altitudes)
+
+    # Get the longest distance
+    max_distance = max(distances)
+
+    # Calculate the scales
+    scale_x = max_distance / 200
+    scale_y = max_altitude / 200
+
+    return scale_x, scale_y
 
 
 

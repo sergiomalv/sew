@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width="auto" height="892" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
-10, 592
-10, 378
-331, 441
-662, 130
-780, 20
-873, 242
-873, 592
-10, 592" style="fill:white;stroke:red;stroke-width:4" />
-<text x="10" y="612" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<svg width="auto" height="520.0" xmlns="http://www.w3.org/2000/svg" version="2.0"><polyline points="
+10, 220.0
+10, 145.17482517482517
+203.95770392749245, 167.2027972027972
+403.95770392749245, 58.46153846153845
+475.25679758308155, 20.0
+531.4501510574017, 97.62237762237761
+531.4501510574017, 220.0
+10, 220.0" style="fill:white;stroke:red;stroke-width:4" />
+<text x="10" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Košice
 </text>
-<text x="331" y="612" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="203.95770392749245" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Ruinas de Devín
 </text>
-<text x="662" y="612" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="403.95770392749245" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Iglesia de madera de Hervartov
 </text>
-<text x="780" y="612" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="475.25679758308155" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Museo de la Cultura Liptov
 </text>
-<text x="873" y="612" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+<text x="531.4501510574017" y="240.0" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Cueva de Domica
 </text>
 </svg>
