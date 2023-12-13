@@ -247,22 +247,6 @@ class Viajes {
 
                     var result = $($.parseXML(svg)).find('svg');
 
-                    /*
-                    var width = result.attr('width');
-                    var height = result.attr('height');
-
-                    var scale = 1;
-                    if (width > 800) {
-                        scale = 800 / width;
-                    }
-                    if (height > 600) {
-                        scale = 600 / height;
-                    }
-
-                    result.attr('width', width * scale);
-                    result.attr('height', height * scale);
-                    */
-
                     result.removeAttr('xmlns').removeAttr('version');
 
                     result.appendTo("section:first");

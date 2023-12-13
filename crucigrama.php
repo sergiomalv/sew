@@ -1,6 +1,75 @@
 <!DOCTYPE HTML>
 <html lang="es">
 
+<?php
+class Record {
+
+    protected $server;
+    protected $user;
+    protected $pass;
+    protected $dbname;
+
+    public function __construct() { 
+        $this->server = "localhost";
+        $this->user = "DBUSER2023";
+        $this->pass = "DBPSWD2023";
+        $this->dbname = "records";
+    }
+
+    public function connect() {
+        $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+        if ($conn->connect_error) {
+            die("Error de conexión: " . $conn->connect_error);
+        }
+        return $conn; 
+    }
+
+    public function saveRecord() {
+        $conn = $this->connect();
+        $stmt = $conn->prepare("INSERT INTO records.registro (nombre, apellidos, nivel, tiempo) VALUES (?, ?, ?, ?)");
+
+        $stmt->bind_param("sssi", $_POST["nombre"], $_POST["apellidos"], $_POST["nivel"], $_POST["tiempo"]);
+    
+        if (!$stmt->execute()) {
+            echo "alert(Error: " . $stmt->error . ")";
+        }
+    
+        $stmt->close();
+        $conn->close(); 
+    }
+
+    public function get10Records() {
+        $conn = $this->connect();
+        $sql = "SELECT * FROM records.registro ORDER BY tiempo ASC LIMIT 10";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo "<section>";
+            echo "<h2>Top 10 jugadores</h2>";
+            echo "<ol>";
+
+            while($row = $result->fetch_assoc()) {
+                echo "<li>";
+                echo "Nombre: " . $row["nombre"] . ", ";
+                echo "Apellidos: " . $row["apellidos"] . ", ";
+                echo "Nivel: " . $row["nivel"] . ", ";
+                echo "Tiempo: " . $row["tiempo"];
+                echo "</li>";
+            }
+
+            echo "</ol>";
+            echo "</section>";
+        } else {
+            echo "0 resultados";
+        }
+
+        $conn->close();
+    }
+    
+}
+?>
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -44,6 +113,12 @@
     <main>
     
     </main>
+
+    <?php
+        $record = new Record();
+        $record->saveRecord();
+        $record->get10Records();
+    ?>
 
     <section data-type="botonera">
         <h2>Botonera</h2>
