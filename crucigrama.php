@@ -31,7 +31,7 @@ class Record {
         $stmt->bind_param("sssi", $_POST["nombre"], $_POST["apellidos"], $_POST["nivel"], $_POST["tiempo"]);
     
         if (!$stmt->execute()) {
-            echo "alert(Error: " . $stmt->error . ")";
+            die("alert(Error: " . $stmt->error);
         }
     
         $stmt->close();
@@ -87,7 +87,7 @@ class Record {
 </head>
 
 <body>
-    <header>
+<header>
         <h1>Escritorio Virtual</h1>
         <nav>
             <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
@@ -95,7 +95,7 @@ class Record {
             <a href="noticias.html" accesskey="n" tabindex="3">Noticias</a>
             <a href="agenda.html" accesskey="a" tabindex="4">Agenda</a>
             <a href="meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
-            <a href="viajes.html" accesskey="v" tabindex="6">Viajes</a>
+            <a href="viajes.php" accesskey="v" tabindex="6">Viajes</a>
             <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
         </nav>
     </header>

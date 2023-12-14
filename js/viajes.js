@@ -256,6 +256,44 @@ class Viajes {
         }
 
     }
+
+    nextSlide() {
+        const slides = document.querySelectorAll("img");
+        const nextSlide = document.querySelector("button[data-action='next']");
+
+        let curSlide = 3;
+        let maxSlide = slides.length - 1;
+
+        nextSlide.addEventListener("click", function () {
+            if (curSlide === maxSlide) {
+                curSlide = 0;
+            } else {
+                curSlide++;
+            }
+
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+    }
+
+    prevSlide() {
+        const slides = document.querySelectorAll("img");
+        const prevSlide = document.querySelector("button[data-action='prev']");
+        prevSlide.addEventListener("click", function () {
+            if (curSlide === 0) {
+                curSlide = maxSlide;
+            } else {
+                curSlide--;
+            }
+
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+    }
 }
 
 var viajes = new Viajes();

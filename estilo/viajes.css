@@ -13,7 +13,18 @@ section {
 
 /* Especificidad: 001 */
 img {
-    width: 50%;
-    height: 50%;
+    width: 100%;
     margin: 0.1em;
+}
+
+/* Espeficidad: 011 */
+button[data-action=prev] {
+    top: 50%;
+    left: 2%;
+}
+
+/* Espeficidad: 011 */
+button[data-action=next] {
+    top: 50%;
+    right: 2%;
 }
