@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="es">
-
 <?php
 class Carrusel {
+
+    private $capital;
+    private $pais;
+
     public function __construct($capital, $pais) { 
         $this->capital = $capital;
         $this->pais = $pais;
@@ -13,6 +14,7 @@ class Carrusel {
             'tags' => $this->capital . ',' . $this->pais,
             'tagmode' => 'any',
             'format' => 'php_serial',
+            'per_page' => '10'
         );
 
         $encoded_params = array();
@@ -24,25 +26,22 @@ class Carrusel {
         
         $rsp = file_get_contents($url);
         $rsp_obj = unserialize($rsp);
-        $result = "<section> <h2>Carrusel de imágenes</h2>";
+        $result = "<article data-type='carrusel'> <h2>Carrusel de imágenes</h2>";
 
-        $contador = 0;
         foreach ($rsp_obj['items'] as $photos => $photo) {
             $result .= '<img src="' . $photo['m_url'] . '" alt="Imagen para el carrusel"/>';
-            $contador++;
-            if ($contador >= 10) {
-                break;
-            }
         }
 
-        $result .= '<button data-action="next"> > </button> <button data-action="prev"> < </button> </section>';
+        $result .= "<button data-action='next' onclick='viajes.nextSlide();'> > </button> <button data-action='prev' onclick='viajes.prevSlide();'> < </button> </article>";
         echo($result);
 
     }
-
 }
 
 ?>
+
+<!DOCTYPE HTML>
+<html lang="es">
 
 <head>
     <!-- Datos que describen el documento -->

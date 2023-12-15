@@ -1,6 +1,3 @@
-<!DOCTYPE HTML>
-<html lang="es">
-
 <?php
 class Record {
 
@@ -70,6 +67,9 @@ class Record {
 }
 ?>
 
+<!DOCTYPE HTML>
+<html lang="es">
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -115,9 +115,11 @@ class Record {
     </main>
 
     <?php
-        $record = new Record();
-        $record->saveRecord();
-        $record->get10Records();
+        if (count($_POST) > 0) {
+            $record = new Record();
+            $record->saveRecord();
+            $record->get10Records();
+        }
     ?>
 
     <section data-type="botonera">
