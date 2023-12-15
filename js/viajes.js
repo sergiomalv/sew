@@ -55,8 +55,10 @@ class Viajes {
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
         const section = $("<section></section>");
+        const title = $("<h2>Mapa estático de Google</h2>");
         const map = $("<img src='" + this.imagenMapa + "' alt='mapa estático google' />");
 
+        title.appendTo(section);
         map.appendTo(section);
         section.insertAfter("section:first");
     }
