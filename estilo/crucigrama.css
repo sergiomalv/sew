@@ -49,7 +49,7 @@ section[data-type=botonera] button {
     color: #FFF;
 }
 
-/* Especificidad: 012 */
+/* Especificidad: 011 */
 p[data-state="clicked"] {
     background-color: #F0EDE0;
 }
