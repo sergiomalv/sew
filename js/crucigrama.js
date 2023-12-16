@@ -94,7 +94,7 @@ class Crucigrama {
     
 
     introduceElement(element) {
-        if ($('p[data-state="clicked"]') == null) {
+        if ($('p[data-state="clicked"]').length === 0) {
             alert("Selecciona una casilla");
             return;
         }
