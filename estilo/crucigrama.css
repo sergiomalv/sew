@@ -49,6 +49,11 @@ section[data-type=botonera] button {
     color: #FFF;
 }
 
+/* Especificidad: 012 */
+p[data-state="clicked"] {
+    background-color: #F0EDE0;
+}
+
 /*Especificidad: 001*/
 @media screen and (max-width: 465px) {
     p {
