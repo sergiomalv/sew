@@ -64,10 +64,6 @@ class Agenda {
         });
     }
 
-    renderResponse(data) {
-        
-    }
-
 }
 
 var agenda = new Agenda();

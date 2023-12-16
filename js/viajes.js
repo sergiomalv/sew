@@ -5,7 +5,6 @@ class Viajes {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.verErrores.bind(this));
 
         this.slides = $("article").find("img");
-
         this.curSlide = 3;
         this.maxSlide = this.slides.length - 1;
     }

@@ -70,7 +70,6 @@ class Moneda
         }
     }
 }
-
 ?>
 
 <!DOCTYPE HTML>
