@@ -120,7 +120,7 @@ class DiarioViaje {
 
                 let fecha = new Date(entrada.date).toLocaleString();
                 let localizacion = `Latitud: ${entrada.latitud}, Longitud: ${entrada.longitud}`;
-                let info = $('<p>').html(`<i>${localizacion} - ${fecha}</i>`);
+                let info = $('<p>').html(`<em>${localizacion} - ${fecha}</em>`);
 
                 let boton = $('<button>').text('Copiar el texto al portapapeles').on('click', () => {
                     this.copiarTextoAlPortapapeles(entrada.text);
