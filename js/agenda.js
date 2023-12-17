@@ -58,8 +58,10 @@ class Agenda {
                 section.appendTo("body");
             },
             error: function () {
+                const title = $("<h2>Agenda de Fórmula 1</h2>");
                 const fail = $("<section></section>").attr("data-type", "error");
-                fail.append("Algo ha ido mal").appendTo("body");
+                title.appendTo(fail);
+                fail.append("<p>Algo ha ido mal</p>").appendTo("body");
             }
         });
     }

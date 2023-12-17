@@ -1,0 +1,30 @@
+/* Sergio Murillo Álvarez UO277178 */
+
+/* Especificidad: 001 */
+button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border: 0.1em solid #970C10;
+    color: #970C10;         /* Usa el color de fondo de button por defecto */
+    border-radius: 0.3em;
+    transition: background-color 0.3s;
+    margin-top: 1em;
+}
+
+/* Especificidad: 011 */
+button:hover {
+    background-color: #970C10;
+    color: #FFFFFF;
+}
+
+/* Especificidad: 003 */
+form input {
+    width: 100%;
+    margin-bottom: 0.625em;
+    border: 0.0625em solid #000000;
+    border-radius: 0.25em;
+    background-color: transparent;
+    color: #000000;
+}

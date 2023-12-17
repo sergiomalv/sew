@@ -49,37 +49,47 @@ class DiarioViaje {
     }
 
     /* Método para añadir una entrada al diario */
-    añadirEntrada(titulo, texto) {
+    añadirEntrada() {
+        // Obtenemos los valores del formulario
+        let form = document.querySelector("form");
+        let titulo = form.elements['title'].value;
+        let contentValue = form.elements['content'].value;
+
+        if (titulo === '' || contentValue === '') {
+            alert('Debes rellenar todos los campos');
+            return;
+        }
+
         // Obtenemos la localización
         let long = 0.0;
         let lat = 0.0;
         if (!this.ubicacionInnacesible) {
-            posicion = getLocalizacion();
-            long = posicion.longitude;
-            lat = posicion.latitude;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                long = position.coords.longitude;
+                lat = position.coords.latitude;
 
+                // Creamos la entrada del diario
+                let entrada = {
+                    date: new Date(),
+                    title: titulo,
+                    text: contentValue,
+                    longitud: long,
+                    latitud: lat
+                };
 
-            // Creamos la entrada del diario
-            let entrada = {
-                date: new Date(),
-                title: titulo,
-                text: texto,
-                longitud: long,
-                latitud: lat
-            };
+                // Creamos una transacción de lectura/escritura y guardamos la entrada 
+                let transaction = this.db.transaction(['entradas'], 'readwrite');
+                let store = transaction.objectStore('entradas');
+                let request = store.add(entrada);
 
-            // Creamos una transacción de lectura/escritura y guardamos la entrada 
-            let transaction = this.db.transaction(['entradas'], 'readwrite');
-            let store = transaction.objectStore('entradas');
-            let request = store.add(entrada);
+                request.onsuccess = () => {
+                    alert('Entrada añadida al diario');
+                };
 
-            request.onsuccess = () => {
-                alert('Entrada añadida al diario');
-            };
-
-            request.onerror = (event) => {
-                alert('Error al añadir la entrada al diario');
-            };
+                request.onerror = (event) => {
+                    alert('Error al añadir la entrada al diario');
+                };
+            }.bind(this));
         }
     }
 
@@ -91,7 +101,34 @@ class DiarioViaje {
         let request = store.getAll();
 
         request.onsuccess = () => {
-            console.log(request.result);
+            const section = $('section:nth-of-type(2)');
+            
+            // Borramos el contenido de la sección
+            section.empty();
+            // Añadimos un título a la section
+            section.append($('<h2>').text('Entradas del diario'));
+            // Añadimos un boton a la section para recuerar las entradas
+            section.append($('<button>').text('Recuperar entradas').on('click', () => {
+                this.getEntradas();
+            }));
+
+            // Recorremos todas las entradas y las mostramos en la sección
+            request.result.forEach((entrada) => {
+
+                let titulo = $('<h3>').text(entrada.title);
+                let texto = $('<p>').text(entrada.text);
+
+                let fecha = new Date(entrada.date).toLocaleString();
+                let localizacion = `Latitud: ${entrada.latitud}, Longitud: ${entrada.longitud}`;
+                let info = $('<p>').html(`<i>${localizacion} - ${fecha}</i>`);
+
+                let boton = $('<button>').text('Copiar el texto al portapapeles').on('click', () => {
+                    this.copiarTextoAlPortapapeles(entrada.text);
+                });
+
+                section.append(titulo).append(texto).append(info);
+                section.append(boton);
+            });
         };
     }
 
@@ -106,18 +143,6 @@ class DiarioViaje {
             });
     }
 
-    /* Método para obtener la localización */
-    getLocalizacion() {
-        posicion = navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this));
-
-        if (posicion) {
-            return posicion.coords;
-        } else {
-            alert('Error al obtener la localización, se usará la localización 0,0');
-            this.longitud = 0.0;
-            this.latitud = 0.0;
-        }
-    }
 }
 
 let diario = new DiarioViaje('Diario de viaje');

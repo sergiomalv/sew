@@ -131,9 +131,7 @@ class Moneda
     ?>
 
     <h2>Mapa dinámico</h2>
-    <main id="mapa">
-
-    </main>
+    <main></main>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q&callback=viajes.getMapaDinamicoGoogle"></script>
     <script src="js/viajes.js"></script>
 

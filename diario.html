@@ -11,9 +11,10 @@
 
     <title>Escritorio Virtual</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/diario.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.png" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -38,6 +39,23 @@
             <li><a href="crucigrama.php" accesskey="c" tabindex="10">Crucigrama matemático</a></li>
             <li><a href="diario.html" accesskey="r" tabindex="11">Diario de viaje</a></li>
         </ul>
+    </section>
+
+    <section>
+        <h2>Recupera todas tus entradas</h2>
+        <button type="button" onclick="diario.getEntradas()">Recuperar</button>
+    </section>
+
+    <section>
+        <h2>Añade una entrada al diario</h2>
+        <form>
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="title" placeholder="Título de la entrada" required />
+            <label for="content">Texto:</label>
+            <input type="text" name="content" id="content" placeholder="Texto de la entrada" required />
+    
+            <button type="button" onclick="diario.añadirEntrada()">Enviar</button>
+        </form>
     </section>
     
     <script src="js/diario.js"></script>

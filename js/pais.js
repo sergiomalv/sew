@@ -98,7 +98,9 @@ class Pais {
                 weather.appendTo("body");
             },
             error:function(){
+                const title = $("<h2>Ha ocurrido un error</h2>");
                 const weather = $("<section></section>").attr("data-type", "weather");
+                title.appendTo(weather);
                 weather.append("Algo ha ido mal").appendTo("body");
             }
         });
