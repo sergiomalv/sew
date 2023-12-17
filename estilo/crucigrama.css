@@ -61,8 +61,8 @@ section[data-type=botonera] {
 
     /* Especificidad: 012 */
     section[data-type=botonera] button {
-        width: calc(15% - 1em);
-        height: 4em;
+        width: 5em;
+        height: 5em;
         text-align: center;
         background-color: #000;
         color: #FFF;
