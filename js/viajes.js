@@ -254,6 +254,7 @@ class Viajes {
                     var result = $($.parseXML(svg)).find('svg');
 
                     result.removeAttr('xmlns').removeAttr('version');
+                    result.removeAttr('width').removeAttr('height');
 
                     result.appendTo("section:first");
                 }.bind(this);
