@@ -189,7 +189,7 @@ class Crucigrama {
         form.attr('name', 'record')
 
         const label_name = $('<label></label>');
-        label_name.text('Nombre: ');
+        label_name.text('Nombre ');
         label_name.attr('for', 'nombre');
 
         const input_name = $('<input></input>');
@@ -199,7 +199,7 @@ class Crucigrama {
         input_name.attr('placeholder', 'Introduce tu nombre');
 
         const label_surname = $('<label></label>');
-        label_surname.text('Apellidos: ');
+        label_surname.text('Apellidos ');
         label_surname.attr('for', 'apellidos');
 
         const input_surname = $('<input></input>');
@@ -209,7 +209,7 @@ class Crucigrama {
         input_surname.attr('placeholder', 'Introduce tus apellidos');
 
         const label_time = $('<label></label>');
-        label_time.text('Tiempo: ');
+        label_time.text('Tiempo ');
         label_time.attr('for', 'tiempo');
 
         const input_time = $('<input></input>');
@@ -220,7 +220,7 @@ class Crucigrama {
         input_time.attr('readonly', 'readonly');
 
         const label_level = $('<label></label>');
-        label_level.text('Nivel: ');
+        label_level.text('Nivel ');
         label_level.attr('for', 'nivel');
 
         const input_level = $('<input></input>');

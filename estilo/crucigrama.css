@@ -68,3 +68,20 @@ section[data-type=botonera] {
         color: #FFF;
     }
 }
+
+/* Especificidad: 003 */
+section form label {
+    display: block;
+    margin-bottom: 0.3125em;
+    font-weight: bold;
+}
+
+/* Especificidad: 003 */
+section form input {
+    width: 100%;
+    margin-bottom: 0.625em;
+    border: 0.0625em solid #000000;
+    border-radius: 0.25em;
+    background-color: transparent;
+    color: #000000;
+}
