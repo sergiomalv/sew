@@ -145,4 +145,4 @@ class DiarioViaje {
 
 }
 
-let diario = new DiarioViaje('Diario de viaje');
+var diario = new DiarioViaje('Diario de viaje');

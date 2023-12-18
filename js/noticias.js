@@ -12,22 +12,22 @@ class Noticias {
     }
 
     readInputFile(file) {
-        var archivo = file[0];
+        let archivo = file[0];
 
-        var tipoTexto = /text.*/;
+        let tipoTexto = /text.*/;
 
         if (archivo.type.match(tipoTexto)) {
-            var lector = new FileReader();
+            let lector = new FileReader();
             lector.onload = function (evento) {
-                var text = lector.result.split("\n");
+                let text = lector.result.split("\n");
 
                 const main = $("main");
 
-                for (var i = 0; i < text.length; i++) {
-                    var noticia = text[i].split("_");
-                    var title = $("<h3></h3>").text(noticia[0]);
-                    var content = $("<p></p>").text(noticia[1] + ". " + noticia[2] + ".");
-                    var author = $("<em></em>").text(noticia[3]);
+                for (let i = 0; i < text.length; i++) {
+                    let noticia = text[i].split("_");
+                    let title = $("<h3></h3>").text(noticia[0]);
+                    let content = $("<p></p>").text(noticia[1] + ". " + noticia[2] + ".");
+                    let author = $("<em></em>").text(noticia[3]);
 
                     main.append(title).append(content).append(author);
                 }
@@ -39,14 +39,14 @@ class Noticias {
     addNoticia() {
         const main = $("main");
 
-        var form = document.querySelector("form");
-        var titleValue = form.elements['title'].value;
-        var contentValue = form.elements['content'].value;
-        var authorValue = form.elements['author'].value;
+        let form = document.querySelector("form");
+        let titleValue = form.elements['title'].value;
+        let contentValue = form.elements['content'].value;
+        let authorValue = form.elements['author'].value;
 
-        var titleElement = $("<h3></h3>").text(titleValue);
-        var contentElement = $("<p></p>").text(contentValue);
-        var authorElement = $("<em></em>").text(authorValue);
+        let titleElement = $("<h3></h3>").text(titleValue);
+        let contentElement = $("<p></p>").text(contentValue);
+        let authorElement = $("<em></em>").text(authorValue);
 
         main.append(titleElement).append(contentElement).append(authorElement);
     }

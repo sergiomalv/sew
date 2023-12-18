@@ -42,14 +42,14 @@ class Viajes {
     }
 
     getMapaEstaticoGoogle() {
-        var apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
-        var url = "https://maps.googleapis.com/maps/api/staticmap?";
-        var centro = "center=" + this.getLatitud() + "," + this.getLongitud();
+        let apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
+        let url = "https://maps.googleapis.com/maps/api/staticmap?";
+        let centro = "center=" + this.getLatitud() + "," + this.getLongitud();
         console.log(this.getLatitud(), this.getLongitud());
-        var zoom = "&zoom=15";
-        var tamaño = "&size=800x600";
-        var marcador = "&markers=color:red%7Clabel:S%7C" + this.getLatitud() + "," + this.getLongitud();
-        var sensor = "&sensor=false";
+        let zoom = "&zoom=15";
+        let tamaño = "&size=800x600";
+        let marcador = "&markers=color:red%7Clabel:S%7C" + this.getLatitud() + "," + this.getLongitud();
+        let sensor = "&sensor=false";
 
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
@@ -63,8 +63,8 @@ class Viajes {
     }
 
     getMapaDinamicoGoogle() {
-        var centro = { lat: 43.3672702, lng: -5.8502461 };
-        var mapaGeoposicionado = new google.maps.Map(document.querySelector('main'), {
+        let centro = { lat: 43.3672702, lng: -5.8502461 };
+        let mapaGeoposicionado = new google.maps.Map(document.querySelector('main'), {
             zoom: 8,
             center: centro,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -72,10 +72,10 @@ class Viajes {
 
         this.mapaGeoposicionado = mapaGeoposicionado;
 
-        var infoWindow = new google.maps.InfoWindow;
+        let infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
+                let pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
@@ -101,33 +101,33 @@ class Viajes {
     }
 
     readXML(file) {
-        var archivo = file[0];
+        let archivo = file[0];
 
-        var tipoXML = /xml.*/;
+        let tipoXML = /xml.*/;
 
         if (archivo.type.match(tipoXML)) {
-            var lector = new FileReader();
+            let lector = new FileReader();
             lector.onload = function (evento) {
-                var xml = lector.result;
+                let xml = lector.result;
                 const section = $("section:first")
 
                 $(xml).find('ruta').each(function () {
-                    var rutaName = $(this).attr('nombre');
-                    var rutaType = $(this).attr('tipo');
-                    var medioTransporte = $(this).find('medio-transporte').text();
-                    var inicioRuta = $(this).find('inicio-ruta').text();
-                    var horaInicio = $(this).find('hora-inicio').text();
-                    var duracion = $(this).find('duracion').text();
-                    var agencia = $(this).find('agencia').text();
-                    var descripcion = $(this).find('descripcion').text();
-                    var personasAdecuadas = $(this).find('personas-adecuadas').text();
-                    var lugarInicio = $(this).find('lugar-inicio').text();
-                    var direccionInicio = $(this).find('direccion-inicio').text();
-                    var coordenadas = $(this).find('coordenadas');
-                    var longitud = coordenadas.attr('longitud');
-                    var latitud = coordenadas.attr('latitud');
-                    var altitud = coordenadas.attr('altitud');
-                    var recomendacion = $(this).find('recomendacion').text();
+                    let rutaName = $(this).attr('nombre');
+                    let rutaType = $(this).attr('tipo');
+                    let medioTransporte = $(this).find('medio-transporte').text();
+                    let inicioRuta = $(this).find('inicio-ruta').text();
+                    let horaInicio = $(this).find('hora-inicio').text();
+                    let duracion = $(this).find('duracion').text();
+                    let agencia = $(this).find('agencia').text();
+                    let descripcion = $(this).find('descripcion').text();
+                    let personasAdecuadas = $(this).find('personas-adecuadas').text();
+                    let lugarInicio = $(this).find('lugar-inicio').text();
+                    let direccionInicio = $(this).find('direccion-inicio').text();
+                    let coordenadas = $(this).find('coordenadas');
+                    let longitud = coordenadas.attr('longitud');
+                    let latitud = coordenadas.attr('latitud');
+                    let altitud = coordenadas.attr('altitud');
+                    let recomendacion = $(this).find('recomendacion').text();
 
                     const title = $("<h3>" + rutaName + "</h3>");
                     const list = $("<ul></ul>");
@@ -150,18 +150,18 @@ class Viajes {
                     list.appendTo(section);
 
                     $(this).find('referencias-bibliografia').each(function () {
-                        var referencia = $(this).find('referencia-bibliografia').text();
+                        let referencia = $(this).find('referencia-bibliografia').text();
                     });
 
 
                     $(this).find('hito').each(function () {
-                        var nombreHito = $(this).find('nombre-hito').text();
-                        var descripcionHito = $(this).find('descripcion-hito').text();
-                        var coordenadas = $(this).find('coordenadas');
-                        var longitud = coordenadas.attr('longitud');
-                        var latitud = coordenadas.attr('latitud');
-                        var altitud = coordenadas.attr('altitud');
-                        var distancia = $(this).find('distancia').text();
+                        let nombreHito = $(this).find('nombre-hito').text();
+                        let descripcionHito = $(this).find('descripcion-hito').text();
+                        let coordenadas = $(this).find('coordenadas');
+                        let longitud = coordenadas.attr('longitud');
+                        let latitud = coordenadas.attr('latitud');
+                        let altitud = coordenadas.attr('altitud');
+                        let distancia = $(this).find('distancia').text();
 
                         const title = $("<h4> Hito: " + nombreHito + "</h4>");
                         const list = $("<ul></ul>");
@@ -174,28 +174,28 @@ class Viajes {
                         title.appendTo(section);
                         list.appendTo(section);
 
-                        var existFoto = true;
+                        let existFoto = true;
                         $(this).find('fotografia').each(function () {
                             if (existFoto) {
                                 const title = $("<h5>Galería de imágenes</h5>");
                                 existFoto = false;
                                 title.appendTo(section);
                             }
-                            var foto = $(this).text();
-                            var fotoContent = $("<img src='xml/multimedia/" + foto + "' alt=" + foto + "/>");
+                            let foto = $(this).text();
+                            let fotoContent = $("<img src='xml/multimedia/" + foto + "' alt=" + foto + "/>");
                             fotoContent.appendTo(section);
 
                         });
 
-                        var existVideo = true;
+                        let existVideo = true;
                         $(this).find('video').each(function () {
                             if (existVideo) {
                                 const title = $("<h5>Galería de vídeos</h5>");
                                 existVideo = false;
                                 title.appendTo(section);
                             }
-                            var video = $(this).text();
-                            var videoContent = $("<video src='xml/multimedia/" + video + "' controls></video>");
+                            let video = $(this).text();
+                            let videoContent = $("<video src='xml/multimedia/" + video + "' controls></video>");
                             videoContent.appendTo(section);
                         });
                     });
@@ -213,18 +213,18 @@ class Viajes {
             let lector = new FileReader();
 
             lector.onload = function (event) {
-                var kml = lector.result;
-                var coordenadas = $(kml).find('coordinates').text();
-                var cleanCoordenadas = coordenadas.trim().split('\n');
-                var points = [];
+                let kml = lector.result;
+                let coordenadas = $(kml).find('coordinates').text();
+                let cleanCoordenadas = coordenadas.trim().split('\n');
+                let points = [];
                 for (let j = 0; j < cleanCoordenadas.length; j++) {
-                    var coordenada = cleanCoordenadas[j].split(',');
-                    var latitud = coordenada[1];
-                    var longitud = coordenada[0];
+                    let coordenada = cleanCoordenadas[j].split(',');
+                    let latitud = coordenada[1];
+                    let longitud = coordenada[0];
                     points.push({ lat: parseFloat(latitud), lng: parseFloat(longitud) });
                 }
 
-                var ruta = new google.maps.Polyline({
+                let ruta = new google.maps.Polyline({
                     path: points,
                     strokeColor: "#FF0000",
                     strokeOpacity: 1.0,
@@ -245,13 +245,13 @@ class Viajes {
             let archivo = files[i];
             let lector = new FileReader();
 
-            var tipoSVG = /svg.*/;
+            let tipoSVG = /svg.*/;
 
             if (archivo.type.match(tipoSVG)) {
                 lector.onload = function (event) {
-                    var svg = lector.result;
+                    let svg = lector.result;
 
-                    var result = $($.parseXML(svg)).find('svg');
+                    let result = $($.parseXML(svg)).find('svg');
 
                     result.removeAttr('xmlns').removeAttr('version');
                     result.removeAttr('width').removeAttr('height');
@@ -272,7 +272,7 @@ class Viajes {
         }
 
         this.slides.each((indx, slide) => {
-            var trans = 100 * (indx - this.curSlide);
+            let trans = 100 * (indx - this.curSlide);
             $(slide).css('transform', 'translateX(' + trans + '%)')
         });
     }
@@ -285,7 +285,7 @@ class Viajes {
         }
 
         this.slides.each((indx, slide) => {
-            var trans = 100 * (indx - this.curSlide);
+            let trans = 100 * (indx - this.curSlide);
             $(slide).css('transform', 'translateX(' + trans + '%)')
         });
     }

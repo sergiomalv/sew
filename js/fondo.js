@@ -7,7 +7,7 @@ class Fondo {
     }
 
     getPhoto() {
-        var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        let flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 
         $.getJSON(flickrAPI,
             {
