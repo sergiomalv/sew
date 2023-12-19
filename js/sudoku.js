@@ -13,8 +13,12 @@ class Sudoku {
 
     }
 
+    /**
+     * Inicializa el juego en función del string que se le pasa
+     * @param {*} gameString Juego inicial en formato string
+     */
     start(gameString) {
-        /* Fill the cells with the data of gameString */
+        // Inicializamos el array de celdas y le asociamos el valor
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 if (gameString[i * this.columns + j] == '.') {
@@ -26,6 +30,9 @@ class Sudoku {
         }
     }
 
+    /**
+     * Método para la creación de la estructura del sudoku en el HTML
+     */
     createStructure() {
         const section = document.querySelector('main');
 
@@ -54,22 +61,30 @@ class Sudoku {
         }
     }
 
+    /**
+     * Método para pintar el sudoku en el HTML
+     */
     paintSudoku() {
         this.createStructure();
     }
 
+    /**
+     * Método con la lógica a seguir cuando se introduce un número
+     * @param {*} number Número que se introduce
+     */
     introduceNumber(number) {
+        // Comprombar que se ha seleccionado una casilla
         if (document.querySelector('[data-state="clicked"]') == null) {
             alert("Selecciona una casilla");
             return;
         }
 
-        /* Get the row and column of the selected cell */
+        // Se obtienee la celda y la columna del número seleccionado
         let row = document.querySelector('[data-state="clicked"]').getAttribute("data-row");
         let column = document.querySelector('[data-state="clicked"]').getAttribute("data-column");
 
-        /* Check if the number is correct */
-        /* Check if the number is in the row */
+        // Comprobamos que es un número válido	
+        // Check horizontal
         for (let i = 0; i < this.rows; i++) {
             if (this.cells[row][i] === number) {
                 alert("Ya existe ese número en la fila");
@@ -77,7 +92,7 @@ class Sudoku {
             }
         }
 
-        /* Check if the number is in the column */
+        // Check vertical
         for (let i = 0; i < this.columns; i++) {
             if (this.cells[i][column] === number) {
                 alert("Ya existe ese número en la columna");
@@ -85,7 +100,7 @@ class Sudoku {
             }
         }
 
-        /* Check if the number is in the square */
+        // Check de casilla
         let squareRow = Math.floor(row / 3) * 3;
         let squareColumn = Math.floor(column / 3) * 3;
         for (let i = squareRow; i < squareRow + 3; i++) {
@@ -97,15 +112,19 @@ class Sudoku {
             }
         }
 
-
+        // Si todo es correcto, se introduce el número
         let p = document.querySelector('[data-state="clicked"]');
         p.textContent = number
         p.setAttribute("data-state", "correct");
         this.cells[row][column] = number;
 
+        // Comprobamos que hemos finalizado el juego
         checkSudoku();
     }
 
+    /**
+     * Método para comprobar si se ha ganado el juego
+     */
     checkSudoku() {
 
         let correct = true;

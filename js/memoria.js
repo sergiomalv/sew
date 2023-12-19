@@ -78,7 +78,9 @@ class Memoria {
         this.addEventListeners();
     }
 
-    /* Métodos de utilidad */
+    /**
+     * Método para barajar los elementos del JSON
+     */
     shuffleElements() {
         // Algoritmo Durstenfeld
         let indiceActual = this.elements.elements.length;
@@ -96,6 +98,9 @@ class Memoria {
         }
     }
 
+    /**
+     * Método para voltear la carta seleccionada
+     */
     unflipCards() {
         this.lockBoard = true;
 
@@ -107,6 +112,9 @@ class Memoria {
         }, 1000);
     }
 
+    /**
+     * Método para resetear el tablero
+     */
     resetBoard(){
         this.firstCard = null;
         this.secondCard = null;
@@ -114,11 +122,17 @@ class Memoria {
         this.lockBoard = false;
     }
 
+    /**
+     * Método para comprobar si las cartas son iguales
+     */
     checkForMatch(){
         this.firstCard.getAttribute("data-element") === this.secondCard.getAttribute("data-element") ? 
             this.disableCards() : this.unflipCards();
     }
 
+    /**
+     * Método para deshabilitar las cartas si son iguales
+     */
     disableCards(){
         // Revelamos las dos cartas
         this.firstCard.setAttribute("data-state", "revealed");
@@ -127,6 +141,9 @@ class Memoria {
         this.resetBoard();
     }
 
+    /**
+     * Método para crear las cartas del juego
+     */
     createElements() {
         const section = document.querySelector('section:nth-of-type(2)');
 
@@ -157,6 +174,10 @@ class Memoria {
         });
     }
 
+    /**
+     * Lógica del juego cuando se voltean las cartas
+     * @param {*} game Estado del juego
+     */
     flipCard(game) {
         // Si el tablero está bloqueado, no hacemos nada
         if (game.lockBoard) return;
@@ -171,14 +192,12 @@ class Memoria {
         if (!game.hasFlippedCard) {
             game.hasFlippedCard = true;
             game.firstCard = this;
-
             return;
         }
 
         // Si es la segunda carta que se voltea
         game.hasFlippedCard = false;
         game.secondCard = this;
-
         // Comprobamos si hay match
         game.checkForMatch();
     }

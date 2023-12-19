@@ -11,6 +11,10 @@ class Noticias {
         else document.write("<p>¡¡¡ Este navegador NO soporta el API File y este programa puede no funcionar correctamente !!!</p>");
     }
 
+    /**
+     * Lee un conjunto de noticias de un fichero de texto
+     * @param {*} file Archivo que se lee
+     */
     readInputFile(file) {
         let archivo = file[0];
 
@@ -26,6 +30,8 @@ class Noticias {
                 for (let i = 0; i < text.length; i++) {
                     let noticia = text[i].split("_");
                     let title = $("<h3></h3>").text(noticia[0]);
+                    // En el caso de noticias.txt, se junta el texto de las dos noticias en una sola línea y se 
+                    // pone un punto al final de cada noticia
                     let content = $("<p></p>").text(noticia[1] + ". " + noticia[2] + ".");
                     let author = $("<em></em>").text(noticia[3]);
 
@@ -36,6 +42,9 @@ class Noticias {
         lector.readAsText(archivo);
     }
 
+    /**
+     * Formulario para introducir nuevas noticias
+     */
     addNoticia() {
         const main = $("main");
 

@@ -54,6 +54,9 @@ class Pais {
         document.write("<p> Coordenadas del país: " + this.coordenadas_capital + "</p>");
     }
 
+    /**
+     * Método para obtener la meteorología de la capital del país
+     */
     getWeather() {
         var API_KEY = "36c03ab57467d8c7424b4a7948d090e4";
 

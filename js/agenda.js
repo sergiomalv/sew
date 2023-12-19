@@ -10,8 +10,12 @@ class Agenda {
         this.last_api_result = null
     }
 
+    /**
+     * Retorna la información de la agenda de Fórmula 1, en el caso de que la petición haya sido realizada 
+     * hace más de 10 minutos, se realiza una nueva petición a la API
+     */
     getData() {
-        // Comprobar que la petición ha sido realizada hace más de 10 minutos
+        // Comprobamos que la petición ha sido realizada hace más de 10 minutos
         if (this.last_api_call === null){
             this.last_api_call = new Date().getTime();
         } else {

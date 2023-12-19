@@ -17,11 +17,14 @@ class Crucigrama {
         this.start(board);
     }
 
+    /**
+     * Inicializa el crucigrama con los datos del tablero
+     */
     start(board) {
-        /* Split the board in an array */
+        // Convertir el string en un array
         board = board.split(',');
 
-        /* Fill the cells with the data of board */
+        // Llenamos el tablero
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 if (board[i * this.columns + j] == '.') {
@@ -35,6 +38,9 @@ class Crucigrama {
         }
     }
 
+    /**
+     * Pinta el crucigrama en el HTML
+     */
     paintMathword() {
         const main = $("main");
 
@@ -66,6 +72,10 @@ class Crucigrama {
 
     }
 
+    /**
+     * Comprueba si hemos terminado el crucigrama
+     * @returns true si se ha completado el crucigrama, false en caso contrario
+     */
     check_win_condition() {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
@@ -77,6 +87,10 @@ class Crucigrama {
         return true;
     }
 
+    /**
+     * Calcula la diferencia entre la hora de inicio y la hora de finalización
+     * @returns la diferencia entre la hora de inicio y la hora de finalización
+     */
     calculate_date_difference() {
         let result = this.end_time - this.init_time;
     
@@ -84,7 +98,7 @@ class Crucigrama {
         let m = Math.floor((result % (1000 * 60 * 60)) / (1000 * 60));
         let s = Math.floor((result % (1000 * 60)) / 1000);
     
-        // Añadir un cero al principio si el número es menor que 10
+        // Añadimos un cero al principio si el número es menor que 10
         h = h < 10 ? '0' + h : h;
         m = m < 10 ? '0' + m : m;
         s = s < 10 ? '0' + s : s;
@@ -92,8 +106,12 @@ class Crucigrama {
         return h + ":" + m + ":" + s;
     }
     
-
+    /**
+     * Lógica de introducción de elementos en el crucigrama
+     * @param {*} element Elemento que se introduce
+     */
     introduceElement(element) {
+        // Comprobamos que se ha seleccionado una casilla
         if ($('p[data-state="clicked"]').length === 0) {
             alert("Selecciona una casilla");
             return;
@@ -102,14 +120,14 @@ class Crucigrama {
         let expression_row = true;
         let expression_col = true;
 
-        /* Get the row and column of the selected cell */
+        // Columna y fila de la casilla seleccionada
         const row = parseInt($('p[data-state="clicked"]').attr("data-row"));
         const column = parseInt($('p[data-state="clicked"]').attr("data-column"));
 
         this.cells[row][column] = element;
 
 
-        /* Check horizontal */
+        // Check horizontal
         if (column < this.columns -1 && this.cells[row][column + 1] != -1) {
             let counter = 0;
             while (this.cells[row][column + counter] != "=") {
@@ -132,7 +150,7 @@ class Crucigrama {
         }
 
 
-        /* Check vertical */
+        // Check vertical
         if (row < this.rows -1 && this.cells[row + 1][column] != -1) {
             let counter = 0;
             while (this.cells[row + counter][column] != "=") {
@@ -154,10 +172,12 @@ class Crucigrama {
             }
         }
 
+        // Introducimos el elemento en la casilla seleccionada si es correcto
         let p = $('p[data-state="clicked"]');
         if (expression_row && expression_col) {
             p.text(element);
             p.attr("data-state", "correct");
+        // En caso contrario, lo dejamos como al principio
         } else {
             this.cells[row][column] = 0;
             p.attr("data-state", "init");
@@ -165,6 +185,7 @@ class Crucigrama {
 
         }
 
+        // Comprobamos si hemos ganado
         if (this.check_win_condition()) {
             this.end_time = new Date();
             let time = this.calculate_date_difference();
@@ -173,6 +194,10 @@ class Crucigrama {
         }
     }
 
+    /**
+     * Formulario para guardar el tiempo de la partida
+     * @param {*} time Tiempo total de la partida
+     */
     createRecordForm(time) {
         let timeParts = time.split(":");
         let horas = parseInt(timeParts[0]);

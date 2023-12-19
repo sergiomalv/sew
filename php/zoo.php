@@ -18,6 +18,9 @@ class Zoo {
         $this->connect();
     }
 
+    /**
+     * Conexión a la base de datos
+     */
     public function connect() {
         $this->conn = new mysqli($this->server, $this->user, $this->pass);
         if ($this->conn->connect_error) {
@@ -25,20 +28,111 @@ class Zoo {
         }
     }
 
+    /**
+     * Exporta los datos de la base de datos a un archivo ZIP, los CSV tienen el nombre de la carpeta asociada
+     */
     public function exportData() {
-        $query = $this->conn->query("SELECT * FROM " . $this->dbname . " ORDER BY id DESC");
-
-        if($query->num_rows > 0){
-            $delimiter = ",";
-            $filename = "zoo" . date('Y-m-d') . ".csv";
+        // Accedemos a la información de cada tabla y la guardamos en un CSV
+        foreach ($this->tables as $table) {
+            $query = $this->conn->query("SELECT * FROM $this->dbname.$table");
+            if ($query->num_rows > 0) {
+                $filename = $table . ".csv";
+                $handle = fopen($filename, 'w');
+                
+                $columns = array();
+                while ($column = $query->fetch_field()) {
+                    $columns[] = $column->name;
+                }
+                fputcsv($handle, $columns);
+    
+                // Añadir los datos a cada archivo CSV
+                while ($row = $query->fetch_assoc()) {
+                    fputcsv($handle, $row);
+                }
+    
+                fclose($handle);
+            }
         }
+        // Creamos el archivo zoo.zip donde guardaremos todos los CSV
+        $zip = new ZipArchive();
+        $zipname = "zoo.zip";
+        if ($zip->open($zipname, ZipArchive::CREATE)!==TRUE) {
+            exit("cannot open <$zipname>\n");
+        }
+
+        // Añadimos los CSV al archivo ZIP
+        foreach ($this->tables as $table) {
+            $filename = $table . ".csv";
+            $zip->addFile($filename);
+        }
+        // Finalizar y descargar el archivo ZIP
+        $zip->close();
+
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename = $zipname");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        readfile($zipname);
+        exit;
     }
     
-
+    /**
+     * Importa los datos de un archivo CSV a la base de datos
+     * [IMPORTANTE] Se deben importar en este orden:
+     * 1. establo.csv
+     * 2. animal.csv
+     * 3. cuidador.csv
+     * 4. comida.csv
+     * 5. animalxcuidador.csv
+     */
     public function importData() {
+        // Obtenemos el archivo CSV
+        $archivoCSV = $_FILES["importar"];
 
+        // Obtenemos el nombre de la tabla
+        $nombreTabla = pathinfo($archivoCSV['name'], PATHINFO_FILENAME);
+
+        // Abrimos el archivo CSV
+        if (($handle = fopen($archivoCSV['tmp_name'], "r")) !== FALSE) {
+            
+            // Obtenemos el nombre de las columnas de la primera línea
+            $nombreColumnas = fgetcsv($handle, 1000, ",");
+            $nombreColumnas = implode(", ", $nombreColumnas);
+
+            // Importamos los datos
+            while (($datos = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                // Variables auxiliares
+                $longitud = count($datos);      // Longitud de los datos
+                $prepararValores = "";          // Valores a preparar para la consulta
+                $tipoValores = "";              // Tipos de valores a insertar
+                for ($i = 0; $i < $longitud; $i++) {
+                    $tipoValores .= "s";
+                    if ($i == $longitud - 1) {
+                        $prepararValores .= "?";
+                        break;
+                    }
+                    $prepararValores .= "?,";
+                }
+                
+                $sql = "INSERT INTO $this->dbname.$nombreTabla ($nombreColumnas) VALUES ($prepararValores)";
+                
+                $sql = $this->conn->prepare($sql);
+                $sql->bind_param($tipoValores, ...$datos);
+                if ($sql->execute() === FALSE) {
+                    echo "<p>Error al importar los datos: " . $this->conn->error . "</p>";
+                    $sql->close();
+                    return;
+                }
+
+            }
+            fclose($handle);
+            echo "<p>¡Datos importados correctamente!</p>";
+        }
     }
 
+    /**
+     * Crea la base de datos y rellena la tabla en el caso de que no existan
+     */
     public function prepararBase() {
         // Comprobar que la base de datos está zoo creada
         $sql = "CREATE DATABASE IF NOT EXISTS $this->dbname";
@@ -61,6 +155,10 @@ class Zoo {
         }
     }
 
+    /**
+     * Muestra toda la información sobre los establos, animales y cuidadores
+     * Permite conocer el ID de los establos, animales y cuidadores
+     */
     public function verInformacion() {
         // Obtenemos todos los establos
         $sql = "SELECT * FROM $this->dbname.establo";
@@ -171,6 +269,9 @@ class Zoo {
         echo "</ul>";
     }
 
+    /**
+     * Alimenta a un animal restando una unidad de hambre y resta una unidad de comida al cuidador
+     */
     public function alimentarAnimal() {
         $idAnimal = $_POST["animal"];
         $idCuidador = $_POST["cuidadorComer"];
@@ -271,6 +372,9 @@ class Zoo {
             El cuidador $nombreCuidador ha perdido una unidad de comida.</p>";
     }
 
+    /**
+     * Añade un animal a un establo y lo asocia a un cuidador
+     */
     public function añadirAnimal() {
         $nombreAnimal = $_POST["nombreAnimal"];
         $razaAnimal = $_POST["razaAnimal"];
@@ -373,7 +477,6 @@ class Zoo {
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
     <link rel="icon" href="../multimedia/imagenes/favicon.png" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -410,6 +513,13 @@ class Zoo {
             <label for="exportar">Exportar datos</label>
             <input id="exportar" type="submit" name="exportar" value="Exportar datos" />
         </form>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="importar">Importar datos</label>
+            <input id="importar" type="file" name="importar" value="Importar datos" />
+            <label for="submit">Importar datos</label>
+            <input id="submit" type="submit" name="submit" value="Importar datos" />
+        </form>    
     </section>
 
     <section>
@@ -452,6 +562,14 @@ class Zoo {
 
     if (isset($_POST["preparar"])) {
         $zoo->prepararBase();
+    }
+
+    if (isset($_POST["exportar"])) {
+        $zoo->exportData();
+    }
+
+    if (isset($_POST["submit"])) {
+        $zoo->importData();
     }
 
     if (isset($_POST["informacion"])) {

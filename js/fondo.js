@@ -6,6 +6,10 @@ class Fondo {
         this.getPhoto();
     }
 
+    /**
+     * Método para obtener la foto del país
+     * Se obtiene la primera foto que se encuentra en Flickr con las etiquetas del país y su capital
+     */
     getPhoto() {
         let flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 

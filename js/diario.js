@@ -12,18 +12,26 @@ class DiarioViaje {
         this.start();
     }
 
-    /* Método para procesar la posición */
+    /**
+     * Método para comprobar que la ubicación está disponible
+     * @param {*} posicion Datos sobre la posición del usuario
+     */
     posicionAccesible(posicion) {
         this.ubicacionInnacesible = false;
     }
 
-    /* Método para procesar el error */
+    /**
+     * Método para comprabar que la ubicación no está disponible
+     * @param {*} error Error que recibe el método
+     */
     procesarError(error) {
         alert('Error al obtener la localización, se usará la localización 0,0');
         this.ubicacionInnacesible = true;
     }
 
-    /* Método para iniciar la base de datos */
+    /**
+     * Método para iniciar la base de datos 
+     */
     start() {
         // Nos conectamos la base de datos 
         let openRequest = indexedDB.open(this.nombreBaseDatos);
@@ -37,7 +45,7 @@ class DiarioViaje {
             }
         };
 
-        // Si la base de datos existe, la asignamos a this.db
+        // Si la base de datos existe, la asignamos a la variable this.db
         openRequest.onsuccess = (event) => {
             this.db = event.target.result;
         };
@@ -48,7 +56,9 @@ class DiarioViaje {
         };
     }
 
-    /* Método para añadir una entrada al diario */
+    /**
+     * Método para añadir una entrada al diario 
+     */
     añadirEntrada() {
         // Obtenemos los valores del formulario
         let form = document.querySelector("form");
@@ -93,7 +103,9 @@ class DiarioViaje {
         }
     }
 
-    /* Método para obtener todas las entradas del diario */
+    /**
+     * Método para obtener todas las entradas del diari
+     */
     getEntradas() {
         // Creamos una transacción de solo lectura y obtenemos todas las entradas del diario
         let transaction = this.db.transaction(['entradas'], 'readonly');
@@ -102,7 +114,7 @@ class DiarioViaje {
 
         request.onsuccess = () => {
             const section = $('section:nth-of-type(2)');
-            
+
             // Borramos el contenido de la sección
             section.empty();
             // Añadimos un título a la section
@@ -132,7 +144,10 @@ class DiarioViaje {
         };
     }
 
-    /* Método para copiar una entrada */
+    /**
+     * Método para copiar una entrada al portapapeles
+     * @param {*} texto Texto que copiamos al portapapeles
+     */
     copiarTextoAlPortapapeles(texto) {
         navigator.clipboard.writeText(texto)
             .then(() => {

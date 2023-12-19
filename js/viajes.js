@@ -41,6 +41,9 @@ class Viajes {
         return this.altitud;
     }
 
+    /**
+     * Método para obtener la ubicación del usuario y pintarla en un mapa estático de Google
+     */
     getMapaEstaticoGoogle() {
         let apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
         let url = "https://maps.googleapis.com/maps/api/staticmap?";
@@ -62,6 +65,9 @@ class Viajes {
         section.insertAfter("section:first");
     }
 
+    /**
+     * Método para obtener la ubicación del usuario y pintarla en un mapa dinámico de Google
+     */
     getMapaDinamicoGoogle() {
         let centro = { lat: 43.3672702, lng: -5.8502461 };
         let mapaGeoposicionado = new google.maps.Map(document.querySelector('main'), {
@@ -100,6 +106,10 @@ class Viajes {
         infoWindow.open(mapaGeoposicionado);
     }
 
+    /**
+     * Método para leer la información de un fichero XML
+     * @param {*} file Archivo que se lee
+     */
     readXML(file) {
         let archivo = file[0];
 
@@ -205,6 +215,12 @@ class Viajes {
         lector.readAsText(archivo);
     }
 
+    /**
+     * Función para leer un archivo KML
+     * [ATENCIÓN] En el caso de llamar a este método se debe mover el mapa hasta Eslovaquia para 
+     * poder ver las rutas en el mapa
+     * @param {*} files Archivo que se lee
+     */
     readKML(files) {
         const nFiles = files.length;
 
@@ -238,6 +254,10 @@ class Viajes {
 
     }
 
+    /**
+     * Función para leer un archivo SVG
+     * @param {*} files Archivo que se lee
+     */
     readSVG(files) {
         const nFiles = files.length;
 
@@ -253,6 +273,7 @@ class Viajes {
 
                     let result = $($.parseXML(svg)).find('svg');
 
+                    // Se eliminan estos atributos para evitar problemas de validación
                     result.removeAttr('xmlns').removeAttr('version');
                     result.removeAttr('width').removeAttr('height');
 
@@ -264,6 +285,7 @@ class Viajes {
 
     }
 
+    //-------------------- CÓDIGO DE CARRUSEL DE IMÁGENES --------------------
     nextSlide() {
         if (this.curSlide === this.maxSlide) {
             this.curSlide = 0;
