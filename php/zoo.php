@@ -576,19 +576,16 @@ if (isset($_POST["exportar"])) {
     <section>
         <h2>Opciones de administrador</h2>
         <form action="#" method="post">
-            <label for="preparar">Preparar base de datos</label>
-            <input id="preparar" type="submit" name="preparar" value="Preparar base de datos" />
+            <input type="submit" name="preparar" value="Preparar base de datos" />
         </form>
         <form action="#" method="post">
-            <label for="exportar">Exportar datos</label>
-            <input id="exportar" type="submit" name="exportar" value="Exportar datos" />
+            <input type="submit" name="exportar" value="Exportar datos" />
         </form>
 
         <form action="#" method="post" enctype="multipart/form-data">
-            <label for="importar">Importar datos</label>
+            <label for="importar">Añada nuevos datos en formato CSV</label>
             <input id="importar" type="file" name="importar"/>
-            <label for="submit">Importar datos</label>
-            <input id="submit" type="submit" name="submit" value="Importar datos" />
+            <input type="submit" name="submit" value="Importar datos" />
         </form>    
     </section>
 

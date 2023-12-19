@@ -2,39 +2,39 @@
 <html lang="es"><head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8">
-    <meta name="author" content="Sergio Murillo Álvarez"/>
-    <meta name="description" content="Juego de crucigrama matemático"/>
-    <meta name="keywords" content="juegos, entretenimiento, matemática, suma, resta, multiplicación"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Sergio Murillo Álvarez">
+    <meta name="description" content="Simulador de administración de un zoo">
+    <meta name="keywords" content="administracion, zoo, animales, simulacion">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Escritorio Virtual</title>
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
-    <link rel="stylesheet" type="text/css" href="estilo/zoo.css"/>
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
-    <link rel="icon" href="multimedia/imagenes/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/zoo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="icon" href="../multimedia/imagenes/favicon.png">
 </head>
 
 <body>
 <header>
         <h1>Escritorio Virtual</h1>
         <nav>
-            <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
-            <a href="sobremi.html" accesskey="s" tabindex="2">Sobre mi</a>
-            <a href="noticias.html" accesskey="n" tabindex="3">Noticias</a>
-            <a href="agenda.html" accesskey="a" tabindex="4">Agenda</a>
-            <a href="meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
-            <a href="viajes.php" accesskey="v" tabindex="6">Viajes</a>
-            <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
+            <a href="../index.html" accesskey="i" tabindex="1">Inicio</a>
+            <a href="../sobremi.html" accesskey="s" tabindex="2">Sobre mi</a>
+            <a href="../noticias.html" accesskey="n" tabindex="3">Noticias</a>
+            <a href="../agenda.html" accesskey="a" tabindex="4">Agenda</a>
+            <a href="../meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
+            <a href="../viajes.php" accesskey="v" tabindex="6">Viajes</a>
+            <a href="../juegos.html" accesskey="j" tabindex="7">Juegos</a>
         </nav>
     </header>
 
     <section>
         <h2>Lista de juegos</h2>
         <ul>
-            <li><a href="memoria.html" accesskey="u" tabindex="8">Juego de memoria</a></li>
-            <li><a href="sudoku.html" accesskey="d" tabindex="9">Sudoku</a></li>
-            <li><a href="crucigrama.php" accesskey="c" tabindex="10">Crucigrama matemático</a></li>
-            <li><a href="diario.html" accesskey="r" tabindex="11">Diario de viaje</a></li>
+            <li><a href="../memoria.html" accesskey="u" tabindex="8">Juego de memoria</a></li>
+            <li><a href="../sudoku.html" accesskey="d" tabindex="9">Sudoku</a></li>
+            <li><a href="../crucigrama.php" accesskey="c" tabindex="10">Crucigrama matemático</a></li>
+            <li><a href="../diario.html" accesskey="r" tabindex="11">Diario de viaje</a></li>
             <li><a href="zoo.php" accesskey="z" tabindex="12">Zoo interactivo</a></li>
         </ul>
     </section>
@@ -42,19 +42,16 @@
     <section>
         <h2>Opciones de administrador</h2>
         <form action="#" method="post">
-            <label for="preparar">Preparar base de datos</label>
-            <input id="preparar" type="submit" name="preparar" value="Preparar base de datos">
+            <input type="submit" name="preparar" value="Preparar base de datos">
         </form>
         <form action="#" method="post">
-            <label for="exportar">Exportar datos</label>
-            <input id="exportar" type="submit" name="exportar" value="Exportar datos">
+            <input type="submit" name="exportar" value="Exportar datos">
         </form>
 
         <form action="#" method="post" enctype="multipart/form-data">
-            <label for="importar">Importar datos</label>
+            <label for="importar">Añada nuevos datos en formato CSV</label>
             <input id="importar" type="file" name="importar">
-            <label for="submit">Importar datos</label>
-            <input id="submit" type="submit" name="submit" value="Importar datos">
+            <input type="submit" name="submit" value="Importar datos">
         </form>    
     </section>
 
@@ -70,9 +67,9 @@
         <h2>¡Da de comer un animal!</h2>
         <form action="#" method="post">
             <label for="idAnimal">ID de animal</label>
-            <input id="idAnimal" type="text" name="animal" required="">
+            <input id="idAnimal" type="number" name="animal" required="">
             <label for="idCuidadorComer">ID del cuidador</label>
-            <input id="idCuidadorComer" type="text" name="cuidadorComer" required="">
+            <input id="idCuidadorComer" type="number" name="cuidadorComer" required="">
             <label for="alimentar">Enviar comida</label>
             <input id="alimentar" type="submit" name="alimentar" value="Alimenta">
         </form>
@@ -86,18 +83,19 @@
             <label for="razaAnimal">Raza del animal</label>
             <input id="razaAnimal" type="text" name="razaAnimal" required="">
             <label for="idEstablo">ID del establo</label>
-            <input id="idEstablo" type="text" name="establo" required="">
+            <input id="idEstablo" type="number" name="establo" required="">
             <label for="idCuidadorAñadir">ID del cuidador</label>
-            <input id="idCuidadorAñadir" type="text" name="cuidadorAñadir" required="">
+            <input id="idCuidadorAñadir" type="number" name="cuidadorAñadir" required="">
             <label for="añadir">Añadir animal</label>
             <input id="añadir" type="submit" name="añadir" value="Añadir">
     </form></section>
 
-    <h3>Estado de los establos</h3><h4>Establo Sol - ID: 1</h4><p>Se le puede añadir 1 animal</p><ul><li>Nombre: Tinín<ul><li>ID: 1</li><li>Raza: Mono</li><li>Hambre: 5</li></ul></li><li>Nombre: Kiba<ul><li>ID: 2</li><li>Raza: Fénec</li><li>Hambre: 5</li></ul></li></ul><h4>Establo Luna - ID: 2</h4><p>Se le puede añadir 0 animales</p><ul><li>Nombre: Rascayú<ul><li>ID: 0</li><li>Raza: Periquito</li><li>Hambre: 0</li></ul></li><li>Nombre: Woody<ul><li>ID: 3</li><li>Raza: Pingüino</li><li>Hambre: 3</li></ul></li><li>Nombre: Rico<ul><li>ID: 4</li><li>Raza: Pingüino</li><li>Hambre: 7</li></ul></li></ul><h4>Establo Río - ID: 3</h4><p>Se le puede añadir 0 animales</p><ul><li>Nombre: Charlie<ul><li>ID: 5</li><li>Raza: Jirafa</li><li>Hambre: 6</li></ul></li><li>Nombre: Melman<ul><li>ID: 6</li><li>Raza: Jirafa</li><li>Hambre: 6</li></ul></li><li>Nombre: Oliver<ul><li>ID: 7</li><li>Raza: Jirafa</li><li>Hambre: 9</li></ul></li></ul><h3>Lista de cuidadores</h3><ul><li>Sergio Murillo ( 34 años) 
-                ID: 1<ul><li>Comida: Alfalfa - Unidades: 2</li><li>ID de animales a su cargo: 0 - 1 - 6 - 7</li></ul></li><li>Gerard Gamonal ( 29 años) 
+    <h3>Estado de los establos</h3><h4>Establo Sol - ID: 1</h4><p>Se le puede añadir 1 animal</p><ul><li>Nombre: Tinín<ul><li>ID: 1</li><li>Raza: Mono</li><li>Hambre: 5</li></ul></li><li>Nombre: Kiba<ul><li>ID: 2</li><li>Raza: Fénec</li><li>Hambre: 5</li></ul></li></ul><h4>Establo Luna - ID: 2</h4><p>Se le puede añadir 1 animal</p><ul><li>Nombre: Woody<ul><li>ID: 3</li><li>Raza: Pingüino</li><li>Hambre: 3</li></ul></li><li>Nombre: Rico<ul><li>ID: 4</li><li>Raza: Pingüino</li><li>Hambre: 7</li></ul></li></ul><h4>Establo Río - ID: 3</h4><p>Se le puede añadir 0 animales</p><ul><li>Nombre: Charlie<ul><li>ID: 5</li><li>Raza: Jirafa</li><li>Hambre: 6</li></ul></li><li>Nombre: Melman<ul><li>ID: 6</li><li>Raza: Jirafa</li><li>Hambre: 4</li></ul></li><li>Nombre: Oliver<ul><li>ID: 7</li><li>Raza: Jirafa</li><li>Hambre: 8</li></ul></li></ul><h4>Establo Put - ID: 4</h4><p>Se le puede añadir 0 animales</p><ul><li>Nombre: John<ul><li>ID: 8</li><li>Raza: Rinoceronte</li><li>Hambre: 3</li></ul></li><li>Nombre: Mojo<ul><li>ID: 9</li><li>Raza: Rinoceronte</li><li>Hambre: 8</li></ul></li><li>Nombre: Julien<ul><li>ID: 10</li><li>Raza: Lemur</li><li>Hambre: 10</li></ul></li></ul><h3>Lista de cuidadores</h3><ul><li>Sergio Murillo ( 34 años) 
+                ID: 1<ul><li>Comida: Alfalfa - Unidades: 15</li><li>ID de animales a su cargo: 1 - 6 - 7</li></ul></li><li>Gerard Gamonal ( 29 años) 
                 ID: 2<ul><li>Comida: Granos - Unidades: 10</li><li>ID de animales a su cargo: 2 - 3</li></ul></li><li>Carlos Ruiz ( 40 años) 
-                ID: 3<ul><li>Comida: Heno - Unidades: 20</li><li>ID de animales a su cargo: 4 - 5</li></ul></li></ul>
-
+                ID: 3<ul><li>Comida: Heno - Unidades: 20</li><li>ID de animales a su cargo: 4 - 5</li></ul></li><li>Pablo Álvarez ( 22 años) 
+                ID: 4<ul><li>Comida: Pienso - Unidades: 43</li><li>ID de animales a su cargo: 8</li></ul></li><li>Ramon Linares ( 58 años) 
+                ID: 5<ul><li>Comida: Carne - Unidades: 30</li><li>ID de animales a su cargo: 9 - 10</li></ul></li></ul>
 
 
 </body></html>
