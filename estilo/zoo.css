@@ -28,6 +28,7 @@ section form input[type=submit] {
     color: #970C10;         /* Usa el color de fondo por defecto de input */
     border-radius: 0.3em;
     transition: background-color 0.3s;
+    margin: 0.625em 0;
 }
 
 /* Especificidad: 013 */
