@@ -1,43 +1,54 @@
 <?php
-class Record {
+class Record
+{
 
     private $server;
     private $user;
     private $pass;
     private $dbname;
 
-    public function __construct() { 
+    public function __construct()
+    {
         $this->server = "localhost";
         $this->user = "DBUSER2023";
         $this->pass = "DBPSWD2023";
         $this->dbname = "records";
     }
 
-    public function connect() {
+    public function connect()
+    {
         $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
         if ($conn->connect_error) {
             die("Error de conexión: " . $conn->connect_error);
         }
-        return $conn; 
+        return $conn;
     }
 
-    public function saveRecord() {
+    /**
+     * Guarda el tiempo del usuario en la base de datos
+     */
+    public function saveRecord()
+    {
         $conn = $this->connect();
-        $stmt = $conn->prepare("INSERT INTO records.registro (nombre, apellidos, nivel, tiempo) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO $this->dbname.registro (nombre, apellidos, nivel, tiempo) VALUES (?, ?, ?, ?)");
 
         $stmt->bind_param("sssi", $_POST["nombre"], $_POST["apellidos"], $_POST["nivel"], $_POST["tiempo"]);
-    
+
         if (!$stmt->execute()) {
             die("alert(Error: " . $stmt->error);
         }
-    
+
         $stmt->close();
-        $conn->close(); 
+        $conn->close();
     }
 
-    public function get10Records() {
+    /**
+     * Obtiene los 10 mejores tiempos de la base de datos
+     */
+    public function get10Records()
+    {
         $conn = $this->connect();
-        $sql = "SELECT * FROM records.registro ORDER BY tiempo ASC LIMIT 10";
+        $sql = "SELECT * FROM $this->dbname.registro ORDER BY tiempo ASC LIMIT 10";
 
         $result = $conn->query($sql);
 
@@ -46,7 +57,7 @@ class Record {
             echo "<h2>Top 10 jugadores</h2>";
             echo "<ol>";
 
-            while($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
                 echo "<li>";
                 echo "Nombre: " . $row["nombre"] . ", ";
                 echo "Apellidos: " . $row["apellidos"] . ", ";
@@ -63,7 +74,6 @@ class Record {
 
         $conn->close();
     }
-    
 }
 ?>
 
@@ -87,7 +97,7 @@ class Record {
 </head>
 
 <body>
-<header>
+    <header>
         <h1>Escritorio Virtual</h1>
         <nav>
             <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
@@ -106,20 +116,22 @@ class Record {
             <li><a href="memoria.html" accesskey="u" tabindex="8">Juego de memoria</a></li>
             <li><a href="sudoku.html" accesskey="d" tabindex="9">Sudoku</a></li>
             <li><a href="crucigrama.php" accesskey="c" tabindex="10">Crucigrama matemático</a></li>
+            <li><a href="diario.html" accesskey="r" tabindex="11">Diario de viaje</a></li>
+            <li><a href="php/zoo.php" accesskey="z" tabindex="12">Zoo interactivo</a></li>
         </ul>
     </section>
 
     <h2>Crucigrama matemático</h2>
     <main>
-    
+
     </main>
 
     <?php
-        if (count($_POST) > 0) {
-            $record = new Record();
-            $record->saveRecord();
-            $record->get10Records();
-        }
+    if (count($_POST) > 0) {
+        $record = new Record();
+        $record->saveRecord();
+        $record->get10Records();
+    }
     ?>
 
     <section data-type="botonera">

@@ -11,6 +11,9 @@ class Carrusel
         $this->pais = $pais;
     }
 
+    /**
+     * Método que obtiene las imágenes de Flickr
+     */
     public function getPhotos()
     {
         $params = array(
@@ -52,6 +55,9 @@ class Moneda
         $this->to = $to;
     }
 
+    /**
+     * Método que obtiene el cambio de moneda
+     */
     public function getExchangeRate()
     {
         $req_url = 'https://v6.exchangerate-api.com/v6/84bcc616e0eec3faaeaa3965/latest/' . $this->from;
