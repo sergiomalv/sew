@@ -1,10 +1,10 @@
 <?php
 class Record {
 
-    protected $server;
-    protected $user;
-    protected $pass;
-    protected $dbname;
+    private $server;
+    private $user;
+    private $pass;
+    private $dbname;
 
     public function __construct() { 
         $this->server = "localhost";
