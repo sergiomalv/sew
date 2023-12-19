@@ -8,7 +8,8 @@ section form label {
 }
 
 /* Especificidad: 013 */
-section form input[type=text] {
+section form input[type=text],
+section form input[type=number] {
     width: 100%;
     margin-bottom: 0.625em;
     border: 0.0625em solid #000000;

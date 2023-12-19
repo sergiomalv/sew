@@ -228,28 +228,34 @@ class Viajes {
             let archivo = files[i];
             let lector = new FileReader();
 
-            lector.onload = function (event) {
-                let kml = lector.result;
-                let coordenadas = $(kml).find('coordinates').text();
-                let cleanCoordenadas = coordenadas.trim().split('\n');
-                let points = [];
-                for (let j = 0; j < cleanCoordenadas.length; j++) {
-                    let coordenada = cleanCoordenadas[j].split(',');
-                    let latitud = coordenada[1];
-                    let longitud = coordenada[0];
-                    points.push({ lat: parseFloat(latitud), lng: parseFloat(longitud) });
-                }
+            let tipoKML = /kml.*/;
 
-                let ruta = new google.maps.Polyline({
-                    path: points,
-                    strokeColor: "#FF0000",
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2
-                });
-                ruta.setMap(this.mapaGeoposicionado);
-            }.bind(this);
+            if (archivo.type.match(tipoKML) || archivo.name.match(tipoKML)) {
+                lector.onload = function (event) {
+                    let kml = lector.result;
+                    let coordenadas = $(kml).find('coordinates').text();
+                    let cleanCoordenadas = coordenadas.trim().split('\n');
+                    let points = [];
+                    for (let j = 0; j < cleanCoordenadas.length; j++) {
+                        let coordenada = cleanCoordenadas[j].split(',');
+                        let latitud = coordenada[1];
+                        let longitud = coordenada[0];
+                        points.push({ lat: parseFloat(latitud), lng: parseFloat(longitud) });
+                    }
 
-            lector.readAsText(archivo);
+                    let ruta = new google.maps.Polyline({
+                        path: points,
+                        strokeColor: "#FF0000",
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                    ruta.setMap(this.mapaGeoposicionado);
+                }.bind(this);
+
+                lector.readAsText(archivo);
+            } else {
+                alert("El archivo seleccionado no es de tipo KML");
+            }
         }
 
     }

@@ -4,7 +4,7 @@ class Noticias {
 
         if (window.File && window.FileReader && window.FileList && window.Blob) {
             const main = $("main");
-            const label = $("<label for='files'>Selecciona un fichero de texto:</label>");
+            const label = $("<label for='files'>Selecciona un fichero de texto </label>");
             const input = $("<input type='file' name='files' id='files' onchange='noticias.readInputFile(this.files);'/>");
             main.append(label).append(input);
         }
@@ -38,8 +38,10 @@ class Noticias {
                     main.append(title).append(content).append(author);
                 }
             }
+            lector.readAsText(archivo);
+        } else {
+            alert("El archivo seleccionado no es un texto");
         }
-        lector.readAsText(archivo);
     }
 
     /**

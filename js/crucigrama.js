@@ -47,7 +47,6 @@ class Crucigrama {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 let p = $("<p></p>");
-                /* Mover esta parte a la función de abajo */
                 if (this.cells[i][j] === 0) {
                     p.attr("data-state", "init");
                     p.on("click", () => {

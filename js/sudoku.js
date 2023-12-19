@@ -34,12 +34,25 @@ class Sudoku {
      * Método para la creación de la estructura del sudoku en el HTML
      */
     createStructure() {
-        const section = document.querySelector('main');
+        const main = document.querySelector('main');
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 let p = document.createElement('p');
-                /* Mover esta parte a la función de abajo */
+                main.appendChild(p);
+            }
+        }
+    }
+
+    /**
+     * Método para pintar el sudoku en el HTML
+     */
+    paintSudoku() {
+        this.createStructure();
+        let all = document.querySelectorAll('p');
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.columns; j++) {
+                let p = all[i * this.columns + j];
                 if (this.cells[i][j] === 0) {
                     p.textContent = "";
                     p.setAttribute("data-state", "init");
@@ -55,17 +68,8 @@ class Sudoku {
                 }
                 p.setAttribute("data-row", i);
                 p.setAttribute("data-column", j);
-
-                section.appendChild(p);
             }
         }
-    }
-
-    /**
-     * Método para pintar el sudoku en el HTML
-     */
-    paintSudoku() {
-        this.createStructure();
     }
 
     /**

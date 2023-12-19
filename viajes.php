@@ -85,8 +85,8 @@ class Moneda
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="Sergio Murillo Álvarez" />
-    <meta name="description" content="Contenido referente a la posición	del usuario y mi viaje por Eslovenia" />
-    <meta name="keywords" content="viajes, turismo, posición, mapa, geocalización, eslovenia" />
+    <meta name="description" content="Contenido referente a la posición	del usuario y mi viaje por Eslovaquia" />
+    <meta name="keywords" content="viajes, turismo, posición, mapa, geocalización, Eslovaquia" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Escritorio Virtual</title>

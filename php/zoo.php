@@ -1,4 +1,7 @@
 <?php
+// Se inicia el buffer de salida, para evitar problemas con las cabeceras a la hora de exportar el código
+// en un archivo ZIP
+ob_start();
 class Zoo {
 
     private $server;
@@ -19,19 +22,22 @@ class Zoo {
     }
 
     /**
-     * Conexión a la base de datos
-     */
-    public function connect() {
-        $this->conn = new mysqli($this->server, $this->user, $this->pass);
-        if ($this->conn->connect_error) {
-            die("Error de conexión: " . $this->conn->connect_error);
-        }
-    }
-
-    /**
      * Exporta los datos de la base de datos a un archivo ZIP, los CSV tienen el nombre de la carpeta asociada
      */
     public function exportData() {
+        // Comprobamos que la base de datos existe
+        if (!$this->existeBase()) {
+            echo "<p>¡La base de datos no existe!</p>";
+            return;
+        }
+
+        $zipname = "zoo.zip";
+        // Configuracion de cabeceras para la descarga
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename = $zipname");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+
         // Accedemos a la información de cada tabla y la guardamos en un CSV
         foreach ($this->tables as $table) {
             $query = $this->conn->query("SELECT * FROM $this->dbname.$table");
@@ -53,9 +59,9 @@ class Zoo {
                 fclose($handle);
             }
         }
+
         // Creamos el archivo zoo.zip donde guardaremos todos los CSV
         $zip = new ZipArchive();
-        $zipname = "zoo.zip";
         if ($zip->open($zipname, ZipArchive::CREATE)!==TRUE) {
             exit("cannot open <$zipname>\n");
         }
@@ -65,15 +71,29 @@ class Zoo {
             $filename = $table . ".csv";
             $zip->addFile($filename);
         }
+
         // Finalizar y descargar el archivo ZIP
         $zip->close();
-
-        header("Content-type: application/zip");
-        header("Content-Disposition: attachment; filename = $zipname");
-        header("Pragma: no-cache");
-        header("Expires: 0");
         readfile($zipname);
-        exit;
+
+        // Eliminamos los CSV
+        foreach ($this->tables as $table) {
+            $filename = $table . ".csv";
+            unlink($filename);
+        }
+
+        // Eliminamos el archivo ZIP
+        unlink($zipname);
+    }
+
+    /**
+     * Conexión a la base de datos
+     */
+    private function connect() {
+        $this->conn = new mysqli($this->server, $this->user, $this->pass);
+        if ($this->conn->connect_error) {
+            die("Error de conexión: " . $this->conn->connect_error);
+        }
     }
     
     /**
@@ -86,6 +106,18 @@ class Zoo {
      * 5. animalxcuidador.csv
      */
     public function importData() {
+        // Comprobamos que la base de datos existe
+        if (!$this->existeBase()) {
+            echo "<p>¡La base de datos no existe!</p>";
+            return;
+        }
+
+        // Comprobamos que se ha recibido un archivo CSV
+        if ($_FILES["importar"]["size"] === 0) {
+            echo "<p>¡No se ha recibido ningún archivo!</p>";
+            return;
+        }
+
         // Obtenemos el archivo CSV
         $archivoCSV = $_FILES["importar"];
 
@@ -147,7 +179,7 @@ class Zoo {
         $this->conn->select_db($this->dbname);
 
         // Leer el script .sql y ejecutarlo en la base de datos zoo
-        $sql = file_get_contents("script.sql");
+        $sql = file_get_contents("zoo.sql");
         if ($this->conn->multi_query($sql) === TRUE) {
             echo "<p>Script ejecutado correctamente</p>";
         } else {
@@ -156,10 +188,28 @@ class Zoo {
     }
 
     /**
+     * Comprueba si la base de datos existe
+     */
+    private function existeBase() {
+        $sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$this->dbname'";
+        $result = $this->conn->query($sql);
+        if ($result->num_rows > 0) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    /**
      * Muestra toda la información sobre los establos, animales y cuidadores
      * Permite conocer el ID de los establos, animales y cuidadores
      */
     public function verInformacion() {
+        // Comprobamos que la base de datos existe
+        if (!$this->existeBase()) {
+            echo "<p>¡La base de datos no existe!</p>";
+            return;
+        }
+
         // Obtenemos todos los establos
         $sql = "SELECT * FROM $this->dbname.establo";
         $result = $this->conn->query($sql);
@@ -273,9 +323,14 @@ class Zoo {
      * Alimenta a un animal restando una unidad de hambre y resta una unidad de comida al cuidador
      */
     public function alimentarAnimal() {
+        // Comprobamos que la base de datos existe
+        if (!$this->existeBase()) {
+            echo "<p>¡La base de datos no existe!</p>";
+            return;
+        }
+
         $idAnimal = $_POST["animal"];
         $idCuidador = $_POST["cuidadorComer"];
-        print_r($_POST);
 
         // Comprobamos que los valores recibidos no son vacíos
         if ((empty($idAnimal) && ($idAnimal != 0))  || empty($idCuidador)) {
@@ -376,6 +431,12 @@ class Zoo {
      * Añade un animal a un establo y lo asocia a un cuidador
      */
     public function añadirAnimal() {
+        // Comprobamos que la base de datos existe
+        if (!$this->existeBase()) {
+            echo "<p>¡La base de datos no existe!</p>";
+            return;
+        }
+
         $nombreAnimal = $_POST["nombreAnimal"];
         $razaAnimal = $_POST["razaAnimal"];
         $idEstablo = $_POST["establo"];
@@ -460,6 +521,13 @@ class Zoo {
         echo "<p>¡$nombreAnimal ($razaAnimal) ha sido añadido al establo $nombreEstablo!</p>";
     }    
 }
+
+// Se crea el objeto inmendiatamente para que evitar problemas de descarga del archivo ZIP,
+// ya que se envían cabeceras HTTP.
+$zoo = new Zoo();
+if (isset($_POST["exportar"])) {
+    $zoo->exportData();
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -469,8 +537,8 @@ class Zoo {
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="Sergio Murillo Álvarez" />
-    <meta name="description" content="Juego de crucigrama matemático" />
-    <meta name="keywords" content="juegos, entretenimiento, matemática, suma, resta, multiplicación" />
+    <meta name="description" content="Simulador de administración de un zoo" />
+    <meta name="keywords" content="administracion, zoo, animales, simulacion" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Escritorio Virtual</title>
@@ -536,9 +604,9 @@ class Zoo {
         <h2>¡Da de comer un animal!</h2>
         <form action="#" method="post">
             <label for="idAnimal">ID de animal</label>
-            <input id="idAnimal" type="text" name="animal" required/>
+            <input id="idAnimal" type="number" name="animal" required/>
             <label for="idCuidadorComer">ID del cuidador</label>
-            <input id="idCuidadorComer" type="text" name="cuidadorComer" required/>
+            <input id="idCuidadorComer" type="number" name="cuidadorComer" required/>
             <label for="alimentar">Enviar comida</label>
             <input id="alimentar" type="submit" name="alimentar" value="Alimenta"/>
         </form>
@@ -552,22 +620,16 @@ class Zoo {
             <label for="razaAnimal">Raza del animal</label>
             <input id="razaAnimal" type="text" name="razaAnimal" required/>
             <label for="idEstablo">ID del establo</label>
-            <input id="idEstablo" type="text" name="establo" required/>
+            <input id="idEstablo" type="number" name="establo" required/>
             <label for="idCuidadorAñadir">ID del cuidador</label>
-            <input id="idCuidadorAñadir" type="text" name="cuidadorAñadir" required/>
+            <input id="idCuidadorAñadir" type="number" name="cuidadorAñadir" required/>
             <label for="añadir">Añadir animal</label>
             <input id="añadir" type="submit" name="añadir" value="Añadir"/>
     </section>
 
     <?php
-    $zoo = new Zoo();
-
     if (isset($_POST["preparar"])) {
         $zoo->prepararBase();
-    }
-
-    if (isset($_POST["exportar"])) {
-        $zoo->exportData();
     }
 
     if (isset($_POST["submit"])) {
@@ -587,7 +649,6 @@ class Zoo {
     }
     ?>
 </body>
-
 
 
 </html>
