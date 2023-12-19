@@ -39,6 +39,7 @@ section form input[type=file] {
     color: #000000;
 }
 
+/* Especificidad: 001 */
 h3 {
     color: #FFFFFF;
     background-color: #433F30;
