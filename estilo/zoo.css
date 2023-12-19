@@ -1,0 +1,45 @@
+/* Sergio Murillo Álvarez UO277178 */
+
+/* Especificidad: 003 */
+section form label {
+    display: block;
+    margin-bottom: 0.3125em;
+    font-weight: bold;
+}
+
+/* Especificidad: 013 */
+section form input[type=text] {
+    width: 100%;
+    margin-bottom: 0.625em;
+    border: 0.0625em solid #000000;
+    border-radius: 0.25em;
+    background-color: transparent;
+    color: #000000;
+}
+
+/* Especificidad: 013 */
+section form input[type=submit] {
+    padding: 0.1em 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border: 0.1em solid #970C10;
+    color: #970C10;         /* Usa el color de fondo por defecto de input */
+    border-radius: 0.3em;
+    transition: background-color 0.3s;
+}
+
+/* Especificidad: 013 */
+section form input[type=file] {
+    width: 25em;
+    margin-bottom: 0.625em;
+    border: 0.0625em solid #000000;
+    border-radius: 0.25em;
+    background-color: transparent;
+    color: #000000;
+}
+
+h3 {
+    color: #FFFFFF;
+    background-color: #433F30;
+}

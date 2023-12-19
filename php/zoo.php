@@ -475,6 +475,7 @@ class Zoo {
 
     <title>Escritorio Virtual</title>
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/zoo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
     <link rel="icon" href="../multimedia/imagenes/favicon.png" />
 </head>
