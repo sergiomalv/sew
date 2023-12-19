@@ -500,6 +500,7 @@ class Zoo {
             <li><a href="../memoria.html" accesskey="u" tabindex="8">Juego de memoria</a></li>
             <li><a href="../sudoku.html" accesskey="d" tabindex="9">Sudoku</a></li>
             <li><a href="../crucigrama.php" accesskey="c" tabindex="10">Crucigrama matemático</a></li>
+            <li><a href="../diario.html" accesskey="r" tabindex="11">Diario de viaje</a></li>
             <li><a href="zoo.php" accesskey="z" tabindex="12">Zoo interactivo</a></li>
         </ul>
     </section>
@@ -517,7 +518,7 @@ class Zoo {
 
         <form action="#" method="post" enctype="multipart/form-data">
             <label for="importar">Importar datos</label>
-            <input id="importar" type="file" name="importar" value="Importar datos" />
+            <input id="importar" type="file" name="importar"/>
             <label for="submit">Importar datos</label>
             <input id="submit" type="submit" name="submit" value="Importar datos" />
         </form>    
