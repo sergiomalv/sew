@@ -210,9 +210,9 @@ class Viajes {
                         });
                     });
                 });
-            }
+            }        
+            lector.readAsText(archivo);
         }
-        lector.readAsText(archivo);
     }
 
     /**
