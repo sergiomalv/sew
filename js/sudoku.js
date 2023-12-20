@@ -1,3 +1,4 @@
+"use strict";
 class Sudoku {
 
     /* Constuctor de la clase*/

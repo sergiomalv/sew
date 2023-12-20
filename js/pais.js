@@ -1,3 +1,4 @@
+"use strict";
 class Pais {
 
     constructor(pais, capital, poblacion) {

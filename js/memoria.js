@@ -1,3 +1,4 @@
+"use strict";
 class Memoria {
 
     /* JSON de elementos */

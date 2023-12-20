@@ -1,3 +1,4 @@
+"use strict";
 class Crucigrama {
 
     /* Constructor de la clase */

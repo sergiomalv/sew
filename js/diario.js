@@ -1,3 +1,4 @@
+"use strict";
 class DiarioViaje {
     constructor(nombreBaseDatos) {
         // En primer lugar pedimos permisos para usar la ubicación y comprobamos que está disponible

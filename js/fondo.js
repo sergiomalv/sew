@@ -1,3 +1,4 @@
+"use strict";
 class Fondo {
     constructor(name, capital, coordinates) {
         this.name = name;

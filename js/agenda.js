@@ -1,3 +1,4 @@
+"use strict";
 class Agenda {
 
     /* Constructor de la clase */
