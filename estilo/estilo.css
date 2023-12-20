@@ -24,7 +24,7 @@ nav {
 /* Especificidad: 001 */
 a {
     /* Hereda color de fondo #FFFFFF de body */
-    color: #970C10;
+    color: #ff0008;
     text-decoration-line: none;
 }
 
