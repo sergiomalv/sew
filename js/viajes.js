@@ -70,9 +70,7 @@ class Viajes {
 
     /**
      * Método para obtener la ubicación del usuario y pintarla en un mapa dinámico de Google
-     * [ATENCIÓN] Produce errores de validación en la herramienta AChecker, además en la consola a veces 
-     * aparecen errores.
-     * 
+     * [ATENCIÓN] Produce errores de validación, además en la consola a veces aparecen errores.
      */
     getMapaDinamicoGoogle() {
         let centro = { lat: 43.3672702, lng: -5.8502461 };
