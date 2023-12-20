@@ -48,9 +48,11 @@ class Record
     public function get10Records()
     {
         $conn = $this->connect();
-        $sql = "SELECT * FROM $this->dbname.registro ORDER BY tiempo ASC LIMIT 10";
+        $stmt = $conn->prepare("SELECT * FROM $this->dbname.registro WHERE nivel = ? ORDER BY tiempo ASC LIMIT 10");
+        $stmt->bind_param("s", $_POST["nivel"]);
+        $stmt->execute();
 
-        $result = $conn->query($sql);
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             echo "<section>";
