@@ -48,7 +48,7 @@ class Viajes {
         let apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
         let url = "https://maps.googleapis.com/maps/api/staticmap?";
         let centro = "center=" + this.getLatitud() + "," + this.getLongitud();
-        console.log(this.getLatitud(), this.getLongitud());
+
         let zoom = "&zoom=15";
         let tamaño = "&size=800x600";
         let marcador = "&markers=color:red%7Clabel:S%7C" + this.getLatitud() + "," + this.getLongitud();
@@ -157,11 +157,12 @@ class Viajes {
                     list.append("<li> Recomendación: " + recomendacion + "</li>");
 
                     title.appendTo(section);
-                    list.appendTo(section);
 
-                    $(this).find('referencias-bibliografia').each(function () {
-                        let referencia = $(this).find('referencia-bibliografia').text();
+                    $(this).find('referencia-bibliografia').each(function () {
+                        let referencia = $(this).text();
+                        list.append("<li> Referencia bibliográfica: " + referencia + "</li>");
                     });
+                    list.appendTo(section);
 
 
                     $(this).find('hito').each(function () {
