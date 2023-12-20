@@ -26,8 +26,8 @@ class Zoo {
      */
     public function exportData() {
         // Comprobamos que la base de datos existe
+        // [ATENCIÓN] En este método se omite el mensaje de error, ya que crearía un documento HTML no válido
         if (!$this->existeBase()) {
-            echo "<p>¡La base de datos no existe!</p>";
             return;
         }
 
