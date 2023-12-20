@@ -33,3 +33,18 @@ p:nth-child(n+19):nth-child(-n+27) {
 p:nth-child(n+46):nth-child(-n+54) {
   border-bottom: 0.13em solid black;
 }
+
+@media screen and (max-width: 465px) {
+
+  /* Especificidad: 001 */
+  main {
+      /* Redefinición de padding para dispositivos móviles */
+      width: 22em;
+  }
+
+  /* Especificidad: 001 */
+  p {
+      /* Redefinición de padding para dispositivos móviles */
+      padding: 0.2em;
+  }
+}
