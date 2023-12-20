@@ -142,9 +142,9 @@ class Crucigrama {
             if (first_number != 0 && second_number != 0 && result != 0 && expression != 0) {
                 const elements = [first_number, expression, second_number];
                 try {
-                    expression_col = result == eval(elements.join(''));
+                    expression_row = result == eval(elements.join(''));
                 } catch (error) {
-                    expression_col = false;
+                    expression_row = false;
                 }
             }
         }

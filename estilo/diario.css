@@ -19,7 +19,7 @@ button:hover {
     color: #FFFFFF;
 }
 
-/* Especificidad: 003 */
+/* Especificidad: 002 */
 form input {
     width: 100%;
     margin-bottom: 0.625em;

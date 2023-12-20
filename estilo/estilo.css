@@ -65,7 +65,7 @@ ul {
     list-style-position: inside;
 }
 
-/* Especificidad: 003 */
+/* Especificidad: 002 */
 ul>li {
     margin: 0.7em;
 }
