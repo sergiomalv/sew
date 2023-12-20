@@ -124,10 +124,6 @@ class Record
     </section>
 
     <h2>Crucigrama matemático</h2>
-    <section>
-        <h3>Tutorial</h3>
-        <p>Introduce los números en las casillas correspondientes para que se cumplan las operaciones indicadas. Debes clicar en la casilla que desees antes de escribir un número</p>
-    </section>
     <main>
 
     </main>
