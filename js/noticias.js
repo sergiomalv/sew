@@ -30,12 +30,11 @@ class Noticias {
                 for (let i = 0; i < text.length; i++) {
                     let noticia = text[i].split("_");
                     let title = $("<h3></h3>").text(noticia[0]);
-                    // En el caso de noticias.txt, se junta el texto de las dos noticias en una sola línea y se 
-                    // pone un punto al final de cada noticia
-                    let content = $("<p></p>").text(noticia[1] + ". " + noticia[2] + ".");
+                    let entradilla = $("<h4></h4>").text(noticia[1]);
+                    let content = $("<p></p>").text(noticia[2] + ".");
                     let author = $("<em></em>").text(noticia[3]);
 
-                    main.append(title).append(content).append(author);
+                    main.append(title).append(entradilla).append(content).append(author);
                 }
             }
             lector.readAsText(archivo);
@@ -52,14 +51,16 @@ class Noticias {
 
         let form = document.querySelector("form");
         let titleValue = form.elements['title'].value;
+        let entradillaValue = form.elements['entradilla'].value;
         let contentValue = form.elements['content'].value;
         let authorValue = form.elements['author'].value;
 
         let titleElement = $("<h3></h3>").text(titleValue);
+        let entradillaElement = $("<h4></h4>").text(entradillaValue);
         let contentElement = $("<p></p>").text(contentValue);
         let authorElement = $("<em></em>").text(authorValue);
 
-        main.append(titleElement).append(contentElement).append(authorElement);
+        main.append(titleElement).append(entradillaElement).append(contentElement).append(authorElement);
     }
 
 }
