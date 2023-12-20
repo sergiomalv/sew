@@ -83,7 +83,7 @@ class Sudoku {
             return;
         }
 
-        // Se obtienee la celda y la columna del número seleccionado
+        // Se obtiene la celda y la columna del número seleccionado
         let row = document.querySelector('[data-state="clicked"]').getAttribute("data-row");
         let column = document.querySelector('[data-state="clicked"]').getAttribute("data-column");
 
