@@ -1,4 +1,3 @@
-"use strict";
 class Pais {
 
     constructor(pais, capital, poblacion) {
@@ -82,6 +81,7 @@ class Pais {
                         const title = $("<h3></h3>").text(datos.list[i].dt_txt.split(" ")[0]);
 
                         const image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + datos.list[i].weather[0].icon + ".png");
+                        image.attr("alt", datos.list[i].weather[0].description);
                         const info = $("<ul></ul>");
                         info.append("<li>Temperatura: " + datos.list[i].main.temp + "ºC </li>")
                             .append("<li>T. máxima: " + datos.list[i].main.temp_max + "ºC </li>")
