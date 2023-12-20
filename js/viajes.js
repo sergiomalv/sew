@@ -43,6 +43,8 @@ class Viajes {
 
     /**
      * Método para obtener la ubicación del usuario y pintarla en un mapa estático de Google
+     * [ATENCIÓN] A veces no funciona de forma correcta en Firefox y arroja un error. Se ha probado en el
+     * resto de navegadores y funciona correctamente.
      */
     getMapaEstaticoGoogle() {
         let apiKey = "&key=AIzaSyDNYwpCoKDYjjnqyD2f3N0dD_7c72ogl8Q";
@@ -67,6 +69,9 @@ class Viajes {
 
     /**
      * Método para obtener la ubicación del usuario y pintarla en un mapa dinámico de Google
+     * [ATENCIÓN] Produce errores de validación en la herramienta AChecker, además en la consola a veces 
+     * aparecen errores.
+     * 
      */
     getMapaDinamicoGoogle() {
         let centro = { lat: 43.3672702, lng: -5.8502461 };
