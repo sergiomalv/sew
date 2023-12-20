@@ -8,7 +8,6 @@ header {
     align-items: baseline;
 }
 
-/*Especificidad: 001*/
 @media screen and (max-width: 799px) {
     /*Especificidad: 001*/
     nav {

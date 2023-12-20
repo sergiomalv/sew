@@ -35,10 +35,9 @@ p:nth-child(n+46):nth-child(-n+54) {
 }
 
 @media screen and (max-width: 465px) {
-
   /* Especificidad: 001 */
   main {
-      /* Redefinición de padding para dispositivos móviles */
+      /* Redefinición de width para dispositivos móviles */
       width: 22em;
   }
 

@@ -99,7 +99,7 @@ td {
 
 /* Especificidad: 012 */
 tbody tr:nth-child(odd) {
-    /* Hereda color de fuente #000000 de body*/
+    /* Hereda color #000000 de body*/
     background-color: #F0EDE0;
 }
 

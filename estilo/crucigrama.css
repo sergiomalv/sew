@@ -27,7 +27,7 @@ p[data-state="empty"] {
 
 /* Especificidad: 011 */
 p[data-state="clicked"] {
-    background-color: #F0EDE0;
+    background-color: #F0EDE0;  /* Usa el color establecido en el body #000000 */
 }
 
 /* Especificidad: 011 */
@@ -46,7 +46,7 @@ section[data-type=botonera] {
 @media screen and (max-width: 1050px) {
     /* Especificidad: 011 */
     section[data-type=botonera] {
-        display: flex;
+        display: flex;      /* Redefinición de display para dispositivos móviles y tablets */
         gap: 1em;
         justify-content: center;
         align-items: center;

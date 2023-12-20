@@ -21,7 +21,7 @@ img {
 
   /* Especificidad: 001 */
   img {
-    max-width: 100%;
+    max-width: 100%;    /* Redefinición de max-width para dispositivos móviles */
   }
 }
 
@@ -32,7 +32,6 @@ article {
   height: 70vh;
   position: relative;
   overflow: hidden;
-  /* <===  */
   border-radius: 1em;
 }
 
@@ -65,7 +64,7 @@ article button {
   border-radius: 50%;
   z-index: 10;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #fff;   /* Se hereda el color de button por defecto */
   font-size: 1em;
 }
 
